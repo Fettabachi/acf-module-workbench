@@ -1,0 +1,29 @@
+# Operating system and editor files.
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local environment and secrets.
+.env
+.env.*
+!.env.example
+*.local
+
+# Dependencies, caches, logs, and generated output.
+node_modules/
+vendor/
+.cache/
+coverage/
+dist/
+build/
+*.log
+
+# Generated archives and temporary files.
+*.zip
+*.tar.gz
+tmp/
+temp/

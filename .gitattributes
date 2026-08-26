@@ -1,0 +1,3 @@
+# Preserve vendored official WordPress skill files byte-for-byte. Their upstream
+# formatting includes terminal blank lines that should not fail this theme's check.
+.agents/skills/wp-*/** whitespace=-blank-at-eof
