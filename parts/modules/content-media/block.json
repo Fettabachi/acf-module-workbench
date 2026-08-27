@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/content-media",
+	"version": "1.0.3",
+	"title": "Content + Media",
+	"category": "design",
+	"icon": "align-pull-left",
+	"description": "Pairs editorial content and a short feature list with an image.",
+	"keywords": ["content", "features", "image"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "content-media.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"style": "file:./content-media.css"
+}

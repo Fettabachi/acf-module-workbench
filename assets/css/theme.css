@@ -101,7 +101,16 @@ a:hover {
 }
 
 .entry {
+	width: 100%;
+}
+
+.entry__header,
+.entry__content > :not(.alignwide) {
 	max-width: var(--measure);
+}
+
+.entry__content > .alignwide {
+	max-width: none;
 }
 
 .entry__title {
