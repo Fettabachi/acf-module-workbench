@@ -46,6 +46,26 @@ Reusable modules must be portable across projects, not merely repeated within th
 - Avoid assumptions about surrounding content width, background, typography, spacing, or neighboring modules unless those assumptions are part of a documented component contract.
 - Prefer shared foundation utilities only when they are broadly available and make the module easier to transfer.
 
+## Git workflow for practice exercises
+
+`main` is the stable baseline branch. Never implement or commit a numbered exercise directly on `main`.
+
+Before modifying implementation files for a new exercise:
+
+1. Check the current branch and working-tree status.
+2. Report the current branch, whether the working tree is clean, and the branch that will be used for the exercise.
+3. Start from `main` unless the exercise explicitly requires another base.
+4. Create and switch to a dedicated branch named `exercise/<number>-<short-description>` unless the repository already has a better compatible convention.
+5. Keep all implementation commits on that exercise branch.
+
+Examples include `exercise/01-content-media`, `exercise/02-feature-grid`, and `exercise/03-accordion`.
+
+- If unrelated uncommitted changes exist, do not discard, overwrite, stash, or commit them without explicit instruction. Report the conflict and keep the work safely scoped.
+- Commit exercise documentation, including `docs/exercises/` records, on the same exercise branch because it describes that branch's work.
+- Repository-wide guidance learned during an exercise may be handled separately when appropriate, but do not silently commit it to `main` while exercise work is underway.
+- Do not merge an exercise branch into `main` unless explicitly instructed.
+- When implementation is complete, leave the exercise branch checked out and report its name, relevant commit hashes, the PR-style summary, and whether the working tree is clean. Treat the branch as ready for review, not automatically merged.
+
 ## Scope and validation
 
 - Follow the exercise boundary strictly. Do not create demo content or change the database unless explicitly required.
