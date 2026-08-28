@@ -55,5 +55,6 @@ Reusable modules must be portable across projects, not merely repeated within th
 
 ## Local skills
 
-- For reusable ACF modules, read `.agents/skills/acf-module-development/SKILL.md`.
+- For reusable ACF modules, read `.agents/skills/acf-module-development/SKILL.md`
+  and `.agents/skills/build-portable-acf-modules/SKILL.md`.
 - Use the vendored official WordPress skills when their descriptions match the task. Do not modify their contents.

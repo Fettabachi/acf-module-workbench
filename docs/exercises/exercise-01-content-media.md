@@ -115,6 +115,25 @@ inspection workflow. This is a specific improvement target for Exercise 02.
 - Use WordPress attachment rendering so Media Library alt text and responsive
   image attributes continue to work normally.
 
+### Portability follow-up
+
+- The initial module reused the host theme's generic `.container` on its
+  internal frame. That unnecessary coupling created nested container behavior
+  and double inset/gutter risk when moved between frontend and editor contexts.
+- The follow-up removed the generic class from the module markup.
+  `.content-media__frame` now fills the width made available by the block
+  wrapper and owns only its internal padding, border, and component geometry.
+  The host remains responsible for constraining the wrapper through its
+  `.alignwide` contract.
+- A colocated stylesheet is not automatically portable: editor parity exposed
+  that shared module CSS can still depend accidentally on frontend-only tokens,
+  resets, containers, and ancestor selectors. Essential values need
+  module-scoped fallbacks.
+- Future module planning should explicitly answer: **What does this module
+  depend on from the host theme?** Generic structural class reuse should be
+  treated cautiously and every retained host dependency should be deliberate
+  and overridable.
+
 ## Accessibility, responsive, and editor-parity considerations
 
 - The eyebrow teal was darkened to meet WCAG AA against white, and other text,
@@ -161,11 +180,17 @@ inspection workflow. This is a specific improvement target for Exercise 02.
   fallbacks.
 - Accessibility and long-content review occurred after several visual passes,
   causing avoidable revalidation of the same responsive states.
+- The post-completion portability review found that the module's internal frame
+  still carried the host's generic `.container` class. Inspecting ancestor and
+  utility interactions earlier would have prevented the nested gutter coupling.
 
 ## What should be faster or handled differently next time
 
 - Target roughly 10–15 minutes for comparable Figma inspection by applying the
   selection and inspection workflow learned in this exercise.
+- Begin module planning by asking, **What does this module depend on from the
+  host theme?**, and audit layout utilities, tokens, resets, breakpoints,
+  alignment behavior, typography, and editor assumptions before writing markup.
 - Verify frontend and editor stylesheet loading together before detailed visual
   tuning.
 - Establish the required/optional field contract and alignment support before

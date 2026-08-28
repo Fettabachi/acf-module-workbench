@@ -1,6 +1,5 @@
 .content-media {
 	--content-media-border: var(--color-border, rgb(23 32 42 / 0.14));
-	--content-media-content-width: var(--content-width, 72rem);
 	--content-media-font-sans: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 	--content-media-measure: var(--measure, 46rem);
 	--content-media-muted: var(--color-muted, #5f6b76);
@@ -32,9 +31,8 @@
 }
 
 .content-media__frame {
-	width: min(100% - 2rem, var(--content-media-content-width));
+	width: 100%;
 	padding: clamp(1rem, 3vw, 2rem);
-	margin-inline: auto;
 	border: 1px solid var(--content-media-border);
 	border-radius: calc(var(--content-media-radius) * 2);
 	background: var(--content-media-surface);
@@ -79,10 +77,10 @@
 	border-radius: 999px;
 	color: var(--content-media-surface);
 	background: var(--content-media-teal);
-	font-size: 0.875rem;
+	font-size: clamp(0.75rem, calc(0.621rem + 0.529vw), 0.875rem);
 	font-weight: 500;
 	letter-spacing: 0.02em;
-	line-height: 1.2;
+	line-height: 1.75;
 	text-transform: uppercase;
 }
 
@@ -106,10 +104,11 @@
 	min-width: 0;
 	margin: 0;
 	font-family: Georgia, "Times New Roman", serif;
-	font-size: 1.75rem;
+	font-size: clamp(1.25rem, calc(0.734rem + 2.116vw), 1.75rem);
 	font-weight: 500;
-	line-height: 1.2;
+	line-height: 1.3;
 	overflow-wrap: anywhere;
+	text-wrap: balance;
 }
 
 .content-media .content-media__body {
@@ -117,7 +116,8 @@
 	min-width: 0;
 	margin-top: 1rem;
 	color: var(--content-media-muted);
-	font-size: 1.125rem;
+	font-size: clamp(0.875rem, calc(0.617rem + 1.058vw), 1.125rem);
+	line-height: 1.75;
 }
 
 .content-media .content-media__body p {
@@ -152,8 +152,9 @@
 	align-items: center;
 	min-width: 0;
 	max-width: 100%;
+	font-size: clamp(0.75rem, calc(0.492rem + 1.058vw), 1rem);
 	font-weight: 600;
-	line-height: 1.3;
+	line-height: 1.75;
 }
 
 .content-media .content-media__feature > span {
@@ -184,6 +185,19 @@
 @media (min-width: 48rem) {
 	.content-media__frame {
 		padding: 2rem;
+	}
+
+	.content-media .content-media__eyebrow,
+	.content-media .content-media__heading {
+		line-height: 1.2;
+	}
+
+	.content-media .content-media__body {
+		line-height: 1.6;
+	}
+
+	.content-media .content-media__feature {
+		line-height: 1.3;
 	}
 
 	.content-media__layout {
