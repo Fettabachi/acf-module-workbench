@@ -35,8 +35,10 @@ These rules apply to work in this theme. Read the relevant local skills before c
 Reusable modules must be portable across projects, not merely repeated within this site.
 
 - Do not couple a module to a page or post ID, page template, URL, domain, or site-specific content.
+- Use a unique module namespace for markup and styles. Do not add broad host utility classes such as `.container`, `.section`, `.grid`, `.row`, `.columns`, or `.card` to reusable module markup merely because they already exist.
 - Avoid selectors that depend on page-specific ancestor classes or unrelated surrounding markup.
 - Keep module markup, styles, fields, and behavior self-contained as one coherent package.
+- Separate page-shell layout from module-internal layout. Before adding centering, horizontal padding, or a `max-width`, inspect the ancestors and avoid unintentionally nesting width constraints or gutters.
 - Organize ACF field definitions so they can be exported, imported, and recreated predictably.
 - Use relative asset locations and WordPress APIs instead of hard-coded filesystem paths or URLs.
 - Namespace module classes, functions, handles, and other identifiers sufficiently to avoid collisions.
@@ -47,11 +49,18 @@ Reusable modules must be portable across projects, not merely repeated within th
 ## Scope and validation
 
 - Follow the exercise boundary strictly. Do not create demo content or change the database unless explicitly required.
+- For practice exercises, work in this sequence: requirements → ACF/content model → markup → styling → responsive → editor parity → accessibility → QA → PR-style review.
 - Review changed files for security, accessibility, responsiveness, portability, and empty-data behavior.
 - Run PHP syntax checks on changed PHP files and any existing relevant project checks. Do not add tooling only to manufacture a check.
-- Inspect the rendered desktop and mobile experience before claiming visual work is complete.
+- Inspect the rendered frontend at desktop, tablet, and mobile sizes and check the editor experience before claiming a visual exercise is complete.
 - Review `git status` and run `git diff --check`. Do not commit unless asked.
 - Finish with a concise report of changed files, decisions, validation, and any manual step or unresolved limitation.
+
+## Exercise records
+
+- Preserve the completed-exercise record under `docs/exercises/` and its index in `docs/exercises/README.md`.
+- Record the PR-style summary, implementation commit hash, timing breakdown, key decisions, tradeoffs, deferred improvements, bottlenecks, and lessons for the next exercise.
+- When an exercise reveals a generally reusable lesson, recommend promoting it into `AGENTS.md` or the appropriate local skill rather than leaving it only in the exercise record.
 
 ## Local skills
 
