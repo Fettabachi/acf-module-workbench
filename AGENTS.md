@@ -23,6 +23,7 @@ These rules apply to work in this theme. Read the relevant local skills before c
 ## Frontend quality
 
 - Target WCAG 2.2 AA: support keyboard use, visible focus, sufficient contrast, useful accessible names, semantic structure, and reduced motion where relevant.
+- Follow the project design-system roles for typography, color, spacing, surfaces, borders, radii, and controls. Inspect existing tokens before adding values; do not invent a competing visual system inside a component.
 - Write mobile-first CSS when practical and verify narrow, intermediate, and wide layouts.
 - Prefer CSS Grid and Flexbox for layout. Avoid unnecessary `!important` declarations.
 - Use CSS custom properties for shared system values such as colors, type, spacing scales, widths, and radii—not for every one-off value.
@@ -84,6 +85,7 @@ Examples include `exercise/01-content-media`, `exercise/02-feature-grid`, and `e
 
 ## Local skills
 
+- For visual styling or design-token decisions, read `.agents/skills/apply-project-design-system/SKILL.md`.
 - For reusable ACF modules, read `.agents/skills/acf-module-development/SKILL.md`
   and `.agents/skills/build-portable-acf-modules/SKILL.md`.
 - Use the vendored official WordPress skills when their descriptions match the task. Do not modify their contents.
