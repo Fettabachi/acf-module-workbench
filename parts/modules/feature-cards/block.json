@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/feature-cards",
+	"version": "1.0.0",
+	"title": "Feature Cards",
+	"category": "design",
+	"icon": "screenoptions",
+	"description": "Presents up to three product features in a responsive card grid.",
+	"keywords": ["features", "cards", "services"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "feature-cards.php"
+	},
+	"editorScript": "file:./feature-cards-editor.js",
+	"editorStyle": "file:./feature-cards-editor.css",
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"style": "file:./feature-cards.css"
+}
