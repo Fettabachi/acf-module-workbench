@@ -13,3 +13,4 @@ the following format so future exercises are easy to review:
 | Exercise | Status | Implementation commit | Record |
 | --- | --- | --- | --- |
 | Exercise 01 — Content Media | Completed | `f4a0379` | [View record](exercise-01-content-media.md) |
+| Exercise 02 — Feature Cards | Completed | `f27a9a9` | [View record](exercise-02-feature-cards.md) |
