@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/accordion",
+	"version": "1.0.3",
+	"title": "Accessible Accordion",
+	"category": "design",
+	"icon": "list-view",
+	"description": "Presents independently expandable questions and answers.",
+	"keywords": ["accordion", "questions", "faq"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "accordion.php"
+	},
+	"editorStyle": "file:./accordion-editor.css",
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"style": "file:./accordion.css"
+}

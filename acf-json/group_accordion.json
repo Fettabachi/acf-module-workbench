@@ -1,0 +1,133 @@
+{
+	"key": "group_accordion",
+	"title": "Block: Accordion",
+	"fields": [
+		{
+			"key": "field_accordion_title",
+			"label": "Section Title",
+			"name": "title",
+			"type": "text",
+			"instructions": "Introduce the questions covered by this accordion.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": "",
+			"maxlength": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_accordion_subtitle",
+			"label": "Subtitle",
+			"name": "subtitle",
+			"type": "text",
+			"instructions": "Optional supporting text displayed below the section title.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": "",
+			"maxlength": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_accordion_heading_level",
+			"label": "Section Heading Level",
+			"name": "heading_level",
+			"type": "button_group",
+			"instructions": "Choose the heading level that fits this block's position in the page hierarchy.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"choices": {"h2": "H2", "h3": "H3", "h4": "H4"},
+			"allow_null": 0,
+			"default_value": "h2",
+			"layout": "horizontal",
+			"return_format": "value"
+		},
+		{
+			"key": "field_accordion_items",
+			"label": "Accordion Items",
+			"name": "items",
+			"type": "repeater",
+			"instructions": "Add independent items. Multiple items may be open at once. Collapse rows before dragging them into order.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"layout": "block",
+			"pagination": 0,
+			"min": 2,
+			"max": 0,
+			"collapsed": "field_accordion_question",
+			"button_label": "Add Accordion Item",
+			"rows_per_page": 20,
+			"sub_fields": [
+				{
+					"key": "field_accordion_question",
+					"label": "Question",
+					"name": "question",
+					"type": "text",
+					"instructions": "Use a clear question that remains understandable when wrapped.",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {"width": "", "class": "", "id": ""},
+					"default_value": "",
+					"maxlength": "",
+					"placeholder": "",
+					"prepend": "",
+					"append": "",
+					"parent_repeater": "field_accordion_items"
+				},
+				{
+					"key": "field_accordion_answer",
+					"label": "Answer",
+					"name": "answer",
+					"type": "wysiwyg",
+					"instructions": "Add a concise answer using basic formatting and links where useful.",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {"width": "", "class": "", "id": ""},
+					"default_value": "",
+					"tabs": "visual",
+					"toolbar": "basic",
+					"media_upload": 0,
+					"delay": 1,
+					"parent_repeater": "field_accordion_items"
+				},
+				{
+					"key": "field_accordion_open_by_default",
+					"label": "Open by Default",
+					"name": "open_by_default",
+					"type": "true_false",
+					"instructions": "Show this item open when the page first loads.",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {"width": "", "class": "", "id": ""},
+					"message": "",
+					"default_value": 0,
+					"ui": 1,
+					"ui_on_text": "Open",
+					"ui_off_text": "Closed",
+					"parent_repeater": "field_accordion_items"
+				}
+			]
+		}
+	],
+	"location": [
+		[
+			{"param": "block", "operator": "==", "value": "acf/accordion"}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Portable fields for the Accordion block.",
+	"show_in_rest": 0,
+	"modified": 1788119034
+}

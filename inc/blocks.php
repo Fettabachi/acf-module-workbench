@@ -21,5 +21,6 @@ function register_acf_blocks(): void {
 
 	register_block_type( get_theme_file_path( '/parts/modules/content-media' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/feature-cards' ) );
+	register_block_type( get_theme_file_path( '/parts/modules/accordion' ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_acf_blocks' );
