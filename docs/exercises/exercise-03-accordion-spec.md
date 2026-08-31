@@ -264,9 +264,18 @@ JavaScript, or a particular neighboring block.
 
 Start mobile-first. Natural wrapping, generous summary padding, 16px questions,
 14px answers, and a single full-width item stack are the base. Increase title
-and question typography only when the component's available width supports the
-desktop density. Use the fewest media queries necessary and choose the change
-point from the component's wrapping and spacing behavior, not a named device.
+typography fluidly from the documented 28px/1.2 mobile endpoint at 390px to the
+36px/1.3 desktop endpoint at 768px, using rem bounds so neither font size nor
+leading depends on the viewport alone. Increase question typography only when
+the component's available width supports the desktop density. Use the fewest
+media queries necessary and choose any discrete change point from the
+component's wrapping and spacing behavior, not a named device.
+
+The title's font size and changing leading must not remain at their mobile
+values and then jump directly to their desktop values at the threshold. Bounded
+`clamp()` values are the expected implementation, but the acceptance
+requirement is the smooth interpolation and preserved endpoints, not a
+particular CSS function.
 
 `48rem` is the initial candidate because it matches the existing module
 convention, but it is not authoritative. During implementation QA, test just
@@ -339,7 +348,7 @@ use viewport-specific fixed heights or text widths.
 | Context | Representative width | Required checks |
 | --- | --- | --- |
 | Mobile | 390px and narrower reflow case | Natural title/question wrapping; 44px+ summary target; 14px answer role; no overflow from rich text or URLs; open/close animation; multiple open items; touch, keyboard, focus, and reduced motion. |
-| Intermediate | Around the chosen threshold, including immediately below/at/above | No abrupt clipping or doubled gutters; readable typography transition; long questions; nine or more rows; interrupted transitions; editor preview and repeater with settings sidebar open. |
+| Intermediate | Between 390px and 768px, plus immediately below/at/above the chosen discrete threshold | Smooth title interpolation without an abrupt size jump, clipping, or doubled gutters; long questions; nine or more rows; interrupted transitions; editor preview and repeater with settings sidebar open. |
 | Desktop | 1440px viewport within host `alignwide` area | Section centered at a computed 1000px maximum; centered header; approximately 36px title and 18px questions; full-width summary target; open surface and restrained shadow; multiple instances; short/long/rich answers; screenshot comparison. |
 
 All contexts also require contrast review, 200% zoom/reflow, valid source order,
@@ -387,7 +396,7 @@ Implementation is done only when:
   disclosure;
 - frontend and Gutenberg preview closely reflect the supplied compositions at
   mobile, intermediate, and desktop widths, including the centered 1000px
-  section cap, without duplicated host gutters;
+  section cap and fluid 28px-to-36px title, without duplicated host gutters;
 - focus visibility, target size, contrast, heading hierarchy, wrapping, rich
   answers, nine or more rows, rapid toggling, multiple instances, and malformed data
   pass QA;

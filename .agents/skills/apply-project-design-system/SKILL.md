@@ -13,9 +13,12 @@ independent typography, color, spacing, radius, shadow, surface, or control syst
 
 Inspect `assets/css/theme.css` before styling. Its `:root` currently defines:
 
-- color roles: `--color-text`, `--color-muted`, `--color-surface`,
-  `--color-surface-subtle`, `--color-accent`, and `--color-border`;
-- typography: `--font-sans` only;
+- palette and semantic color roles including `--color-primary`,
+  `--color-signal`, `--color-stack`, `--color-neutral`, `--color-text`,
+  `--color-muted`, `--color-page`, `--color-surface`, `--color-accent`, and
+  `--color-border`;
+- typography roles: `--font-sans`, `--font-display`, `--font-body`, and
+  `--font-label`;
 - geometry: `--content-width`, `--measure`, `--space-section`, and `--radius`.
 
 Reuse these established roles where their semantics fit. Do not duplicate their
@@ -35,6 +38,12 @@ complete expression of the supplied project direction.
 - Keep typography roles semantic: display/heading, interface/body, and
   label/eyebrow/control. Do not hard-code `Georgia`, `Times New Roman`, or another
   font stack inside a block unless the project token layer explicitly defines it.
+- When the same display heading has distinct mobile and desktop sizes, prefer a
+  rem-bounded fluid value between the documented endpoints unless the design
+  calls for a deliberate breakpoint change. Do not make all headings fluid by
+  default, and avoid viewport-only sizing without accessible bounds. If its
+  leading also changes between endpoints, prevent that value from leaving a
+  separate layout jump at a breakpoint.
 - Reuse established spacing, border, surface, radius, and shadow conventions.
   Add a project token only when it represents a repeated, named design decision.
 
@@ -47,31 +56,32 @@ complete expression of the supplied project direction.
 3. If the supplied design does not define a value, do not create a new token or
    literal solely to approximate a screenshot. Report a genuinely unresolved
    decision when no established value is suitable.
-4. If a repeated missing role is confirmed, extend the project-level token layer
+4. For fluid typography, record the minimum and maximum sizes and the viewport
+   range across which they interpolate. A bounded `clamp()` is the usual
+   implementation, not a requirement when another approach preserves the same
+   behavior.
+5. If a repeated missing role is confirmed, extend the project-level token layer
    first, then consume that token from components. Keep fallback values narrowly
    scoped for portability and aligned with the project token's meaning.
-5. Use the same project typography and color roles in editor styles where
+6. Use the same project typography and color roles in editor styles where
    practical so Gutenberg does not present a conflicting visual system.
 
-## Recommended minimal token-layer follow-up
+## Recommended typography-scale follow-up
 
-The theme does not yet define semantic display/body/label font roles or the four
-reference palette roles. A future focused infrastructure change should consider:
-
-- `--font-display`, `--font-body`, and `--font-label`;
-- `--color-primary`, `--color-signal`, `--color-stack`, and `--color-neutral`;
-- aliases or clarified roles for the existing page background, white surface,
-  border, radius, and control styles.
-
-Resolve actual font availability and whether existing `--color-accent` maps to a
-new semantic role before assigning or migrating values. Do not silently replace
-existing tokens or refactor component CSS as part of unrelated exercise work.
+The theme defines font-family roles but not a semantic type-size scale. If
+multiple components confirm the same display, section-heading, body, or label
+size ranges, consider promoting those repeated decisions into project-level
+tokens. Do not create a shared fluid-size token from one component or force
+unrelated heading roles onto the same interpolation curve.
 
 ## Review checklist
 
 - No arbitrary visual value was introduced where a project token applies.
 - Typography and colors reference semantic project roles.
 - Component CSS owns layout and behavior without competing visual foundations.
+- Fluid display typography preserves documented rem-based endpoints and scales
+  size and changing leading through the intended intermediate range without an
+  accidental breakpoint jump.
 - Frontend and editor styling use compatible tokens.
 - New tokens represent reusable decisions rather than screenshot approximations.
 - Unresolved design choices are reported explicitly.
