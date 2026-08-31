@@ -133,6 +133,27 @@
 					"parent_repeater": "field_tabbed_content_tabs"
 				},
 				{
+					"key": "field_tabbed_content_image",
+					"label": "Panel Image",
+					"name": "image",
+					"type": "image",
+					"instructions": "Optional image displayed alongside this panel. Remove it to use the full-width text layout.",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {"width": "", "class": "", "id": ""},
+					"return_format": "id",
+					"library": "all",
+					"min_width": 640,
+					"min_height": 480,
+					"min_size": 0,
+					"max_width": 0,
+					"max_height": 0,
+					"max_size": 0,
+					"mime_types": "jpg,jpeg,png,webp",
+					"preview_size": "medium",
+					"parent_repeater": "field_tabbed_content_tabs"
+				},
+				{
 					"key": "field_tabbed_content_cta",
 					"label": "Call to Action",
 					"name": "cta",
@@ -162,5 +183,5 @@
 	"active": true,
 	"description": "Portable fields for the Tabbed Content block.",
 	"show_in_rest": 0,
-	"modified": 1788199200
+	"modified": 1788202800
 }

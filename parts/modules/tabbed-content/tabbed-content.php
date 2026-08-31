@@ -25,7 +25,9 @@ if ( is_array( $tab_rows ) ) {
 		$label         = isset( $tab_row['label'] ) ? trim( (string) $tab_row['label'] ) : '';
 		$panel_heading = isset( $tab_row['panel_heading'] ) ? trim( (string) $tab_row['panel_heading'] ) : '';
 		$content       = isset( $tab_row['content'] ) ? (string) $tab_row['content'] : '';
+		$image_id      = isset( $tab_row['image'] ) ? absint( $tab_row['image'] ) : 0;
 		$cta           = isset( $tab_row['cta'] ) && is_array( $tab_row['cta'] ) ? $tab_row['cta'] : array();
+		$image_id      = wp_attachment_is_image( $image_id ) ? $image_id : 0;
 
 		if ( '' === $label || '' === trim( wp_strip_all_tags( $content ) ) ) {
 			continue;
@@ -35,6 +37,7 @@ if ( is_array( $tab_rows ) ) {
 			'label'         => $label,
 			'panel_heading' => $panel_heading,
 			'content'       => $content,
+			'image_id'      => $image_id,
 			'cta_url'       => isset( $cta['url'] ) ? trim( (string) $cta['url'] ) : '',
 			'cta_title'     => isset( $cta['title'] ) ? trim( (string) $cta['title'] ) : '',
 			'cta_target'    => isset( $cta['target'] ) && '_blank' === $cta['target'] ? '_blank' : '_self',
@@ -102,8 +105,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<div class="tabbed-content__panels">
 				<?php foreach ( $tabs as $index => $tab ) : ?>
 					<?php
-					$tab_id   = $instance_id . '-tab-' . ( $index + 1 );
-					$panel_id = $instance_id . '-panel-' . ( $index + 1 );
+					$tab_id    = $instance_id . '-tab-' . ( $index + 1 );
+					$panel_id  = $instance_id . '-panel-' . ( $index + 1 );
+					$has_image = 0 < $tab['image_id'];
 					?>
 					<section
 						class="tabbed-content__panel"
@@ -113,7 +117,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					>
 						<p class="tabbed-content__fallback-label"><?php echo esc_html( $tab['label'] ); ?></p>
 
-						<div class="tabbed-content__panel-layout">
+						<div class="tabbed-content__panel-layout tabbed-content__panel-layout--<?php echo esc_attr( $has_image ? 'with-image' : 'without-image' ); ?>">
 							<div class="tabbed-content__panel-copy">
 								<?php if ( '' !== $tab['panel_heading'] ) : ?>
 									<<?php echo esc_html( $panel_heading_level ); ?> class="tabbed-content__panel-heading"><?php echo esc_html( $tab['panel_heading'] ); ?></<?php echo esc_html( $panel_heading_level ); ?>>
@@ -133,10 +137,20 @@ $wrapper_attributes = get_block_wrapper_attributes(
 								<?php endif; ?>
 							</div>
 
-							<div class="tabbed-content__stage" aria-hidden="true">
-								<span class="tabbed-content__stage-label">Stage</span>
-								<span class="tabbed-content__stage-number"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
-							</div>
+							<?php if ( $has_image ) : ?>
+								<div class="tabbed-content__media">
+									<?php
+									echo wp_get_attachment_image(
+										$tab['image_id'],
+										'large',
+										false,
+										array(
+											'class' => 'tabbed-content__image',
+										)
+									); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WordPress generates escaped image markup.
+									?>
+								</div>
+							<?php endif; ?>
 						</div>
 					</section>
 				<?php endforeach; ?>

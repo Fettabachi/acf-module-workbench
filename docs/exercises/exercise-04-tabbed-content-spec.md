@@ -49,6 +49,7 @@ control.
 | Tab label | Text | Required per row | Concise control label and collapsed-row identity. |
 | Panel heading | Text | Optional per row | Visible heading inside the panel. |
 | Panel content | WYSIWYG | Required per row | Basic rich text with media upload disabled. |
+| Panel image | Image | Optional per row | Media Library image returned as an attachment ID. Removing it restores the text-only layout. |
 | Call to action | Link | Optional per row | Complete linked control beneath panel content. |
 
 Do not expose color, typography, spacing, width, orientation, activation mode,
@@ -64,6 +65,9 @@ decisions, not editorial choices.
   rows survive normalization. A single valid row is ordinary content rather
   than a meaningful tab set.
 - Preserve all complete rows; do not impose a renderer-side maximum.
+- Normalize panel images to attachment IDs. Render them with
+  `wp_get_attachment_image()` so responsive sources and Media Library alt text
+  are preserved. Omit the media wrapper completely when no image is selected.
 - Escape plain text and attributes by context. Sanitize WYSIWYG content with
   `wp_kses_post()` and do not execute shortcodes implicitly.
 - Generate unique tab and panel IDs per block instance with a WordPress helper.
@@ -100,12 +104,13 @@ relationship belong to the module.
 
 The visual composition adapts Designmodo's **Hops Farm Tabbed Widget**: an
 atmospheric image field, colored tab rail, selected-tab pointer, elevated white
-content panel, strong editorial hierarchy, and a secondary graphic area. The
-project version uses a numbered stage motif instead of copying the reference
-illustration. On mobile the tab rail wraps into two columns and the panel stacks.
-The selected-tab marker is a true downward-pointing triangle. The section header
-uses the full available width and balances its title only when wrapping is
-actually necessary.
+content panel, strong editorial hierarchy, and a secondary media area. A panel
+with an image uses an editorial/media split and stacks the image beneath the
+copy on mobile. A panel without an image omits that region and centers a
+readable-width copy column instead of reserving empty space. The tab rail wraps
+into two columns on mobile. The selected-tab marker is a true downward-pointing
+triangle. The section header uses the full available width and balances its
+title only when wrapping is actually necessary.
 
 ## Editor contract
 
@@ -127,6 +132,8 @@ actually necessary.
 - Run PHP syntax checks.
 - Verify empty, incomplete, malformed, long-label, rich-content, and multiple-
   instance rendering.
+- Verify selected, replaced, removed, invalid, and missing panel-image states,
+  including preserved attachment alt text and responsive image output.
 - Verify click, touch, Arrow keys, Home, End, focus, selected state, panel
   visibility, and no-JavaScript fallback.
 - Inspect mobile, breakpoint-adjacent, tablet, and desktop layouts for overflow
