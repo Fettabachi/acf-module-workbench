@@ -40,7 +40,7 @@ section.accordion.wp-block-acf-accordion {
 	font-family: var(--accordion-font-display);
 	font-size: clamp(1.75rem, calc(1.234rem + 2.116vw), 2.25rem);
 	font-weight: 500;
-	line-height: clamp(2.1rem, calc(1.249rem + 3.492vw), 2.925rem);
+	line-height: 1.25;
 	overflow-wrap: anywhere;
 	text-wrap: balance;
 }

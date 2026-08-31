@@ -85,9 +85,9 @@ width, or internal layout controls.
 
 | Context | Verified behavior |
 | --- | --- |
-| Mobile, 390px | 28px/1.2 title, 16px/1.75 questions, 14px/1.75 answers, naturally wrapped copy, 68px minimum summary height, and no horizontal overflow. |
-| Intermediate, 430/600/767/768px | Title size and leading scale smoothly through the documented range; the remaining 48rem question/answer transition has no clipping or duplicate gutters. |
-| Desktop, 1440px | Section centered at a computed 1000px maximum, 36px/1.3 title, 18px/1.5 questions, 16px answers, two-line centered title composition, and no horizontal overflow. |
+| Mobile, 390px | 28px/1.25 title, 16px/1.75 questions, 14px/1.75 answers, naturally wrapped copy, 68px minimum summary height, and no horizontal overflow. |
+| Intermediate, 430/600/767/768px | Title size scales smoothly through the documented range; the remaining 48rem question/answer transition has no clipping or duplicate gutters. |
+| Desktop, 1440px | Section centered at a computed 1000px maximum, 36px/1.25 title, 18px/1.5 questions, 16px answers, two-line centered title composition, and no horizontal overflow. |
 
 The module inherits its section background from the parent and consumes
 `--color-surface`, `--color-text`, `--color-muted`, `--color-border`,
@@ -162,8 +162,8 @@ not a detected module defect.
 - Live frontend checks passed at mobile, breakpoint-adjacent, and desktop
   widths with no horizontal overflow.
 - The title computed to 28px at 390px, 28.84px at 430px, 32.44px at 600px,
-  and 36px at 768px and above. Its line-height progressed from 33.6px to
-  46.8px without the former breakpoint jump.
+  and 36px at 768px and above. Its line-height remains a unitless 1.25 across
+  the responsive range.
 - The live section computed to exactly 1000px and centered evenly at a 1440px
   viewport; at 390px it remained fluid within the host's 16px gutters.
 - Native pointer disclosure, simultaneous open items, focus-visible styling,
@@ -198,19 +198,18 @@ instead of a cached asset.
 
 ## Fluid typography follow-up
 
-The section title now uses rem-bounded `clamp()` values for both font size and
-line-height. It preserves the documented 28px/1.2 mobile typography at 390px
-and 36px/1.3 desktop typography at 768px while interpolating smoothly between
-them. Keeping the old line-height media rule would have left a visible layout
-jump even after making the font size fluid, so both values share the responsive
-range.
+The section title uses a rem-bounded `clamp()` for font size, preserving the
+documented 28px mobile endpoint at 390px and 36px desktop endpoint at 768px
+while interpolating smoothly between them. Its similar 1.2 mobile and 1.3
+desktop observed line-heights are resolved with a constant unitless 1.25 rather
+than a second fluid calculation.
 
 The accepted specification now describes the responsive outcome rather than
 mandating `clamp()` for every heading. The project design-system and ACF-module
 skills carry the same conditional guidance for future exercises: record the
 endpoints and interpolation range, prefer rem-bounded fluid typography when the
 same display heading changes across viewports, and retain discrete breakpoints
-when they are intentional. Block version `1.0.4` provides stylesheet cache
+when they are intentional. Block version `1.0.5` provides stylesheet cache
 busting for the refinement.
 
 ## Implementation commits
@@ -258,8 +257,9 @@ authorized finalization.
   preview mode to exercise the server renderer.
 - The title uses the exercise-required generic serif family. No arbitrary font
   asset was added to imitate the reference.
-- The title's supplied mobile and desktop typography are endpoints of a fluid
-  range, not two states that require an abrupt breakpoint switch.
+- The title's supplied mobile and desktop font sizes are endpoints of a fluid
+  range, while the small line-height difference is resolved at its 1.25
+  midpoint.
 - The project `--radius` role remains authoritative even though the visual
   reference suggests a slightly larger radius.
 - The desktop answer uses 16px/1.75 after live visual comparison; the source
@@ -287,6 +287,6 @@ authorized finalization.
   so WYSIWYG markup survives WordPress input unslashing.
 - Treat Gutenberg blob-canvas automation as a known tooling boundary and plan a
   human editor-control checkpoint early when row dragging is acceptance-critical.
-- When the same display heading has supplied mobile and desktop typography,
+- When the same display heading has supplied mobile and desktop font sizes,
   specify its endpoints and interpolation range; do not turn `clamp()` into a
   universal requirement for headings that are intentionally static.

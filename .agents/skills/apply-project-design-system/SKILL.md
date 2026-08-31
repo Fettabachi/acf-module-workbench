@@ -41,9 +41,7 @@ complete expression of the supplied project direction.
 - When the same display heading has distinct mobile and desktop sizes, prefer a
   rem-bounded fluid value between the documented endpoints unless the design
   calls for a deliberate breakpoint change. Do not make all headings fluid by
-  default, and avoid viewport-only sizing without accessible bounds. If its
-  leading also changes between endpoints, prevent that value from leaving a
-  separate layout jump at a breakpoint.
+  default, and avoid viewport-only sizing without accessible bounds.
 - Reuse established spacing, border, surface, radius, and shadow conventions.
   Add a project token only when it represents a repeated, named design decision.
 
@@ -79,9 +77,8 @@ unrelated heading roles onto the same interpolation curve.
 - No arbitrary visual value was introduced where a project token applies.
 - Typography and colors reference semantic project roles.
 - Component CSS owns layout and behavior without competing visual foundations.
-- Fluid display typography preserves documented rem-based endpoints and scales
-  size and changing leading through the intended intermediate range without an
-  accidental breakpoint jump.
+- Fluid display sizes preserve documented rem-based endpoints and scale through
+  the intended intermediate range without an accidental breakpoint jump.
 - Frontend and editor styling use compatible tokens.
 - New tokens represent reusable decisions rather than screenshot approximations.
 - Unresolved design choices are reported explicitly.

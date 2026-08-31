@@ -264,18 +264,19 @@ JavaScript, or a particular neighboring block.
 
 Start mobile-first. Natural wrapping, generous summary padding, 16px questions,
 14px answers, and a single full-width item stack are the base. Increase title
-typography fluidly from the documented 28px/1.2 mobile endpoint at 390px to the
-36px/1.3 desktop endpoint at 768px, using rem bounds so neither font size nor
-leading depends on the viewport alone. Increase question typography only when
-the component's available width supports the desktop density. Use the fewest
-media queries necessary and choose any discrete change point from the
-component's wrapping and spacing behavior, not a named device.
+font size fluidly from the documented 28px mobile endpoint at 390px to the 36px
+desktop endpoint at 768px, using rem bounds so it does not depend on the
+viewport alone. Use a constant `1.25` line-height, splitting the small
+difference between the observed 1.2 mobile and 1.3 desktop values. Increase
+question typography only when the component's available width supports the
+desktop density. Use the fewest media queries necessary and choose any discrete
+change point from the component's wrapping and spacing behavior, not a named
+device.
 
-The title's font size and changing leading must not remain at their mobile
-values and then jump directly to their desktop values at the threshold. Bounded
-`clamp()` values are the expected implementation, but the acceptance
-requirement is the smooth interpolation and preserved endpoints, not a
-particular CSS function.
+The title's font size must not remain at 28px and then jump directly to 36px at
+the threshold. A bounded `clamp()` is the expected implementation, but the
+acceptance requirement is the smooth interpolation and preserved endpoints,
+not a particular CSS function.
 
 `48rem` is the initial candidate because it matches the existing module
 convention, but it is not authoritative. During implementation QA, test just
