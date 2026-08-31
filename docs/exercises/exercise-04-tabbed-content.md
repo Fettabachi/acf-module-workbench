@@ -20,7 +20,8 @@ available.
 Built a portable Tabbed Content ACF block with a required section title,
 optional introduction and atmospheric background image, shared section heading
 level, and an unbounded block-layout repeater containing concise labels,
-optional panel headings, Basic rich content, and optional complete CTA links.
+optional panel headings, Basic rich content, optional Media Library images, and
+optional complete CTA links.
 The renderer discards incomplete data, requires two complete rows for meaningful
 tab behavior, sanitizes rich content, creates unique tab/panel relationships,
 and nests optional panel headings one level below the selected section heading.
@@ -30,7 +31,7 @@ visible. JavaScript enhances complete instances into an ARIA tab interface
 with roving focus, automatic activation, click support, Arrow key wraparound,
 Home and End navigation, and one visible panel. The client-facing composition
 uses a dark image treatment, orange tab rail, blue selected state and pointer,
-elevated white panel, editorial/graphic split, and a numbered stage motif.
+elevated white panel, and an optional editorial/media split.
 Scoped mobile-first styling uses project semantic roles, preserves a 56px tab
 height, wraps tabs into a deterministic two-column mobile grid, lets an odd
 final tab span both columns, contains intrinsic width to prevent page overflow,
@@ -47,6 +48,7 @@ when requested.
 - `parts/modules/tabbed-content/tabbed-content-editor.css`
 - `parts/modules/tabbed-content/tabbed-content-editor.js`
 - `parts/modules/tabbed-content/tabbed-content-editor.asset.php`
+- `parts/modules/tabbed-content/tabbed-content.asset.php`
 - `parts/modules/tabbed-content/tabbed-content.js`
 - `docs/exercises/exercise-04-tabbed-content-spec.md`
 - `docs/exercises/exercise-04-tabbed-content.md`
@@ -64,8 +66,10 @@ when requested.
   strong overlay. Without it, the component retains a project-color gradient.
 - CTA output requires both a title and URL. New-window links receive
   `noopener noreferrer`; incomplete link data produces no wrapper.
-- Each valid row receives a decorative stage number based on its current order,
-  so reordering updates the visual sequence without storing incidental data.
+- Each row can select, replace, or remove a Media Library image. Selected images
+  retain WordPress responsive sources and the attachment's authored alt text.
+  Image-free rows omit the media wrapper and center a readable-width copy column
+  rather than retaining an empty secondary column.
 - Automatic activation is appropriate because switching panels is immediate
   and local. Left/Right Arrow, Home, and End both move focus and selection.
 - The first valid tab is initially selected. Exactly one tab remains in the
@@ -116,8 +120,8 @@ the host provides without selecting or modifying a page-specific ancestor.
   exactly one visible panel. The inner widget measured 1056px with a
   `587.25px / 282.75px` panel split.
 - The selected indicator, keyboard focus treatment, long labels, optional
-  panel heading, rich text, decorative background, numbered graphic, and a
-  panel without its optional heading were visually represented in browser QA.
+  panel heading, rich text, decorative background, three panel images, and an
+  image-free panel without its optional heading were represented in browser QA.
 - At 1440px the 790px module title fit on one line within its 1056px header.
   `text-wrap: balance` remains active for viewports where wrapping is required.
 - The selected marker computed as a transparent-sided triangle with a blue top
@@ -138,10 +142,17 @@ the host provides without selecting or modifying a page-specific ancestor.
 - A live WordPress registration check confirmed the frontend and editor scripts
   are assigned to their respective block handles.
 - A live WordPress runtime check confirmed page 65 renders four tabs, four
-  panels, four stage graphics, and Media Library attachment 11 as its decorative
-  background.
+  panels, three optional panel images, one intentional image-free panel, and
+  Media Library attachment 11 as its decorative background.
 - Runtime rendering confirmed empty CTA omission, complete CTA output, safe
   `target="_blank"` relationship attributes, and no unsafe script output.
+- Local demo attachments 78–80 use authored alt text and retain their Unsplash
+  source attribution in the Media Library. Discover uses [UX Indonesia's
+  customer-journey workshop](https://unsplash.com/photos/team-collaborating-with-sticky-notes-w00FkE6e8zE),
+  Define uses [Kelly Sikkema's wireframe sketch](https://unsplash.com/photos/person-writing-on-white-paper-v9FQR4tbIq8),
+  and Build uses [Alicia Christin Gerald's development image](https://unsplash.com/photos/developer-typing-code-on-a-laptop-screen-xaWYIbNIOdw).
+- Improve intentionally has no panel image, proving that removal produces one
+  centered readable copy column and no empty media wrapper.
 - `git diff --check` passed before final review.
 
 ### Editor review outcome
@@ -152,9 +163,11 @@ and same-origin canvas documents, survives simulated ACF preview replacement,
 and uses an explicitly versioned asset to prevent stale browser caching. The
 revised editor and deterministic mobile grid were accepted during final review.
 
-## Implementation commit
+## Implementation commits
 
 `80f7821` — Add tabbed content ACF block
+
+`83fdf63` — Add optional tab panel images
 
 ## Timing
 
@@ -167,7 +180,8 @@ revised editor and deterministic mobile grid were accepted during final review.
 | Client-ready visual redesign and field expansion | ~35 min |
 | Redesign browser, runtime, and responsive QA | ~20 min |
 | Editor iframe correction and mobile-grid refinement | ~20 min |
-| **Approximate total** | **~140 min** |
+| Optional panel-image correction and QA | ~25 min |
+| **Approximate total** | **~165 min** |
 
 ## Tradeoffs and deferred improvements
 
@@ -176,9 +190,9 @@ revised editor and deterministic mobile grid were accepted during final review.
   concise and use tabs only for a reasonably small set of peer topics.
 - Selection does not update the URL or persist across reloads because the
   component contract does not define deep linking or state restoration.
-- The current art direction uses one section-level image and portable numbered
-  panel graphics. Per-panel media should be added only if a future content
-  contract requires every tab to own distinct editorial imagery.
+- Panel images use a consistent 4:3 crop so mixed source ratios do not change
+  the panel geometry. Editors control the subject and alt text, not crop position;
+  a focal-point control can be considered if real content exposes a need.
 - Editor interactivity relies on Gutenberg retaining a same-origin canvas. If a
   future editor embeds the preview cross-origin, the component intentionally
   falls back to showing every labelled panel rather than hiding content.
@@ -194,3 +208,6 @@ revised editor and deterministic mobile grid were accepted during final review.
 - Test editor interaction inside Gutenberg's iframe-shaped document from the
   first pass and version custom editor assets so fixes cannot be masked by a
   stale browser cache.
+- Treat optional media as part of the initial content-model review whenever a
+  visual reference includes a meaningful secondary image region; do not replace
+  an unresolved editorial need with permanent decorative placeholder artwork.

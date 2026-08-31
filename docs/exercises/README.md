@@ -15,4 +15,4 @@ the following format so future exercises are easy to review:
 | Exercise 01 — Content Media | Completed | `f4a0379` | [View record](exercise-01-content-media.md) |
 | Exercise 02 — Feature Cards | Completed | `f27a9a9` | [View record](exercise-02-feature-cards.md) |
 | Exercise 03 — Accessible Accordion | Completed | `30f2819` | [View record](exercise-03-accordion.md) |
-| Exercise 04 — Tabbed Content | Completed | `80f7821` | [View record](exercise-04-tabbed-content.md) |
+| Exercise 04 — Tabbed Content | Completed | `83fdf63` | [View record](exercise-04-tabbed-content.md) |
