@@ -197,17 +197,26 @@
 }
 
 .tabbed-content__fallback-label {
-	margin: 0 0 1rem;
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	max-width: 100%;
+	padding: 0.4rem 0.65rem;
+	margin: 0 0 1.25rem;
+	border: 1px solid color-mix(in srgb, var(--tabbed-content-primary) 28%, transparent);
+	border-radius: 999px;
 	color: var(--tabbed-content-primary);
+	background: color-mix(in srgb, var(--tabbed-content-primary) 9%, var(--tabbed-content-surface));
 	font-family: var(--tabbed-content-font-label);
-	font-size: 0.75rem;
+	font-size: 0.6875rem;
 	font-weight: 750;
-	letter-spacing: 0.08em;
-	line-height: 1.4;
+	letter-spacing: 0.06em;
+	line-height: 1;
 	text-transform: uppercase;
 	overflow-wrap: anywhere;
 }
 
+.tabbed-content__fallback-label[hidden],
 .tabbed-content.is-enhanced .tabbed-content__fallback-label {
 	display: none;
 }

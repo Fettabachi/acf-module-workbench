@@ -35,7 +35,9 @@ The component is fully interactive when enhanced.
 
 Without JavaScript, the tab controls remain hidden and every complete panel is
 shown as a labelled section. Content is not hidden behind an inoperable
-control.
+control. The fallback identifier is presented as a compact tag so it reads as
+panel metadata rather than a second heading. Enhancement explicitly hides these
+tags in addition to applying the component's enhanced state.
 
 ## Content model
 

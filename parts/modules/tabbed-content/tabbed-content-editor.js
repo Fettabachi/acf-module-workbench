@@ -49,6 +49,9 @@
 
 		component.dataset.tabbedContentEditorReady = 'true';
 		component.classList.add('is-enhanced');
+		component.querySelectorAll('.tabbed-content__fallback-label').forEach((label) => {
+			label.hidden = true;
+		});
 		parts.tablist.hidden = false;
 		selectTab(component, selectedTab, false);
 	};
