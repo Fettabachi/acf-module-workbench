@@ -75,7 +75,9 @@ when requested.
 - The first valid tab is initially selected. Exactly one tab remains in the
   page tab sequence.
 - Without JavaScript, controls remain hidden and all panels appear with visible
-  labels. No content depends on an inoperable interface.
+  tag-style identifiers. No content depends on an inoperable interface. Both
+  interaction scripts explicitly hide those tags after enhancement so editor
+  wrapper changes cannot leave redundant labels in a working tab interface.
 - JavaScript is registered for both frontend and editor contexts. The editor
   asset has an explicit version so browser caching cannot retain stale behavior.
 - A dedicated editor script observes both the editor shell and Gutenberg's
@@ -131,7 +133,14 @@ the host provides without selecting or modifying a page-specific ancestor.
   the Home key switched panels while preserving focus, selection, and exactly
   one visible panel.
 - With the script omitted, both fixture panels and their fallback labels were
-  visible while the tablist remained hidden.
+  visible while the tablist remained hidden. The identifiers render as compact
+  bordered tags rather than heading-like eyebrows.
+- In an iframe-shaped editor fixture, enhancement explicitly set both fallback
+  labels to `hidden` and their computed display to `none` while exposing the
+  working tablist.
+- A source audit confirmed the removed numbered placeholder has no remaining
+  stage markup, stage selectors, numbered-motif copy, ring treatment, or
+  stage-specific gradients in the module.
 - Live frontend QA reported no warnings or errors.
 
 ## Validation
@@ -168,6 +177,8 @@ revised editor and deterministic mobile grid were accepted during final review.
 `80f7821` — Add tabbed content ACF block
 
 `83fdf63` — Add optional tab panel images
+
+`776c99f` — Clarify tab panel fallback labels
 
 ## Timing
 
