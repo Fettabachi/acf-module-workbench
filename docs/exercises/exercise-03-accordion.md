@@ -26,7 +26,8 @@ decorative chevron, and removes nonessential transitions for reduced motion.
 
 The module uses shared project tokens with editor-safe fallbacks, accepts the
 host theme's `alignwide` area and centers an exercise-specific 1000px section
-within it, avoids frontend JavaScript, and defensively normalizes malformed
+within it, scales the title fluidly between its documented mobile and desktop
+typography, avoids frontend JavaScript, and defensively normalizes malformed
 data. Authenticated LocalWP QA populated page 59 with the reference title,
 subtitle, questions, one default-open item, and complete answer content.
 
@@ -41,6 +42,8 @@ subtitle, questions, one default-open item, and complete answer content.
 - `docs/exercises/exercise-03-accordion-spec.md`
 - `docs/exercises/exercise-03-accordion.md`
 - `docs/exercises/README.md`
+- `.agents/skills/acf-module-development/SKILL.md`
+- `.agents/skills/apply-project-design-system/SKILL.md`
 
 ## ACF content model
 
@@ -83,7 +86,7 @@ width, or internal layout controls.
 | Context | Verified behavior |
 | --- | --- |
 | Mobile, 390px | 28px/1.2 title, 16px/1.75 questions, 14px/1.75 answers, naturally wrapped copy, 68px minimum summary height, and no horizontal overflow. |
-| Intermediate, 767/768/769px | Clean transition at the component's 48rem breakpoint with no clipping or duplicate gutters. |
+| Intermediate, 430/600/767/768px | Title size and leading scale smoothly through the documented range; the remaining 48rem question/answer transition has no clipping or duplicate gutters. |
 | Desktop, 1440px | Section centered at a computed 1000px maximum, 36px/1.3 title, 18px/1.5 questions, 16px answers, two-line centered title composition, and no horizontal overflow. |
 
 The module inherits its section background from the parent and consumes
@@ -158,6 +161,9 @@ not a detected module defect.
   automated rendering checks.
 - Live frontend checks passed at mobile, breakpoint-adjacent, and desktop
   widths with no horizontal overflow.
+- The title computed to 28px at 390px, 28.84px at 430px, 32.44px at 600px,
+  and 36px at 768px and above. Its line-height progressed from 33.6px to
+  46.8px without the former breakpoint jump.
 - The live section computed to exactly 1000px and centered evenly at a 1440px
   viewport; at 390px it remained fluid within the host's 16px gutters.
 - Native pointer disclosure, simultaneous open items, focus-visible styling,
@@ -190,10 +196,30 @@ The block metadata version increased to `1.0.3` so browsers receive the latest
 stylesheet, including the section-width and touch-highlight corrections,
 instead of a cached asset.
 
-## Implementation commit
+## Fluid typography follow-up
+
+The section title now uses rem-bounded `clamp()` values for both font size and
+line-height. It preserves the documented 28px/1.2 mobile typography at 390px
+and 36px/1.3 desktop typography at 768px while interpolating smoothly between
+them. Keeping the old line-height media rule would have left a visible layout
+jump even after making the font size fluid, so both values share the responsive
+range.
+
+The accepted specification now describes the responsive outcome rather than
+mandating `clamp()` for every heading. The project design-system and ACF-module
+skills carry the same conditional guidance for future exercises: record the
+endpoints and interpolation range, prefer rem-bounded fluid typography when the
+same display heading changes across viewports, and retain discrete breakpoints
+when they are intentional. Block version `1.0.4` provides stylesheet cache
+busting for the refinement.
+
+## Implementation commits
 
 `30f2819de53bd441ea6f59777033c01c7ea2cc70` (`30f2819`) — Add
 accessible accordion ACF block.
+
+`37298cdcd6d9f9429cf13c170da04e45b66467d9` (`37298cd`) — Refine
+accordion heading typography.
 
 ## Timing
 
@@ -204,7 +230,8 @@ accessible accordion ACF block.
 | Authenticated Gutenberg and live frontend QA | ~25 min |
 | Documentation and final review | ~10 min |
 | Post-QA correction and verification | ~30 min |
-| **Approximate total** | **115–125 min** |
+| Fluid typography follow-up | ~20 min |
+| **Approximate total** | **135–145 min** |
 
 ### Pause checkpoint
 
@@ -231,6 +258,8 @@ authorized finalization.
   preview mode to exercise the server renderer.
 - The title uses the exercise-required generic serif family. No arbitrary font
   asset was added to imitate the reference.
+- The title's supplied mobile and desktop typography are endpoints of a fluid
+  range, not two states that require an abrupt breakpoint switch.
 - The project `--radius` role remains authoritative even though the visual
   reference suggests a slightly larger radius.
 - The desktop answer uses 16px/1.75 after live visual comparison; the source
@@ -258,3 +287,6 @@ authorized finalization.
   so WYSIWYG markup survives WordPress input unslashing.
 - Treat Gutenberg blob-canvas automation as a known tooling boundary and plan a
   human editor-control checkpoint early when row dragging is acceptance-critical.
+- When the same display heading has supplied mobile and desktop typography,
+  specify its endpoints and interpolation range; do not turn `clamp()` into a
+  universal requirement for headings that are intentionally static.
