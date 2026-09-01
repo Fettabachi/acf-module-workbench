@@ -233,6 +233,8 @@ editorial featured-image policy or a separate fallback-media contract.
 
 `84f7df5` — Add curated content grid block
 
+Follow-up refinement: `2046a74` — Improve two-card grid layout
+
 ## Timing
 
 | Phase | Active time |
