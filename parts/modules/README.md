@@ -15,3 +15,11 @@ acf-json/
 ```
 
 Document any real dependency near the module. Do not add empty placeholder files.
+
+## Filtered Content Grid dependencies
+
+The Filtered Content Grid queries published standard posts and the built-in
+`category` taxonomy. WordPress supplies post links, dates, authored excerpts,
+category terms, and featured-image markup. Its filter controls use a small
+module-owned script for progressive enhancement; the complete post collection
+remains visible when that script is unavailable.

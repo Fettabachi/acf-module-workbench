@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/filtered-content-grid",
+	"version": "1.0.0",
+	"title": "Filtered Content Grid",
+	"category": "design",
+	"icon": "filter",
+	"description": "Shows recent posts in an accessible category-filterable grid.",
+	"keywords": ["filter", "posts", "categories", "grid"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "filtered-content-grid.php"
+	},
+	"editorStyle": "file:./filtered-content-grid-editor.css",
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"script": "file:./filtered-content-grid.js",
+	"style": "file:./filtered-content-grid.css"
+}

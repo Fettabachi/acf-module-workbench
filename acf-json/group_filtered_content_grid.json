@@ -1,0 +1,103 @@
+{
+	"key": "group_filtered_content_grid",
+	"title": "Block: Filtered Content Grid",
+	"fields": [
+		{
+			"key": "field_filtered_content_grid_title",
+			"label": "Section Title",
+			"name": "title",
+			"type": "text",
+			"instructions": "Introduce the collection of recent posts.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": "Filtered Content Grid",
+			"maxlength": 120,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_filtered_content_grid_introduction",
+			"label": "Introduction",
+			"name": "introduction",
+			"type": "textarea",
+			"instructions": "Optional supporting text displayed below the section title.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": "",
+			"maxlength": 300,
+			"rows": 3,
+			"placeholder": "",
+			"new_lines": ""
+		},
+		{
+			"key": "field_filtered_content_grid_heading_level",
+			"label": "Section Heading Level",
+			"name": "heading_level",
+			"type": "button_group",
+			"instructions": "Choose the heading level that fits this block's position in the page hierarchy. Card headings use the next level.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"choices": {"h2": "H2", "h3": "H3", "h4": "H4"},
+			"allow_null": 0,
+			"default_value": "h2",
+			"layout": "horizontal",
+			"return_format": "value"
+		},
+		{
+			"key": "field_filtered_content_grid_posts_per_page",
+			"label": "Number of Posts",
+			"name": "posts_per_page",
+			"type": "number",
+			"instructions": "Show the newest posts in the selected categories.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": 9,
+			"min": 1,
+			"max": 24,
+			"step": 1,
+			"placeholder": "",
+			"prepend": "",
+			"append": "posts"
+		},
+		{
+			"key": "field_filtered_content_grid_categories",
+			"label": "Categories",
+			"name": "categories",
+			"type": "taxonomy",
+			"instructions": "Optionally limit the grid and its filters to selected categories. Leave empty to include every category represented by the newest posts.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"taxonomy": "category",
+			"add_term": 0,
+			"save_terms": 0,
+			"load_terms": 0,
+			"return_format": "id",
+			"field_type": "multi_select",
+			"allow_null": 1,
+			"multiple": 1,
+			"bidirectional": 0,
+			"bidirectional_target": []
+		}
+	],
+	"location": [
+		[
+			{"param": "block", "operator": "==", "value": "acf/filtered-content-grid"}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Portable fields for the Filtered Content Grid block.",
+	"show_in_rest": 0,
+	"modified": 1788278400
+}
