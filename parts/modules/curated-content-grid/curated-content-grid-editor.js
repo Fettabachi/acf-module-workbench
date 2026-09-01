@@ -3,7 +3,7 @@
 
 	const { __, sprintf } = window.wp.i18n;
 	const fieldSelector = '.acf-field[data-key="field_curated_content_grid_posts"]';
-	const editorVersion = '1.2.10';
+	const editorVersion = '1.2.11';
 	const listObservers = new WeakMap();
 	let uniqueId = 0;
 	let scanScheduled = false;

@@ -234,7 +234,6 @@
 
 	.curated-content-grid--count-2 .curated-content-grid__items {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		max-width: 50rem;
 	}
 }
 

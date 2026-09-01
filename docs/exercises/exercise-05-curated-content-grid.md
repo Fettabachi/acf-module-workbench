@@ -136,8 +136,8 @@ competing visual system was introduced.
 
 The responsive thresholds are based on minimum useful card width: one column
 below 40rem, two columns from 40rem, and three columns from 64rem. A single card
-uses the shared readable measure, while exactly two cards stay in a capped
-two-column composition at wide widths.
+uses the shared readable measure, while exactly two cards retain two columns and
+share the full width supplied by the host layout.
 
 ## Accessibility and responsive QA
 
@@ -154,6 +154,9 @@ two-column composition at wide widths.
 - At 390px and 639px the grid contained one card per row. At 640px and 1023px it
   contained two equal-width cards per row. At 1024px and 1440px it contained
   three equal-width cards per full row.
+- Follow-up one- and two-post review retained the readable single-card measure
+  and removed the two-card width cap so the pair shares the full `alignwide`
+  area instead of leaving avoidable empty space.
 - At every measured width, cards sharing a row had equal computed heights. The
   grid and document reported no horizontal overflow.
 - All six images loaded at 390px with nonzero natural width and preserved Media
@@ -191,7 +194,7 @@ two-column composition at wide widths.
 - JavaScript syntax, editor asset PHP syntax, and block/field JSON parsing
   passed. An earlier live WordPress runtime check registered the editor script
   and style handles; the current editor-interaction revision advances the block
-  and editor script metadata to version `1.2.10`.
+  and editor script metadata to version `1.2.11`.
 - `git diff --check` passed during implementation and final review.
 
 ### Editor review outcome

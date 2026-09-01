@@ -97,9 +97,10 @@ that available width and adds no generic container or second outer width
 constraint.
 
 The grid is mobile first: one column at narrow widths, two columns when cards
-have sufficient room, and three columns at wide widths. One- and two-card
-collections remain visually balanced without fixed card heights. Cards in a
-shared row stretch naturally to equal height, while excerpt-free cards collapse
+have sufficient room, and three columns at wide widths. A single card uses a
+readable measure, while a two-card collection shares the full available width
+in two columns. Both remain visually balanced without fixed card heights. Cards
+in a shared row stretch naturally to equal height, while excerpt-free cards collapse
 their missing text region. Cards without featured images use the same media
 ratio through a decorative placeholder only where multiple columns make that
 shared rhythm useful.
