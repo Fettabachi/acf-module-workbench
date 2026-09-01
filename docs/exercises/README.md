@@ -18,3 +18,4 @@ the following format so future exercises are easy to review:
 | Exercise 04 — Tabbed Content | Completed | `776c99f` | [View record](exercise-04-tabbed-content.md) |
 | Exercise 05 — Curated Content Grid | Completed | `84f7df5` | [View record](exercise-05-curated-content-grid.md) |
 | Exercise 06 — Filtered Content Grid | Completed | `6e3109e` | [View record](exercise-06-filtered-content-grid.md) |
+| Exercise 07 — Responsive Campaign Hero | Completed | `dac469f` | [View record](exercise-07-responsive-campaign-hero.md) |

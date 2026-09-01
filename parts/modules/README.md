@@ -23,3 +23,13 @@ The Filtered Content Grid queries published standard posts and the built-in
 category terms, and featured-image markup. Its filter controls use a small
 module-owned script for progressive enhancement; the complete post collection
 remains visible when that script is unavailable.
+
+## Campaign Hero dependencies
+
+The Campaign Hero depends on ACF link, image, text, textarea, number, tab, and
+button-group fields plus the theme's documented semantic color, typography,
+spacing, and radius roles. Its architectural fallback, decorative mobile art,
+and interface icons are exact local exports from the supplied Figma frames. A
+Media Library image can replace the desktop artwork, and the block requires no
+JavaScript. This is an art-directed, single-instance campaign component rather
+than a general-purpose hero primitive.
