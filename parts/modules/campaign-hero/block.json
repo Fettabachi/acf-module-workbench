@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/campaign-hero",
+	"version": "1.0.0",
+	"title": "Campaign Hero",
+	"category": "design",
+	"icon": "cover-image",
+	"description": "Introduces a campaign with responsive calls to action and a desktop performance visual.",
+	"keywords": ["campaign", "hero", "cta", "responsive"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "campaign-hero.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false,
+		"multiple": false
+	},
+	"style": "file:./campaign-hero.css"
+}

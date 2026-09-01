@@ -1,7 +1,7 @@
 :root {
-	/* Typography roles use the currently available system sans stack. */
+	/* Typography roles use portable system stacks. */
 	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-	--font-display: var(--font-sans);
+	--font-display: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-body: var(--font-sans);
 	--font-label: var(--font-sans);
 
@@ -19,6 +19,8 @@
 	--color-surface-subtle: var(--color-page);
 	--color-border: rgb(23 32 42 / 0.14);
 	--color-accent: var(--color-primary);
+	--color-danger: #be1c1c;
+	--color-success: #1b6f4a;
 
 	/* Shared layout, spacing, and shape roles. */
 	--content-width: 72rem;
