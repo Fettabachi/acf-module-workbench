@@ -1,0 +1,86 @@
+{
+	"key": "group_curated_content_grid",
+	"title": "Block: Curated Content Grid",
+	"fields": [
+		{
+			"key": "field_curated_content_grid_title",
+			"label": "Section Title",
+			"name": "title",
+			"type": "text",
+			"instructions": "Introduce the selected collection of posts.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": "",
+			"maxlength": 120,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_curated_content_grid_introduction",
+			"label": "Introduction",
+			"name": "introduction",
+			"type": "textarea",
+			"instructions": "Optional supporting text displayed below the section title.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"default_value": "",
+			"maxlength": 300,
+			"rows": 3,
+			"placeholder": "",
+			"new_lines": ""
+		},
+		{
+			"key": "field_curated_content_grid_heading_level",
+			"label": "Section Heading Level",
+			"name": "heading_level",
+			"type": "button_group",
+			"instructions": "Choose the heading level that fits this block's position in the page hierarchy. Card headings use the next level.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"choices": {"h2": "H2", "h3": "H3", "h4": "H4"},
+			"allow_null": 0,
+			"default_value": "h2",
+			"layout": "horizontal",
+			"return_format": "value"
+		},
+		{
+			"key": "field_curated_content_grid_posts",
+			"label": "Curated Posts",
+			"name": "curated_posts",
+			"type": "relationship",
+			"instructions": "Choose published posts. Use Move up and Move down, or drag selected posts, to set their display order.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {"width": "", "class": "", "id": ""},
+			"post_type": ["post"],
+			"post_status": ["publish"],
+			"taxonomy": [],
+			"filters": ["search", "taxonomy"],
+			"return_format": "id",
+			"min": 1,
+			"max": 0,
+			"elements": ["featured_image"],
+			"bidirectional": 0,
+			"bidirectional_target": []
+		}
+	],
+	"location": [
+		[
+			{"param": "block", "operator": "==", "value": "acf/curated-content-grid"}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Portable fields for the Curated Content Grid block.",
+	"show_in_rest": 0,
+	"modified": 1788206400
+}

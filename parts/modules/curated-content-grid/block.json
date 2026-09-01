@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/curated-content-grid",
+	"version": "1.2.10",
+	"title": "Curated Content Grid",
+	"category": "design",
+	"icon": "grid-view",
+	"description": "Presents a manually selected and ordered collection of published posts.",
+	"keywords": ["curated", "posts", "content", "grid"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "curated-content-grid.php"
+	},
+	"editorScript": "file:./curated-content-grid-editor.js",
+	"editorStyle": "file:./curated-content-grid-editor.css",
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"style": "file:./curated-content-grid.css"
+}
