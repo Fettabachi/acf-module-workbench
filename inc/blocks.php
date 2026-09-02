@@ -26,5 +26,6 @@ function register_acf_blocks(): void {
 	register_block_type( get_theme_file_path( '/parts/modules/curated-content-grid' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/filtered-content-grid' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/campaign-hero' ) );
+	register_block_type( get_theme_file_path( '/parts/modules/inline-media' ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_acf_blocks' );
