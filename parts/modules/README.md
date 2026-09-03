@@ -56,10 +56,11 @@ supplies its documented semantic typography, color, surface, border, focus, and
 radius tokens plus the outer content width. The module owns its responsive one-,
 two-, and three-column layouts, price-card
 geometry, featured-plan treatment, and progressive billing selector. A small
-module-owned script reveals the native billing and plan radio groups only when it
-can manage their state. Plan radios are visually represented by their card rather
-than a separate selection row; billing is disabled for plans not configured to use
-it, and configured default prices remain readable without JavaScript. Its billing
+module-owned script reveals native billing radios and visually hidden plan toggle
+buttons only when it can manage their state. Every plan button remains in the Tab
+sequence and is visually represented by its card rather than a separate selection
+row; billing is disabled for plans not configured to use it, and configured
+default prices remain readable without JavaScript. Its billing
 indicator transitions between the two native radio states and respects reduced
 motion. The badge and CTA-arrow artwork are local Figma exports; the feature check
 is a purpose-built module asset.

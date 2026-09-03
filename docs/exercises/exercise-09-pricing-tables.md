@@ -30,8 +30,9 @@ tier, and an accessible progressive billing selector.
 - Implemented a native radio-group billing selector that is exposed only when
   annual values differ and JavaScript can update them. Default prices remain
   readable without JavaScript.
-- Added native plan selection and a portable per-plan billing eligibility field.
-  Clicking a card selects it without a visible selection row; plans without
+- Added keyboard-accessible plan selection and a portable per-plan billing
+  eligibility field. Every card has its own pressed-state button in the Tab
+  sequence, while pointer users can click the card surface. Plans without
   frequency-based pricing disable and mute the billing control.
 - Adapted the supplied 56px and 80px heading endpoints into bounded fluid type,
   stacked cards into responsive two- and three-column layouts, and preserved
@@ -93,10 +94,11 @@ make any plan eligible without changing the template or script.
 
 ### Selectable cards with explicit links
 
-Plan cards activate an associated native radio when their non-interactive surface
-is clicked. The radios remain keyboard and screen-reader accessible without a
-visible “Select” row. Complete ACF link values render as separate CTAs and are
-excluded from the card-selection click handler, preserving their navigation role.
+Plan cards activate an associated visually hidden toggle button when their
+non-interactive surface is clicked. Each button remains a separate Tab stop,
+announces its pressed state, and draws focus on its card without a visible
+“Select” row. Complete ACF link values render as separate CTAs and are excluded
+from the card-selection click handler, preserving their navigation role.
 
 ### Portability boundary
 
@@ -109,8 +111,9 @@ dependency.
 
 - The section is labelled by an allowlisted heading; plan headings derive the
   next logical level.
-- The billing and plan selectors use native radio inputs, unique per-instance names,
-  visible focus, and 44px-or-larger labels.
+- Billing uses native radio inputs with unique per-instance names. Every plan uses
+  an individually tabbable pressed-state button; focus is visibly represented on
+  its card, and billing focus is inset so it remains inside the segmented control.
 - CTA links preserve safe new-window behavior and become inert in editor previews.
 - Empty features, badges, links, and descriptions produce no empty wrappers.
 - Incomplete blocks show editor guidance and suppress frontend output.
@@ -147,10 +150,13 @@ dependency.
   and no horizontal overflow.
 - Breakpoint-edge checks at 671px, 672px, 1023px, and 1024px confirmed deliberate
   one-to-two and two-to-three column transitions without overflow.
-- The selected billing option exposes a visible keyboard-focus outline, CTA
-  targets meet the 48px implementation size, and the browser console reports no
-  warnings or errors. Page 209 was migrated to the WYSIWYG fields and the Pro
-  plan was marked billing-eligible without changing its other block content.
+- The billing focus ring remains inset within its segmented-control boundary.
+  All three plan buttons report `tabIndex="0"`; Space selects Pro, Enter selects
+  Starter and Enterprise, and each focused button draws a 3px outline on its
+  card. CTA targets meet the 48px implementation size, and the browser console
+  reports no warnings or errors. Page 209 was migrated to the WYSIWYG fields and
+  the Pro plan was marked billing-eligible without changing its other block
+  content.
 - Final visual review reduced module-owned horizontal padding because the host
   already supplies the 72rem outer constraint. This avoids doubled gutters and
   brings card proportions closer to the Figma reference.

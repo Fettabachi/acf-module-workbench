@@ -28,9 +28,10 @@ visitors.
   uses native radio inputs and is revealed only after its update behavior is
   available. Without JavaScript, the configured default price remains readable
   and no inactive control is shown.
-- Visitors select among all displayed plans with a native radio group. The
-  visible card surface activates its radio without adding a separate selection
-  row; radio focus is represented on the card. Selecting a plan that does not
+- Visitors select among all displayed plans with visually hidden toggle buttons.
+  Every button remains in the Tab sequence, exposes its pressed state, and draws
+  focus on the corresponding card without adding a visible selection row. The
+  visible card surface activates the same button. Selecting a plan that does not
   use billing frequency disables and visually mutes the billing controls;
   selecting an eligible plan restores them.
 - CTA links remain the only navigation targets. Clicking elsewhere on a card
@@ -73,7 +74,8 @@ visitors.
 ## Accessibility and defensive behavior
 
 - A labelled section and ordered heading hierarchy provide document structure.
-- Native radios provide keyboard behavior and selected-state announcements.
+- Native billing radios and pressed-state plan buttons provide keyboard behavior
+  and selected-state announcements.
 - Focus indicators, 44px-or-larger controls, defensive wrapping, and AA-oriented
   semantic colors support varied input and content lengths.
 - The billing selector uses one animated primary indicator that slides between

@@ -10,7 +10,7 @@
 
 		const billing = component.querySelector('[data-pricing-billing]');
 		const billingInputs = billing?.querySelectorAll('input[type="radio"]') || [];
-		const planInputs = component.querySelectorAll('[data-pricing-plan-choice]');
+		const planControls = component.querySelectorAll('[data-pricing-plan-choice]');
 		const planCards = component.querySelectorAll('.pricing-tables__plan');
 
 		const updatePrices = (period) => {
@@ -35,24 +35,29 @@
 			});
 		});
 
-		const selectPlan = (selectedInput) => {
-			planInputs.forEach((input) => {
-				input.closest('.pricing-tables__plan')?.classList.toggle('is-selected', input === selectedInput);
+		const selectPlan = (selectedControl) => {
+			planControls.forEach((control) => {
+				const isSelected = control === selectedControl;
+
+				control.setAttribute('aria-pressed', String(isSelected));
+				control.closest('.pricing-tables__plan')?.classList.toggle('is-selected', isSelected);
 			});
 
 			if (billing) {
-				const supportsBilling = selectedInput?.dataset.supportsBilling === 'true';
+				const supportsBilling = selectedControl?.dataset.supportsBilling === 'true';
 
 				billing.disabled = !supportsBilling;
 				billing.setAttribute('aria-disabled', String(!supportsBilling));
 			}
 		};
 
-		planInputs.forEach((input) => {
-			input.closest('.pricing-tables__plan-choice')?.removeAttribute('hidden');
-			input.addEventListener('change', () => {
-				if (input.checked) {
-					selectPlan(input);
+		planControls.forEach((control) => {
+			control.removeAttribute('hidden');
+			control.addEventListener('click', () => selectPlan(control));
+			control.addEventListener('keydown', (event) => {
+				if (event.key === 'Enter' || event.key === ' ') {
+					event.preventDefault();
+					selectPlan(control);
 				}
 			});
 		});
@@ -63,11 +68,10 @@
 					return;
 				}
 
-				const input = card.querySelector('[data-pricing-plan-choice]');
+				const control = card.querySelector('[data-pricing-plan-choice]');
 
-				if (input && !input.checked) {
-					input.checked = true;
-					input.dispatchEvent(new Event('change', { bubbles: true }));
+				if (control && control.getAttribute('aria-pressed') !== 'true') {
+					control.click();
 				}
 			});
 		});
@@ -76,7 +80,7 @@
 			billing.hidden = false;
 		}
 
-		selectPlan(component.querySelector('[data-pricing-plan-choice]:checked') || planInputs[0]);
+		selectPlan(component.querySelector('[data-pricing-plan-choice][aria-pressed="true"]') || planControls[0]);
 		component.dataset.pricingTablesReady = 'true';
 	};
 

@@ -235,10 +235,9 @@ $wrapper_attributes   = get_block_wrapper_attributes(
 					</ul>
 				<?php endif; ?>
 
-				<label class="pricing-tables__plan-choice" hidden>
-					<input type="radio" name="<?php echo esc_attr( $instance_id . '-plan' ); ?>" value="<?php echo esc_attr( sanitize_title( $plan['name'] ) ); ?>" data-pricing-plan-choice data-supports-billing="<?php echo $plan['supports_billing'] ? 'true' : 'false'; ?>"<?php checked( $selected_plan, $plan_index ); ?>>
-					<span><?php echo esc_html( sprintf( __( 'Select %s', 'cr-practice' ), $plan['name'] ) ); ?></span>
-				</label>
+				<button class="pricing-tables__plan-choice" type="button" data-pricing-plan-choice data-supports-billing="<?php echo $plan['supports_billing'] ? 'true' : 'false'; ?>" aria-pressed="<?php echo $selected_plan === $plan_index ? 'true' : 'false'; ?>" hidden>
+					<span><?php echo esc_html( sprintf( __( 'Choose %s plan', 'cr-practice' ), $plan['name'] ) ); ?></span>
+				</button>
 
 				<?php if ( ! empty( $plan['cta'] ) ) : ?>
 					<a class="pricing-tables__cta" <?php if ( $is_editor_preview ) : ?>role="link" aria-disabled="true"<?php else : ?>href="<?php echo esc_url( $plan['cta']['url'] ); ?>"<?php if ( '_blank' === $plan['cta']['target'] ) : ?> target="_blank" rel="noopener noreferrer"<?php endif; ?><?php endif; ?>>
