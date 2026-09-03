@@ -14,7 +14,7 @@ reusable content section rather than a hero, background video, or modal.
 ## Content and interaction contract
 
 - A heading and browser-playable Media Library video are required for frontend
-  output. An eyebrow, supporting paragraph, poster, duration, captions, and
+  output. An eyebrow, supporting paragraph, poster, captions, and
   transcript are optional.
 - Editors choose `h2`, `h3`, or `h4` to fit the block into the page hierarchy.
 - Editors may place media on the left or right at the two-column breakpoint.
@@ -22,6 +22,8 @@ reusable content section rather than a hero, background video, or modal.
   reading order.
 - The video never autoplays. Without JavaScript it renders immediately with
   native controls and any supplied poster and captions.
+- Do not duplicate elapsed or total time beside the player; native controls
+  expose that information when it becomes relevant.
 - When JavaScript and a poster are available, a compact icon-only Play control
   overlays the poster, which may be purpose-built editorial cover art rather
   than a video frame. Its text remains available as an accessible name.

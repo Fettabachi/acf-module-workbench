@@ -22,9 +22,11 @@ native fallback, and avoid modal focus management or background-video behavior.
 - Added exportable ACF Local JSON for structured copy, heading hierarchy, Media
   Library video and poster attachments, optional WebVTT captions, and an optional
   transcript.
-- Rendered a labelled content section with a native video fallback, attachment
-  duration metadata, a poster-led Play control, synchronized caption support,
-  and a progressively enhanced transcript disclosure.
+- Rendered a labelled content section with a native video fallback, a poster-led
+  Play control, synchronized caption support, and a progressively enhanced
+  transcript disclosure.
+- Removed the decorative duration label because native video controls expose
+  elapsed and total time when visitors need it.
 - Refined the poster state with a compact icon-only control that retains a hidden
   accessible label, locked its icon to 4rem at every viewport, and added a
   motion-safe poster-to-video fade.
@@ -39,9 +41,11 @@ native fallback, and avoid modal focus management or background-video behavior.
   explicit guidance.
 - Documented the block's host dependencies and the complete Exercise 08 contract.
 
-## Implementation commit
+## Implementation commits
 
 `c34d211` — `feat: add accessible inline media block`
+
+`3ef560d` — `refactor: remove redundant video duration`
 
 ## Timing breakdown
 
@@ -72,6 +76,13 @@ a compact icon-only Play action with a programmatic text label. Activation
 restores controls, starts playback, and moves focus to the video. If JavaScript
 is absent, the source fails, or playback is rejected, visitors retain native
 controls and a direct file fallback.
+
+### Native timing instead of duplicate metadata
+
+The component does not repeat video duration in the adjacent copy. The native
+player exposes elapsed and total time after activation, while a separate timer
+would duplicate that information and create unnecessary visual and scripting
+weight.
 
 ### Stable transcript geometry
 
@@ -140,8 +151,7 @@ surrounding selector.
   its script and style handles, the active 14-field group, and allowed MP4 and
   WebVTT uploads.
 - Final rendering uses the supplied 1920×1080 `office-pan.mp4` attachment and an
-  intentionally art-directed 16:9 poster from the Figma source. WordPress exposes
-  the expected 0:10 duration.
+  intentionally art-directed 16:9 poster from the Figma source.
 - Published page 192, “Accessible Inline Media Player,” now contains one saved
   Inline Media block using those attachments. Gutenberg's document outline
   recognizes the block and the editor reports no unsaved changes.
@@ -201,6 +211,8 @@ surrounding selector.
   captions for spoken video.
 - A self-hosted player and a third-party embed are different component contracts,
   not interchangeable source options to hide behind one unqualified URL field.
+- Prefer native player timing over a second decorative timer unless an editorial
+  requirement makes duration meaningful before playback.
 - Use an outer `0fr` to `1fr` grid-track transition with a clipped, zero-minimum
   inner wrapper for content-driven disclosures. This lesson was promoted to the
   reusable ACF module development skill.
