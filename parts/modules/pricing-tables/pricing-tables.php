@@ -1,0 +1,253 @@
+<?php
+/**
+ * Pricing Tables block template.
+ *
+ * @package CR_Practice
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+$eyebrow               = trim( (string) get_field( 'eyebrow' ) );
+$heading               = (string) get_field( 'heading' );
+$heading_level          = (string) get_field( 'heading_level' );
+$body                   = (string) get_field( 'body' );
+$monthly_label          = trim( (string) get_field( 'monthly_label' ) );
+$annual_label           = trim( (string) get_field( 'annual_label' ) );
+$savings_label          = trim( (string) get_field( 'savings_label' ) );
+$default_billing        = (string) get_field( 'default_billing' );
+$plan_rows              = get_field( 'plans' );
+$plans                  = array();
+$featured_found         = false;
+$is_editor_preview      = ! empty( $is_preview );
+$allowed_heading_levels = array( 'h2', 'h3', 'h4' );
+
+$heading_level   = in_array( $heading_level, $allowed_heading_levels, true ) ? $heading_level : 'h2';
+$default_billing = in_array( $default_billing, array( 'monthly', 'annual' ), true ) ? $default_billing : 'monthly';
+$monthly_label   = '' !== $monthly_label ? $monthly_label : __( 'Monthly', 'cr-practice' );
+$annual_label    = '' !== $annual_label ? $annual_label : __( 'Annually', 'cr-practice' );
+$heading_markup  = wp_kses(
+	$heading,
+	array(
+		'br'     => array(),
+		'em'     => array(),
+		'strong' => array(),
+	)
+);
+
+$normalize_link = static function ( $link ): array {
+	if ( ! is_array( $link ) ) {
+		return array();
+	}
+
+	$url    = isset( $link['url'] ) ? trim( (string) $link['url'] ) : '';
+	$title  = isset( $link['title'] ) ? trim( (string) $link['title'] ) : '';
+	$target = isset( $link['target'] ) && '_blank' === $link['target'] ? '_blank' : '';
+
+	if ( '' === $url || '' === $title ) {
+		return array();
+	}
+
+	return array(
+		'url'    => $url,
+		'title'  => $title,
+		'target' => $target,
+	);
+};
+
+if ( is_array( $plan_rows ) ) {
+	foreach ( array_slice( $plan_rows, 0, 3 ) as $plan_row ) {
+		$name           = isset( $plan_row['name'] ) ? trim( (string) $plan_row['name'] ) : '';
+		$monthly_price  = isset( $plan_row['monthly_price'] ) ? trim( (string) $plan_row['monthly_price'] ) : '';
+		$annual_price   = isset( $plan_row['annual_price'] ) ? trim( (string) $plan_row['annual_price'] ) : '';
+		$monthly_suffix = isset( $plan_row['monthly_suffix'] ) ? trim( (string) $plan_row['monthly_suffix'] ) : '';
+		$annual_suffix  = isset( $plan_row['annual_suffix'] ) ? trim( (string) $plan_row['annual_suffix'] ) : '';
+		$description    = isset( $plan_row['description'] ) ? trim( (string) $plan_row['description'] ) : '';
+		$popular_label    = isset( $plan_row['popular_label'] ) ? trim( (string) $plan_row['popular_label'] ) : '';
+		$supports_billing = isset( $plan_row['supports_billing'] ) && '1' === (string) $plan_row['supports_billing'];
+		$feature_rows     = isset( $plan_row['features'] ) && is_array( $plan_row['features'] ) ? $plan_row['features'] : array();
+		$features         = array();
+
+		if ( '' === $name || ( '' === $monthly_price && '' === $annual_price ) ) {
+			continue;
+		}
+
+		foreach ( array_slice( $feature_rows, 0, 8 ) as $feature_row ) {
+			$feature = isset( $feature_row['feature'] ) ? trim( (string) $feature_row['feature'] ) : '';
+
+			if ( '' !== $feature ) {
+				$features[] = $feature;
+			}
+		}
+
+		$is_featured = ! $featured_found && isset( $plan_row['featured'] ) && '1' === (string) $plan_row['featured'];
+
+		if ( $is_featured ) {
+			$featured_found = true;
+		}
+
+		if ( '' === $monthly_price ) {
+			$monthly_price  = $annual_price;
+			$monthly_suffix = $annual_suffix;
+		}
+
+		if ( '' === $annual_price ) {
+			$annual_price  = $monthly_price;
+			$annual_suffix = $monthly_suffix;
+		}
+
+		$plans[] = array(
+			'name'           => $name,
+			'monthly_price'  => $monthly_price,
+			'annual_price'   => $annual_price,
+			'monthly_suffix' => $monthly_suffix,
+			'annual_suffix'  => $annual_suffix,
+			'description'    => $description,
+			'features'       => $features,
+			'cta'            => $normalize_link( $plan_row['cta'] ?? array() ),
+			'featured'       => $is_featured,
+			'popular_label'    => $popular_label,
+			'supports_billing' => $supports_billing,
+		);
+	}
+}
+
+$has_heading        = '' !== trim( wp_strip_all_tags( $heading_markup ) );
+$has_billing_choice = false;
+$selected_plan      = 0;
+
+foreach ( $plans as $plan_index => $plan ) {
+	if ( $plan['featured'] ) {
+		$selected_plan = $plan_index;
+	}
+
+	if ( $plan['supports_billing'] && ( $plan['monthly_price'] !== $plan['annual_price'] || $plan['monthly_suffix'] !== $plan['annual_suffix'] ) ) {
+		$has_billing_choice = true;
+	}
+}
+
+if ( ! $has_heading || empty( $plans ) ) {
+	if ( ! $is_editor_preview ) {
+		return;
+	}
+
+	$wrapper_attributes = get_block_wrapper_attributes(
+		array(
+			'class' => 'pricing-tables pricing-tables--incomplete',
+		)
+	);
+	?>
+	<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Generated by WordPress. ?>>
+		<p class="pricing-tables__editor-guidance"><?php esc_html_e( 'Pricing Tables: add heading content and at least one complete plan to preview this block.', 'cr-practice' ); ?></p>
+	</div>
+	<?php
+	return;
+}
+
+$instance_id          = wp_unique_id( 'pricing-tables-' );
+$heading_id           = $instance_id . '-heading';
+$billing_legend_id    = $instance_id . '-billing-legend';
+$card_heading_level   = 'h' . min( 6, (int) substr( $heading_level, 1 ) + 1 );
+$asset_base_uri       = get_theme_file_uri( '/parts/modules/pricing-tables/assets' );
+$wrapper_attributes   = get_block_wrapper_attributes(
+	array(
+		'class' => sprintf( 'pricing-tables pricing-tables--count-%d', count( $plans ) ),
+	)
+);
+?>
+<section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Generated by WordPress. ?> aria-labelledby="<?php echo esc_attr( $heading_id ); ?>" data-pricing-tables data-billing-period="<?php echo esc_attr( $default_billing ); ?>"<?php if ( $is_editor_preview ) : ?> data-editor-preview="true"<?php endif; ?>>
+	<header class="pricing-tables__header">
+		<?php if ( '' !== $eyebrow ) : ?>
+			<p class="pricing-tables__eyebrow">
+				<img src="<?php echo esc_url( $asset_base_uri . '/tag.svg' ); ?>" alt="" aria-hidden="true">
+				<span><?php echo esc_html( $eyebrow ); ?></span>
+			</p>
+		<?php endif; ?>
+
+		<<?php echo esc_html( $heading_level ); ?> class="pricing-tables__heading" id="<?php echo esc_attr( $heading_id ); ?>">
+			<?php echo $heading_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Allowlisted heading markup. ?>
+		</<?php echo esc_html( $heading_level ); ?>>
+
+		<?php if ( '' !== trim( wp_strip_all_tags( $body ) ) ) : ?>
+			<div class="pricing-tables__body"><?php echo wp_kses_post( $body ); ?></div>
+		<?php endif; ?>
+
+		<?php if ( $has_billing_choice ) : ?>
+			<fieldset class="pricing-tables__billing" data-pricing-billing<?php if ( ! $is_editor_preview ) : ?> hidden<?php else : ?> disabled<?php endif; ?>>
+				<legend class="pricing-tables__billing-legend" id="<?php echo esc_attr( $billing_legend_id ); ?>"><?php esc_html_e( 'Billing frequency', 'cr-practice' ); ?></legend>
+				<label class="pricing-tables__billing-option">
+					<input type="radio" name="<?php echo esc_attr( $instance_id . '-billing' ); ?>" value="monthly"<?php checked( 'monthly', $default_billing ); ?>>
+					<span><?php echo esc_html( $monthly_label ); ?></span>
+				</label>
+				<label class="pricing-tables__billing-option">
+					<input type="radio" name="<?php echo esc_attr( $instance_id . '-billing' ); ?>" value="annual"<?php checked( 'annual', $default_billing ); ?>>
+					<span><?php echo esc_html( $annual_label ); ?></span>
+					<?php if ( '' !== $savings_label ) : ?><small><?php echo esc_html( $savings_label ); ?></small><?php endif; ?>
+				</label>
+			</fieldset>
+		<?php endif; ?>
+	</header>
+
+	<fieldset class="pricing-tables__plans">
+		<legend class="pricing-tables__plans-legend"><?php esc_html_e( 'Choose a plan', 'cr-practice' ); ?></legend>
+		<?php foreach ( $plans as $plan_index => $plan ) : ?>
+			<?php
+			$card_heading_id = wp_unique_id( 'pricing-tables-plan-' );
+			$current_price   = 'annual' === $default_billing ? $plan['annual_price'] : $plan['monthly_price'];
+			$current_suffix  = 'annual' === $default_billing ? $plan['annual_suffix'] : $plan['monthly_suffix'];
+			$card_classes    = 'pricing-tables__plan';
+
+			if ( $plan['featured'] ) {
+				$card_classes .= ' pricing-tables__plan--featured';
+			}
+
+			if ( $selected_plan === $plan_index ) {
+				$card_classes .= ' is-selected';
+			}
+			?>
+			<article class="<?php echo esc_attr( $card_classes ); ?>" aria-labelledby="<?php echo esc_attr( $card_heading_id ); ?>">
+				<?php if ( $plan['featured'] && '' !== $plan['popular_label'] ) : ?>
+					<p class="pricing-tables__popular"><?php echo esc_html( $plan['popular_label'] ); ?></p>
+				<?php endif; ?>
+
+				<<?php echo esc_html( $card_heading_level ); ?> class="pricing-tables__plan-name" id="<?php echo esc_attr( $card_heading_id ); ?>"><?php echo esc_html( $plan['name'] ); ?></<?php echo esc_html( $card_heading_level ); ?>>
+
+				<p class="pricing-tables__price">
+					<strong data-pricing-value data-monthly="<?php echo esc_attr( $plan['monthly_price'] ); ?>" data-annual="<?php echo esc_attr( $plan['annual_price'] ); ?>"><?php echo esc_html( $current_price ); ?></strong>
+					<?php if ( '' !== $plan['monthly_suffix'] || '' !== $plan['annual_suffix'] ) : ?>
+						<span data-pricing-suffix data-monthly="<?php echo esc_attr( $plan['monthly_suffix'] ); ?>" data-annual="<?php echo esc_attr( $plan['annual_suffix'] ); ?>"><?php echo esc_html( $current_suffix ); ?></span>
+					<?php endif; ?>
+				</p>
+
+				<?php if ( '' !== $plan['description'] ) : ?>
+					<p class="pricing-tables__description"><?php echo esc_html( $plan['description'] ); ?></p>
+				<?php endif; ?>
+
+				<?php if ( ! empty( $plan['features'] ) ) : ?>
+					<ul class="pricing-tables__features">
+						<?php foreach ( $plan['features'] as $feature ) : ?>
+							<li>
+								<img src="<?php echo esc_url( $asset_base_uri . '/feature-check.svg' ); ?>" alt="" aria-hidden="true">
+								<span><?php echo esc_html( $feature ); ?></span>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+
+				<label class="pricing-tables__plan-choice" hidden>
+					<input type="radio" name="<?php echo esc_attr( $instance_id . '-plan' ); ?>" value="<?php echo esc_attr( sanitize_title( $plan['name'] ) ); ?>" data-pricing-plan-choice data-supports-billing="<?php echo $plan['supports_billing'] ? 'true' : 'false'; ?>"<?php checked( $selected_plan, $plan_index ); ?>>
+					<span><?php echo esc_html( sprintf( __( 'Select %s', 'cr-practice' ), $plan['name'] ) ); ?></span>
+				</label>
+
+				<?php if ( ! empty( $plan['cta'] ) ) : ?>
+					<a class="pricing-tables__cta" <?php if ( $is_editor_preview ) : ?>role="link" aria-disabled="true"<?php else : ?>href="<?php echo esc_url( $plan['cta']['url'] ); ?>"<?php if ( '_blank' === $plan['cta']['target'] ) : ?> target="_blank" rel="noopener noreferrer"<?php endif; ?><?php endif; ?>>
+						<span><?php echo esc_html( $plan['cta']['title'] ); ?></span>
+						<img class="pricing-tables__cta-arrow pricing-tables__cta-arrow--dark" src="<?php echo esc_url( $asset_base_uri . '/arrow-dark.svg' ); ?>" alt="" aria-hidden="true">
+						<img class="pricing-tables__cta-arrow pricing-tables__cta-arrow--light" src="<?php echo esc_url( $asset_base_uri . '/arrow-light.svg' ); ?>" alt="" aria-hidden="true">
+					</a>
+				<?php endif; ?>
+			</article>
+		<?php endforeach; ?>
+	</fieldset>
+</section>

@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/pricing-tables",
+	"version": "1.0.0",
+	"title": "Pricing Tables",
+	"category": "design",
+	"icon": "money-alt",
+	"description": "Presents up to three pricing plans with an optional monthly and annual billing selector.",
+	"keywords": ["pricing", "plans", "tiers", "subscriptions"],
+	"textdomain": "cr-practice",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit pricing content",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "pricing-tables.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorStyle": "file:./pricing-tables-editor.css",
+	"script": "file:./pricing-tables.js",
+	"style": "file:./pricing-tables.css"
+}
