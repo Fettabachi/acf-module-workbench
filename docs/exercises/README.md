@@ -20,4 +20,4 @@ the following format so future exercises are easy to review:
 | Exercise 06 — Filtered Content Grid | Completed | `6e3109e` | [View record](exercise-06-filtered-content-grid.md) |
 | Exercise 07 — Responsive Campaign Hero | Completed | `dac469f` | [View record](exercise-07-responsive-campaign-hero.md) |
 | Exercise 08 — Accessible Inline Media | Completed | `c34d211` | [View record](exercise-08-accessible-inline-media.md) |
-| Exercise 09 — Pricing Tables | Ready for review | Pending | [View record](exercise-09-pricing-tables.md) |
+| Exercise 09 — Pricing Tables | Ready for review | `e131909` | [View record](exercise-09-pricing-tables.md) |

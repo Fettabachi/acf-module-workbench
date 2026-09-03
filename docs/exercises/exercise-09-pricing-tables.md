@@ -46,7 +46,7 @@ tier, and an accessible progressive billing selector.
 
 ## Implementation commit
 
-Pending review; no implementation commit was requested.
+`e131909` — Build accessible pricing tables module.
 
 ## Timing breakdown
 
