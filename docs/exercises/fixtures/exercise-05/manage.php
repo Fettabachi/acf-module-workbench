@@ -7,7 +7,7 @@
  * wp eval-file manage.php verify
  * wp eval-file manage.php cleanup --apply
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
 if ( ! defined( 'ABSPATH' ) || ! defined( 'WP_CLI' ) || ! WP_CLI ) {
@@ -30,7 +30,7 @@ $apply_cleanup = in_array( '--apply', $args, true );
  * @param string $fixture_value Fixture marker value.
  * @return int
  */
-function cr_practice_exercise_05_category_id( string $name, string $slug, string $term_key, string $fixture_key, string $fixture_value ): int {
+function acf_module_workbench_exercise_05_category_id( string $name, string $slug, string $term_key, string $fixture_key, string $fixture_value ): int {
 	$term = get_term_by( 'slug', $slug, 'category' );
 
 	if ( $term instanceof WP_Term ) {
@@ -77,7 +77,7 @@ function cr_practice_exercise_05_category_id( string $name, string $slug, string
  * @param string $slug Attachment post slug.
  * @return int
  */
-function cr_practice_exercise_05_attachment_id( string $slug ): int {
+function acf_module_workbench_exercise_05_attachment_id( string $slug ): int {
 	$attachment = get_page_by_path( $slug, OBJECT, 'attachment' );
 
 	return $attachment instanceof WP_Post ? (int) $attachment->ID : 0;
@@ -99,15 +99,15 @@ if ( 'import' === $action ) {
 	}
 
 	$category_ids = array(
-		'strategy'   => cr_practice_exercise_05_category_id( 'Strategy', 'exercise-05-strategy', $term_key, $fixture_key, $fixture_value ),
-		'design'     => cr_practice_exercise_05_category_id( 'Design', 'exercise-05-design', $term_key, $fixture_key, $fixture_value ),
-		'technology' => cr_practice_exercise_05_category_id( 'Technology', 'exercise-05-technology', $term_key, $fixture_key, $fixture_value ),
+		'strategy'   => acf_module_workbench_exercise_05_category_id( 'Strategy', 'exercise-05-strategy', $term_key, $fixture_key, $fixture_value ),
+		'design'     => acf_module_workbench_exercise_05_category_id( 'Design', 'exercise-05-design', $term_key, $fixture_key, $fixture_value ),
+		'technology' => acf_module_workbench_exercise_05_category_id( 'Technology', 'exercise-05-technology', $term_key, $fixture_key, $fixture_value ),
 	);
 
 	$image_ids = array(
-		'discover' => cr_practice_exercise_05_attachment_id( 'discover-customer-journey-workshop' ),
-		'define'   => cr_practice_exercise_05_attachment_id( 'define-wireframe-sketching' ),
-		'build'    => cr_practice_exercise_05_attachment_id( 'build-development-in-progress' ),
+		'discover' => acf_module_workbench_exercise_05_attachment_id( 'discover-customer-journey-workshop' ),
+		'define'   => acf_module_workbench_exercise_05_attachment_id( 'define-wireframe-sketching' ),
+		'build'    => acf_module_workbench_exercise_05_attachment_id( 'build-development-in-progress' ),
 	);
 
 	$posts = array(

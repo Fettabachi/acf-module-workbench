@@ -96,7 +96,7 @@ wrap without causing horizontal overflow.
 - A renderer matrix confirmed empty frontend output, editor guidance, invalid
   heading fallback, incomplete-link rejection, safe external-link attributes,
   0–100 progress clamping, bundled media fallback, and selected-image alt text.
-- The live local WordPress runtime confirmed the active `cr-practice` theme,
+- The live local WordPress runtime confirmed the active `acf-module-workbench` theme,
   registered `acf/campaign-hero` block and stylesheet, and active 22-field ACF
   group.
 - Browser QA at 390px, 768px, 1023px, 1024px, and 1440px confirmed 56–80px

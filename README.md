@@ -1,6 +1,6 @@
-# CR Practice
+# ACF Module Workbench
 
-A lightweight custom WordPress theme for agency-style frontend and reusable ACF module exercises. It deliberately uses native PHP and CSS with no build process.
+A lightweight custom WordPress theme for building agency-style frontends and reusable ACF modules. It deliberately uses native PHP and CSS with no build process.
 
 ## Requirements
 

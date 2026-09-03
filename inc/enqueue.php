@@ -2,10 +2,10 @@
 /**
  * Frontend assets.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
-namespace CR_Practice;
+namespace ACF_Module_Workbench;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -20,7 +20,7 @@ function enqueue_assets(): void {
 	$version         = file_exists( $stylesheet_path ) ? (string) filemtime( $stylesheet_path ) : $theme->get( 'Version' );
 
 	wp_enqueue_style(
-		'cr-practice',
+		'acf-module-workbench',
 		get_theme_file_uri( '/assets/css/theme.css' ),
 		array(),
 		$version

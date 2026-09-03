@@ -2,7 +2,7 @@
 /**
  * Inline Media block template.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,11 +45,11 @@ if ( ! $is_complete ) {
 	$missing_fields = array();
 
 	if ( '' === $heading ) {
-		$missing_fields[] = __( 'a heading', 'cr-practice' );
+		$missing_fields[] = __( 'a heading', 'acf-module-workbench' );
 	}
 
 	if ( ! $has_video ) {
-		$missing_fields[] = __( 'a supported video', 'cr-practice' );
+		$missing_fields[] = __( 'a supported video', 'acf-module-workbench' );
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes(
@@ -64,8 +64,8 @@ if ( ! $is_complete ) {
 			echo esc_html(
 				sprintf(
 					/* translators: %s: Comma-separated list of missing required fields. */
-					__( 'Inline Media: add %s to preview this block.', 'cr-practice' ),
-					implode( __( ' and ', 'cr-practice' ), $missing_fields )
+					__( 'Inline Media: add %s to preview this block.', 'acf-module-workbench' ),
+					implode( __( ' and ', 'acf-module-workbench' ), $missing_fields )
 				)
 			);
 			?>
@@ -134,12 +134,12 @@ $wrapper_attributes   = get_block_wrapper_attributes(
 			</div>
 		<?php else : ?>
 			<div class="inline-media__player">
-				<video class="inline-media__video" controls playsinline preload="none" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: Video section heading. */ __( 'Video: %s', 'cr-practice' ), $heading ) ); ?>"<?php if ( is_string( $poster_url ) && '' !== $poster_url ) : ?> poster="<?php echo esc_url( $poster_url ); ?>"<?php endif; ?>>
+				<video class="inline-media__video" controls playsinline preload="none" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: Video section heading. */ __( 'Video: %s', 'acf-module-workbench' ), $heading ) ); ?>"<?php if ( is_string( $poster_url ) && '' !== $poster_url ) : ?> poster="<?php echo esc_url( $poster_url ); ?>"<?php endif; ?>>
 					<source src="<?php echo esc_url( $video_url ); ?>" type="<?php echo esc_attr( $video_mime ); ?>">
 					<?php if ( $has_captions ) : ?>
 						<track kind="captions" src="<?php echo esc_url( $captions_url ); ?>" srclang="<?php echo esc_attr( $captions_language ); ?>" label="<?php echo esc_attr( $captions_label ); ?>" default>
 					<?php endif; ?>
-					<a href="<?php echo esc_url( $video_url ); ?>"><?php esc_html_e( 'Open the video file', 'cr-practice' ); ?></a>
+					<a href="<?php echo esc_url( $video_url ); ?>"><?php esc_html_e( 'Open the video file', 'acf-module-workbench' ); ?></a>
 				</video>
 
 				<?php if ( $has_poster ) : ?>
@@ -158,7 +158,7 @@ $wrapper_attributes   = get_block_wrapper_attributes(
 					</div>
 					<button class="inline-media__play" type="button" hidden data-inline-media-play>
 						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 7 8 5-8 5Z"></path></svg>
-						<span class="inline-media__play-label"><?php esc_html_e( 'Play video', 'cr-practice' ); ?></span>
+						<span class="inline-media__play-label"><?php esc_html_e( 'Play video', 'acf-module-workbench' ); ?></span>
 					</button>
 				<?php endif; ?>
 			</div>
@@ -167,7 +167,7 @@ $wrapper_attributes   = get_block_wrapper_attributes(
 		<?php if ( $has_transcript ) : ?>
 			<div class="inline-media__transcript" data-inline-media-transcript>
 				<button class="inline-media__transcript-toggle" type="button" aria-expanded="false" aria-controls="<?php echo esc_attr( $transcript_id ); ?>" hidden data-inline-media-transcript-toggle>
-					<?php esc_html_e( 'View transcript', 'cr-practice' ); ?>
+					<?php esc_html_e( 'View transcript', 'acf-module-workbench' ); ?>
 				</button>
 				<div class="inline-media__transcript-content" id="<?php echo esc_attr( $transcript_id ); ?>">
 					<div class="inline-media__transcript-content-inner">

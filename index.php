@@ -3,7 +3,7 @@
 /**
  * Main template fallback.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
 get_header();
@@ -32,8 +32,8 @@ get_header();
             <?php the_posts_navigation(); ?>
         <?php else : ?>
             <section class="entry">
-                <h1 class="entry__title"><?php esc_html_e('Nothing found', 'cr-practice'); ?></h1>
-                <p><?php esc_html_e('There is no content to display yet.', 'cr-practice'); ?></p>
+                <h1 class="entry__title"><?php esc_html_e('Nothing found', 'acf-module-workbench'); ?></h1>
+                <p><?php esc_html_e('There is no content to display yet.', 'acf-module-workbench'); ?></p>
             </section>
         <?php endif; ?>
     </div>

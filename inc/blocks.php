@@ -2,10 +2,10 @@
 /**
  * ACF block registration.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
-namespace CR_Practice;
+namespace ACF_Module_Workbench;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

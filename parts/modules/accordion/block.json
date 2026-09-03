@@ -8,7 +8,7 @@
 	"icon": "list-view",
 	"description": "Presents independently expandable questions and answers.",
 	"keywords": ["accordion", "questions", "faq"],
-	"textdomain": "cr-practice",
+	"textdomain": "acf-module-workbench",
 	"attributes": {
 		"align": {
 			"type": "string",
