@@ -25,3 +25,7 @@ Keep a module's template and module-specific assets together under `parts/module
 Read `AGENTS.md` and the relevant skill before editing. Activate the theme in **Appearance → Themes** when it is ready to use. No database content or ACF field groups are created by the starter.
 
 The official skills in `.agents/skills/` are vendored without changes from [WordPress/agent-skills](https://github.com/WordPress/agent-skills). See each skill's own metadata and license information for compatibility and usage details.
+
+## Licensing
+
+Original project code and documentation are available under the [MIT License](LICENSE). Bundled third-party materials retain their respective licenses; see [Third-party notices](THIRD_PARTY_NOTICES.md) for attribution and scope.
