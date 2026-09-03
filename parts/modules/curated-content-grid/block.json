@@ -8,7 +8,7 @@
 	"icon": "grid-view",
 	"description": "Presents a manually selected and ordered collection of published posts.",
 	"keywords": ["curated", "posts", "content", "grid"],
-	"textdomain": "cr-practice",
+	"textdomain": "acf-module-workbench",
 	"attributes": {
 		"align": {
 			"type": "string",

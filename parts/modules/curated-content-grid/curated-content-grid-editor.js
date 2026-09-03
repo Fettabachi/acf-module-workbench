@@ -23,17 +23,17 @@
 		const copy = item.cloneNode(true);
 		copy.querySelectorAll('a, button, input, .thumbnail').forEach((element) => element.remove());
 
-		return copy.textContent.trim() || __('Selected post', 'cr-practice');
+		return copy.textContent.trim() || __('Selected post', 'acf-module-workbench');
 	};
 
 	const createMoveButton = (direction, title) => {
 		const button = document.createElement('button');
-		const label = 'up' === direction ? __('Move up', 'cr-practice') : __('Move down', 'cr-practice');
+		const label = 'up' === direction ? __('Move up', 'acf-module-workbench') : __('Move down', 'acf-module-workbench');
 
 		button.type = 'button';
 		button.className = 'curated-content-grid-editor__move';
 		button.dataset.curatedContentGridMove = direction;
-		button.setAttribute('aria-label', sprintf(__('%1$s: %2$s', 'cr-practice'), label, title));
+		button.setAttribute('aria-label', sprintf(__('%1$s: %2$s', 'acf-module-workbench'), label, title));
 		button.title = label;
 		button.innerHTML = 'up' === direction ? '<span aria-hidden="true">↑</span>' : '<span aria-hidden="true">↓</span>';
 
@@ -81,8 +81,8 @@
 		if (remove) {
 			remove.classList.remove('dark', 'small');
 			remove.classList.add('curated-content-grid-editor__remove');
-			remove.setAttribute('aria-label', sprintf(__('Remove: %s', 'cr-practice'), title));
-			remove.title = __('Remove', 'cr-practice');
+			remove.setAttribute('aria-label', sprintf(__('Remove: %s', 'acf-module-workbench'), title));
+			remove.title = __('Remove', 'acf-module-workbench');
 		}
 
 		item.classList.add('curated-content-grid-editor__item');
@@ -92,7 +92,7 @@
 		moveDown.disabled = index === itemCount - 1;
 	};
 
-	const getStatusText = (itemCount) => sprintf(__('%d selected', 'cr-practice'), itemCount);
+	const getStatusText = (itemCount) => sprintf(__('%d selected', 'acf-module-workbench'), itemCount);
 
 	const updateField = (field) => {
 		const relationship = field.querySelector('.acf-relationship');
@@ -162,7 +162,7 @@
 		launcher.className = 'curated-content-grid-editor__launcher';
 		openButton.type = 'button';
 		openButton.className = 'curated-content-grid-editor__open';
-		openButton.textContent = __('Manage posts', 'cr-practice');
+		openButton.textContent = __('Manage posts', 'acf-module-workbench');
 		launcherStatus.className = 'curated-content-grid-editor__launcher-status';
 		launcherStatus.dataset.curatedContentGridStatus = 'true';
 		launcherStatus.textContent = getStatusText(0);
@@ -173,10 +173,10 @@
 		dialogHeader.className = 'curated-content-grid-editor__dialog-header';
 		dialogTitle.id = titleId;
 		dialogTitle.className = 'curated-content-grid-editor__dialog-title';
-		dialogTitle.textContent = __('Manage curated posts', 'cr-practice');
+		dialogTitle.textContent = __('Manage curated posts', 'acf-module-workbench');
 		closeButton.type = 'button';
 		closeButton.className = 'curated-content-grid-editor__close';
-		closeButton.setAttribute('aria-label', __('Close post manager', 'cr-practice'));
+		closeButton.setAttribute('aria-label', __('Close post manager', 'acf-module-workbench'));
 		closeButton.innerHTML = '<span aria-hidden="true">×</span>';
 		dialogHeader.append(dialogTitle, closeButton);
 		dialogBody.className = 'curated-content-grid-editor__dialog-body';
@@ -246,11 +246,11 @@
 		}
 
 		if (!choices.querySelector(':scope > .curated-content-grid-editor__list-heading')) {
-			addListHeading(choices, __('Available posts', 'cr-practice'), choicesList);
+			addListHeading(choices, __('Available posts', 'acf-module-workbench'), choicesList);
 		}
 
 		if (!values.querySelector(':scope > .curated-content-grid-editor__list-heading')) {
-			addListHeading(values, __('Selected posts', 'cr-practice'), valuesList, true);
+			addListHeading(values, __('Selected posts', 'acf-module-workbench'), valuesList, true);
 		}
 
 		if (!listObservers.has(valuesList)) {

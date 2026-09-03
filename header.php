@@ -3,7 +3,7 @@
 /**
  * Site header.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 ?>
 <!doctype html>
@@ -17,7 +17,7 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'cr-practice'); ?></a>
+    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'acf-module-workbench'); ?></a>
     <header class="site-header">
         <div class="container site-header__inner">
             <div class="site-branding">
@@ -28,7 +28,7 @@
                 <?php endif; ?>
             </div>
             <?php if (has_nav_menu('primary')) : ?>
-                <nav class="primary-navigation" aria-label="<?php esc_attr_e('Primary navigation', 'cr-practice'); ?>">
+                <nav class="primary-navigation" aria-label="<?php esc_attr_e('Primary navigation', 'acf-module-workbench'); ?>">
                     <?php
                     wp_nav_menu(
                         array(

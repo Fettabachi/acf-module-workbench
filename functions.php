@@ -1,8 +1,8 @@
 <?php
 /**
- * CR Practice theme bootstrap.
+ * ACF Module Workbench theme bootstrap.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

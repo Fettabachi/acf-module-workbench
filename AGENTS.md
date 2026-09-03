@@ -1,4 +1,4 @@
-# CR Practice development guardrails
+# ACF Module Workbench development guardrails
 
 These rules apply to work in this theme. Read the relevant local skills before changing code. Exercise-specific requirements override these rules only when they explicitly conflict.
 
@@ -18,7 +18,7 @@ These rules apply to work in this theme. Read the relevant local skills before c
 - Use semantic HTML and preserve the WordPress template lifecycle and hooks.
 - Treat every ACF field as potentially empty. Do not render empty wrappers, links, headings, media, or attributes.
 - Give editors only purposeful controls. Use predictable field names and keep field definitions exportable in `/acf-json`.
-- Namespace PHP symbols or use the `cr_practice_` prefix to prevent collisions.
+- Namespace PHP symbols or use the `acf_module_workbench_` prefix to prevent collisions.
 
 ## Frontend quality
 

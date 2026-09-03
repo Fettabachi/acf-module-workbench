@@ -2,7 +2,7 @@
 /**
  * Site footer.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 ?>
 <footer class="site-footer">
@@ -11,7 +11,7 @@
 			<?php
 			printf(
 				/* translators: %s: Current year. */
-				esc_html__( 'Copyright %s', 'cr-practice' ),
+				esc_html__( 'Copyright %s', 'acf-module-workbench' ),
 				esc_html( wp_date( 'Y' ) )
 			);
 			?>

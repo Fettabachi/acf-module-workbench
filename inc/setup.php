@@ -2,10 +2,10 @@
 /**
  * Theme setup.
  *
- * @package CR_Practice
+ * @package ACF_Module_Workbench
  */
 
-namespace CR_Practice;
+namespace ACF_Module_Workbench;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register core theme features.
  */
 function setup(): void {
-	load_theme_textdomain( 'cr-practice', get_theme_file_path( '/languages' ) );
+	load_theme_textdomain( 'acf-module-workbench', get_theme_file_path( '/languages' ) );
 
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -45,7 +45,7 @@ function setup(): void {
 
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary navigation', 'cr-practice' ),
+			'primary' => __( 'Primary navigation', 'acf-module-workbench' ),
 		)
 	);
 }

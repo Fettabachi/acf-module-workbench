@@ -22,7 +22,7 @@ import does not create duplicate posts.
 From the WordPress installation root, run:
 
 ```sh
-wp eval-file wp-content/themes/cr-practice/docs/exercises/fixtures/exercise-05/manage.php import
+wp eval-file wp-content/themes/acf-module-workbench/docs/exercises/fixtures/exercise-05/manage.php import
 ```
 
 The script uses the first existing WordPress user as the post author. It does
@@ -34,7 +34,7 @@ Verify the expected post, category, excerpt, long-title, and featured-image
 counts after importing:
 
 ```sh
-wp eval-file wp-content/themes/cr-practice/docs/exercises/fixtures/exercise-05/manage.php verify
+wp eval-file wp-content/themes/acf-module-workbench/docs/exercises/fixtures/exercise-05/manage.php verify
 ```
 
 ## Cleanup
@@ -44,7 +44,7 @@ and then removes the three exercise-specific categories. It requires an
 explicit confirmation argument:
 
 ```sh
-wp eval-file wp-content/themes/cr-practice/docs/exercises/fixtures/exercise-05/manage.php cleanup --apply
+wp eval-file wp-content/themes/acf-module-workbench/docs/exercises/fixtures/exercise-05/manage.php cleanup --apply
 ```
 
 The reused media attachments are not deleted.

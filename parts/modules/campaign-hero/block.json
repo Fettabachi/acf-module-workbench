@@ -8,7 +8,7 @@
 	"icon": "cover-image",
 	"description": "Introduces a campaign with responsive calls to action and a desktop performance visual.",
 	"keywords": ["campaign", "hero", "cta", "responsive"],
-	"textdomain": "cr-practice",
+	"textdomain": "acf-module-workbench",
 	"attributes": {
 		"align": {
 			"type": "string",
