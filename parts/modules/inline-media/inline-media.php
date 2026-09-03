@@ -75,8 +75,6 @@ if ( ! $is_complete ) {
 	return;
 }
 
-$metadata             = wp_get_attachment_metadata( $video_id );
-$duration             = is_array( $metadata ) && isset( $metadata['length_formatted'] ) ? trim( (string) $metadata['length_formatted'] ) : '';
 $instance_id          = wp_unique_id( 'inline-media-' );
 $heading_id           = $instance_id . '-heading';
 $transcript_id        = $instance_id . '-transcript';
@@ -104,12 +102,6 @@ $wrapper_attributes   = get_block_wrapper_attributes(
 				<p class="inline-media__body"><?php echo esc_html( $body ); ?></p>
 			<?php endif; ?>
 
-			<?php if ( '' !== $duration ) : ?>
-				<p class="inline-media__duration">
-					<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-					<span><?php echo esc_html( $duration ); ?></span>
-				</p>
-			<?php endif; ?>
 		</div>
 
 		<?php if ( $is_editor_preview ) : ?>

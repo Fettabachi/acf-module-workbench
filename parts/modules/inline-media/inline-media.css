@@ -72,28 +72,6 @@
 	overflow-wrap: anywhere;
 }
 
-.inline-media .inline-media__duration {
-	display: inline-flex;
-	gap: 0.5rem;
-	align-items: center;
-	margin: 1.25rem 0 0;
-	color: var(--inline-media-muted);
-	font-family: var(--inline-media-font-label);
-	font-size: 0.875rem;
-	font-weight: 600;
-	line-height: 1.4;
-}
-
-.inline-media__duration svg {
-	width: 1.25rem;
-	height: 1.25rem;
-	fill: none;
-	stroke: currentcolor;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	stroke-width: 1.75;
-}
-
 .inline-media__player {
 	position: relative;
 	width: 100%;
