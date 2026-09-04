@@ -116,17 +116,19 @@ title only when wrapping is actually necessary.
 
 ## Editor contract
 
-- New blocks open in edit mode so empty defensive rendering does not create a
-  blank initialization experience.
+- The rendered block remains in preview mode. Editors open ACF's Expanded
+  Editor from the block toolbar or settings sidebar, and duplicate fields stay
+  hidden in the constrained sidebar.
 - The repeater uses block layout and the tab label as its collapsed summary.
-- Editor styles expose the collapse control and preserve clear row boundaries.
+- Editor styles give module fields the full modal width, expose the collapse
+  control, and preserve clear row boundaries.
 - A dedicated editor script must make the rendered preview tabs operable by
   pointer and keyboard even when Gutenberg intercepts normal block clicks. It
   must enhance both the editor document and Gutenberg's same-origin canvas
   document, including previews replaced after an ACF field update.
 - If editor enhancement fails, every panel remains visible rather than trapping
   editors on an inaccessible first-panel-only preview.
-- Field editing remains the primary authoring experience.
+- The expanded panel is the primary field-authoring experience.
 
 ## Validation targets
 

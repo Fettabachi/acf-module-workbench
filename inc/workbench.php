@@ -74,7 +74,7 @@ function get_workbench_components(): array {
 			'purpose'         => __( 'Use tabs for a small group of parallel topics when visitors are likely to compare or move between them in place.', 'acf-module-workbench' ),
 			'editor_controls' => array(
 				__( 'Section copy and repeatable tab labels with panel content.', 'acf-module-workbench' ),
-				__( 'Editor presentation keeps each tab item understandable as one unit.', 'acf-module-workbench' ),
+				__( 'An expanded editor gives each tab item and its rich content room outside the constrained Gutenberg sidebar.', 'acf-module-workbench' ),
 			),
 			'implementation'  => array(
 				__( 'Keyboard behavior follows the expected tab and arrow-key interaction model.', 'acf-module-workbench' ),

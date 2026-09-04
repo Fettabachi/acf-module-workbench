@@ -14,6 +14,7 @@ Editors provide section copy and repeatable items with a short tab label and cor
 - Identifiers are unique to each component instance.
 - Without JavaScript, all panels remain readable in document order.
 - Overflow behavior keeps the tab list usable when labels exceed the available width.
+- ACF's Expanded Editor gives the repeater and rich-content fields a focused, full-width editing surface while the block remains in preview mode.
 
 ## Accessibility and defensive behavior
 

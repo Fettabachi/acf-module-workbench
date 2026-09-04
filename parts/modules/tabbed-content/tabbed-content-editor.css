@@ -1,3 +1,8 @@
+.acf-block-form-modal .acf-field[data-key^="field_tabbed_content_"] {
+	float: none;
+	width: 100% !important;
+}
+
 .acf-field-repeater[data-key="field_tabbed_content_tabs"] .acf-row > .acf-row-handle.order .acf-icon.-collapse {
 	display: block;
 }

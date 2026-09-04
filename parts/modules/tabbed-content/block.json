@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "acf/tabbed-content",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"title": "Tabbed Content",
 	"category": "design",
 	"icon": "index-card",
@@ -16,7 +16,11 @@
 		}
 	},
 	"acf": {
-		"mode": "edit",
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit tabbed content",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
 		"renderTemplate": "tabbed-content.php"
 	},
 	"editorScript": "file:./tabbed-content-editor.js",
