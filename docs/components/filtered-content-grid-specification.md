@@ -1,9 +1,9 @@
-# Exercise 06 — Filtered Content Grid Specification
+# Filtered Content Grid Specification
 
 ## Design source
 
 This is an original component brief for the empty WordPress page titled
-“Exercise 06 Filtered Content Grid.” It follows the practice series into
+“Filtered Content Grid.” It extends the workbench with
 automatic post queries and progressively enhanced visitor controls.
 
 ## Goal

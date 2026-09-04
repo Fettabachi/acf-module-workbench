@@ -1,9 +1,9 @@
-# Exercise 08 — Accessible Inline Media Specification
+# Inline Media Specification
 
 ## Design source
 
-This exercise uses a self-authored component contract derived from the completed
-practice-series lessons. It is not a reproduction of a supplied Figma frame.
+This component uses a self-authored contract rather than reproducing a supplied
+Figma frame.
 
 ## Goal
 

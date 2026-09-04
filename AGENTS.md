@@ -62,7 +62,7 @@ Before modifying implementation files for a new exercise:
 Examples include `exercise/01-content-media`, `exercise/02-feature-grid`, and `exercise/03-accordion`.
 
 - If unrelated uncommitted changes exist, do not discard, overwrite, stash, or commit them without explicit instruction. Report the conflict and keep the work safely scoped.
-- Commit exercise documentation, including `docs/exercises/` records, on the same exercise branch because it describes that branch's work.
+- Commit component documentation under `docs/components/` on the same exercise branch because it describes that branch's work.
 - Repository-wide guidance learned during an exercise may be handled separately when appropriate, but do not silently commit it to `main` while exercise work is underway.
 - Do not merge an exercise branch into `main` unless explicitly instructed.
 - When implementation is complete, leave the exercise branch checked out and report its name, relevant commit hashes, the PR-style summary, and whether the working tree is clean. Treat the branch as ready for review, not automatically merged.
@@ -77,11 +77,12 @@ Examples include `exercise/01-content-media`, `exercise/02-feature-grid`, and `e
 - Review `git status` and run `git diff --check`. Do not commit unless asked.
 - Finish with a concise report of changed files, decisions, validation, and any manual step or unresolved limitation.
 
-## Exercise records
+## Component documentation
 
-- Preserve the completed-exercise record under `docs/exercises/` and its index in `docs/exercises/README.md`.
-- Record the PR-style summary, implementation commit hash, timing breakdown, key decisions, tradeoffs, deferred improvements, bottlenecks, and lessons for the next exercise.
-- When an exercise reveals a generally reusable lesson, recommend promoting it into `AGENTS.md` or the appropriate local skill rather than leaving it only in the exercise record.
+- Preserve the public component notes under `docs/components/` and their index in `docs/components/README.md`.
+- Document the component purpose, content contract, implementation decisions, accessibility and defensive behavior, validation, and meaningful tradeoffs or future improvements.
+- Keep timing, local environment details, page IDs, implementation journals, bottlenecks, and agent-process retrospectives out of public component documentation.
+- When work reveals a generally reusable lesson, promote it into `AGENTS.md` or the appropriate local skill rather than placing process notes in public documentation.
 
 ## Local skills
 

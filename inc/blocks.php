@@ -28,5 +28,6 @@ function register_acf_blocks(): void {
 	register_block_type( get_theme_file_path( '/parts/modules/campaign-hero' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/inline-media' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/pricing-tables' ) );
+	register_block_type( get_theme_file_path( '/parts/modules/open-positions' ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_acf_blocks' );

@@ -1,4 +1,4 @@
-# Exercise 07 — Responsive Campaign Hero Specification
+# Campaign Hero Specification
 
 ## Design source
 

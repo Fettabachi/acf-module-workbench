@@ -1,18 +1,16 @@
-# Exercise 03 — Accessible Accordion Specification
+# Accessible Accordion Specification
 
 ## Phase boundary
 
 This document defines the requirements and implementation contract for a
 portable `acf/accordion` block. This phase does not include implementation,
-sample content, database changes, updates to the completed-exercises index, or
-commits. The existing LocalWP post at ID 59 is reserved for later QA and must
-not be modified during this phase.
+sample content, database changes, or commits.
 
 ## Design sources
 
 - `accordion-desktop.png`
 - `accordion-mobile.png`
-- `exercise 03 Accordion Notes.rtf`
+- supplied accordion implementation notes
 
 The screenshots are the visual reference. The RTF supplies measurements and
 observations, but does not override this specification, `AGENTS.md`, or the
@@ -199,13 +197,13 @@ preview may not inherit the frontend root:
 - `--color-text` and `--color-muted` for primary and secondary copy;
 - `--color-border` for item borders;
 - `--color-neutral` for the open-summary surface;
-- an exercise-specific generic serif family for the section title and
+- a component-specific generic serif family for the section title and
   `--font-body` for controls and answer content;
 - `--radius` for the established corner-radius role.
 
 Do not repeat the screenshot's color literal in component CSS where those roles
 apply. Do not create an accordion-specific palette, spacing, radius, or shadow
-system. The exercise explicitly requires a serif title even though the current
+system. The component explicitly requires a serif title even though the current
 project display token resolves to sans, so the component may use the generic
 `serif` family without introducing an unapproved font asset. The current
 `--radius` is smaller than the approximately 12px reference; retain the project
@@ -232,12 +230,12 @@ role unless a reusable larger-radius decision is approved.
 
 The block should default to and support only `alignwide`, consistent with the
 existing modules. The host theme owns the available outer width and page
-gutters through its block alignment contract. For this exercise, the accordion
+gutters through its block alignment contract. For this component, the accordion
 section fills the available width up to an explicit `1000px` maximum and
 centers itself within the host area. Implement the cap as `62.5rem` at the
 project's root size. Do not add `.container` or a second set of outer gutters.
 
-The `1000px` cap is an exercise-specific component contract, not evidence for a
+The `1000px` cap is a component-specific contract, not evidence for a
 new project-wide width token.
 
 The module inherits its background from the parent and owns its `1000px`
@@ -341,8 +339,7 @@ use viewport-specific fixed heights or text widths.
    zoom/reflow, and rich-content links.
 8. **QA:** Validate data boundaries, malformed data, multiple instances and open
    items, animation interruption, frontend breakpoints, editor sidebar states,
-   PHP/JSON syntax, `git diff --check`, and the existing LocalWP QA page without
-   coupling the module to it.
+   PHP/JSON syntax, `git diff --check`, and a representative QA page.
 
 ## Validation matrix
 
@@ -363,12 +360,12 @@ animation fallback, and no console/PHP errors.
   implementation rather than guessed here.
 - The exact open-item shadow is unknown. It should remain restrained and must be
   measured or visually approved before being recorded as authoritative.
-- The exercise resolves the section width at a `1000px` maximum. Exact vertical
+- The component resolves the section width at a `1000px` maximum. Exact vertical
   section padding remains a responsive implementation judgment.
 - The visual reference suggests approximately 12px corners, while the current
   semantic `--radius` token is 8px. This specification favors the established
   role unless a genuinely reusable project-level radius decision is approved.
-- The exercise explicitly requires a serif title. Use the generic `serif`
+- The component explicitly requires a serif title. Use the generic `serif`
   family until an approved project display-font asset is established.
 - The chevron will be a controlled decorative inline SVG derived from the
   supplied visual treatment; exact stroke, size, and rotation need visual QA.
@@ -403,10 +400,4 @@ Implementation is done only when:
   pass QA;
 - changed PHP and JSON pass syntax checks, relevant project checks pass, and
   `git diff --check` is clean;
-- Exercise 03's completed record and index entry are added only after the later
-  implementation and QA phase, with its implementation commit and evidence.
-
-## Specification timing
-
-**Active time spent:** approximately 15 minutes (timeboxed requirements and
-specification phase).
+- Component notes are updated after implementation and QA are complete.

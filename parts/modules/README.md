@@ -64,3 +64,14 @@ default prices remain readable without JavaScript. Its billing
 indicator transitions between the two native radio states and respects reduced
 motion. The badge and CTA-arrow artwork are local Figma exports; the feature check
 is a purpose-built module asset.
+
+## Open Positions dependencies
+
+The Open Positions block depends on ACF text, textarea, button-group, and number
+fields plus the public Greenhouse Job Board API. The host supplies its documented
+semantic typography, color, surface, border, focus, and radius tokens plus the
+outer content width. The module owns its server-side HTTP request, response
+validation, transient caching, stale-data fallback, empty state, card layout, and
+responsive behavior. Only the public board token is editable; the API origin is
+fixed in code, no credential is stored, and no browser-side request or JavaScript
+is required.

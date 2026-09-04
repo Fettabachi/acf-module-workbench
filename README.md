@@ -6,7 +6,7 @@ A lightweight custom WordPress theme for building agency-style frontends and reu
 
 - WordPress 6.6 or newer
 - PHP 7.4 or newer
-- Advanced Custom Fields only for exercises that require it; ACF is not bundled
+- Advanced Custom Fields; ACF is not bundled
 
 ## Structure
 
@@ -19,6 +19,22 @@ acf-json/                      Exported ACF field groups
 ```
 
 Keep a module's template and module-specific assets together under `parts/modules/<module-name>/`, with its field-group JSON in `acf-json/`. Shared primitives belong in the theme foundation only when multiple portable modules genuinely need them.
+
+## Public workbench
+
+The front-page template discovers published component pages from the ACF blocks
+in their content and presents them as a component directory. Component metadata,
+public descriptions, source paths, and display order live in `inc/workbench.php`.
+
+Pages containing a registered workbench component automatically receive a native
+“Learn more about this component” disclosure, source and component-note links,
+and previous/next component navigation. The header uses the assigned WordPress
+menu when one exists and otherwise provides Components, About, and GitHub links.
+The About template is selected by the `about-the-workbench` page slug.
+
+Public page titles and documentation use component names without sequence
+numbers. Public notes and specifications live under `docs/components/`; the
+development history remains available through Git branches and commits.
 
 ## Development
 

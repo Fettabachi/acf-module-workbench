@@ -11,4 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once get_theme_file_path( '/inc/setup.php' );
 require_once get_theme_file_path( '/inc/enqueue.php' );
+require_once get_theme_file_path( '/inc/workbench.php' );
+require_once get_theme_file_path( '/parts/modules/open-positions/open-positions-api.php' );
 require_once get_theme_file_path( '/inc/blocks.php' );

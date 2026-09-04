@@ -1,8 +1,8 @@
-# Exercise 05 — Curated Content Grid Specification
+# Curated Content Grid Specification
 
 ## Design source
 
-This exercise is an original component brief rather than a screenshot
+This is an original component brief rather than a screenshot
 translation. It extends the practice series from editor-authored module content
 into a portable block that presents deliberately selected WordPress posts while
 retaining the established project design system and defensive ACF conventions.

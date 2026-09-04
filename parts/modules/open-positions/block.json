@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/open-positions",
+	"version": "1.0.0",
+	"title": "Open Positions",
+	"category": "design",
+	"icon": "businessperson",
+	"description": "Displays current job openings from a public Greenhouse job board.",
+	"keywords": ["careers", "jobs", "greenhouse", "recruiting"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "open-positions.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"style": "file:./open-positions.css"
+}

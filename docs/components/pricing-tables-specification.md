@@ -1,4 +1,4 @@
-# Exercise 09 — Pricing Tables Specification
+# Pricing Tables Specification
 
 ## Design source
 

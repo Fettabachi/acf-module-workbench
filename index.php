@@ -26,6 +26,19 @@ get_header();
                     <div class="entry__content">
                         <?php the_content(); ?>
                     </div>
+                    <?php if (is_page() && ! is_front_page()) : ?>
+                        <?php
+                        $workbench_component = \ACF_Module_Workbench\get_workbench_component_for_post(get_the_ID());
+
+                        if ($workbench_component) {
+                            get_template_part(
+                                'template-parts/workbench/component-details',
+                                null,
+                                array('component' => $workbench_component)
+                            );
+                        }
+                        ?>
+                    <?php endif; ?>
                 </article>
             <?php endwhile; ?>
 

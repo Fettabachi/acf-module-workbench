@@ -1,8 +1,8 @@
-# Exercise 04 — Tabbed Content Specification
+# Tabbed Content Specification
 
 ## Design source
 
-This exercise is an original component brief rather than a screenshot
+This is an original component brief rather than a screenshot
 translation. It extends the practice series into purposeful client-side
 behavior while retaining the established project design system and portable
 ACF module conventions.
