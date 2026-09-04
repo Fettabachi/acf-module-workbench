@@ -163,7 +163,7 @@ function get_workbench_components(): array {
 			'summary'         => __( 'Keeps a branded careers page synchronized with a public Greenhouse job board.', 'acf-module-workbench' ),
 			'purpose'         => __( 'Use this component when a recruiting team manages openings in Greenhouse but the website needs current jobs presented in its own design system.', 'acf-module-workbench' ),
 			'editor_controls' => array(
-				__( 'Section copy, public board token, result limit, link label, and empty state.', 'acf-module-workbench' ),
+				__( 'Section copy, a live public Greenhouse board token, result limit, link label, and empty state.', 'acf-module-workbench' ),
 				__( 'Full-width fields keep the integration settings readable in Gutenberg.', 'acf-module-workbench' ),
 			),
 			'implementation'  => array(

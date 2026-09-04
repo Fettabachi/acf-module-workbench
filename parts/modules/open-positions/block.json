@@ -2,11 +2,11 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "acf/open-positions",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"title": "Open Positions",
 	"category": "design",
 	"icon": "businessperson",
-	"description": "Displays current job openings from a public Greenhouse job board.",
+	"description": "Displays live job openings from a public Greenhouse job board.",
 	"keywords": ["careers", "jobs", "greenhouse", "recruiting"],
 	"textdomain": "acf-module-workbench",
 	"attributes": {

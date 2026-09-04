@@ -18,6 +18,11 @@ remains useful when the provider is empty or temporarily unavailable.
 
 - A heading and syntactically valid public Greenhouse board token are required
   for frontend output. Eyebrow and introduction are optional.
+- The board token is the organization slug immediately after
+  `job-boards.greenhouse.io/` in its main live public board URL. For example,
+  `https://job-boards.greenhouse.io/dept` uses the token `dept`. It is not a
+  department filter, API key, individual job identifier, or arbitrary sample
+  value; the corresponding public board must exist.
 - Editors may set a one-to-twelve display limit, a shared role-link label, and a
   visitor-facing message for an empty or unavailable board.
 - The provider origin and request path are fixed in code. Editors cannot supply
@@ -32,9 +37,10 @@ remains useful when the provider is empty or temporarily unavailable.
 - A successful result is cached for 15 minutes and retained for up to 24 hours as
   stale fallback data. Provider failures back off for five minutes so repeated
   page views do not create a request storm.
-- If the provider is unavailable and no validated cache exists, visitors see the
-  authored empty-state message. Editors also see a concise diagnostic note that
-  does not expose raw provider details.
+- If the provider is unavailable, the token does not identify a public board,
+  or no validated cache exists, visitors see the authored empty-state message.
+  Editors also see a concise diagnostic note that explains how to verify the
+  board URL without exposing raw provider details.
 
 ## Markup and accessibility contract
 

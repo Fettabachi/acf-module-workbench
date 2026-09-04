@@ -98,7 +98,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<div class="open-positions__empty">
 			<p><?php echo esc_html( $empty_message ); ?></p>
 			<?php if ( $is_editor_preview && is_wp_error( $result ) ) : ?>
-				<p class="open-positions__editor-status"><?php esc_html_e( 'Editor note: the configured Greenhouse board could not be loaded. Check the board token and API availability.', 'acf-module-workbench' ); ?></p>
+				<p class="open-positions__editor-status"><?php esc_html_e( 'Editor note: Greenhouse could not load this public board. Confirm that the token is the organization slug immediately after job-boards.greenhouse.io/ in the main board URL.', 'acf-module-workbench' ); ?></p>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>

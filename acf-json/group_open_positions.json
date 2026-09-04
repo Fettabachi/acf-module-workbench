@@ -64,16 +64,16 @@
 		},
 		{
 			"key": "field_open_positions_board_token",
-			"label": "Greenhouse Board Token",
+			"label": "Greenhouse Board Token (Live API)",
 			"name": "board_token",
 			"type": "text",
-			"instructions": "Enter only the final part of the public Greenhouse job board URL, such as “acme” from boards.greenhouse.io/acme. No API key is required.",
+			"instructions": "This loads live jobs from Greenhouse; it is not sample data. From your organization's main public board URL, copy the slug immediately after job-boards.greenhouse.io/. For https://job-boards.greenhouse.io/dept, enter dept. Do not use an individual job URL. The board must exist and be public. No API key is required.",
 			"required": 1,
 			"conditional_logic": 0,
 			"wrapper": {"width": "", "class": "", "id": ""},
 			"default_value": "",
 			"maxlength": 100,
-			"placeholder": "acme",
+			"placeholder": "",
 			"prepend": "",
 			"append": ""
 		},
@@ -139,5 +139,5 @@
 	"active": true,
 	"description": "Portable fields for a Greenhouse-powered list of open positions.",
 	"show_in_rest": 0,
-	"modified": 1788494400
+	"modified": 1788546276
 }
