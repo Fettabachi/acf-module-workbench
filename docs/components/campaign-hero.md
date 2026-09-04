@@ -12,6 +12,8 @@ Editors control campaign copy, a call to action, supporting proof points, and op
 
 - Responsive image sources support deliberate mobile and desktop crops.
 - Content order remains meaningful independently of the visual composition.
+- ACF's Expanded Editor keeps the tabbed field groups out of the constrained Gutenberg sidebar while the component preview remains aligned with the editor canvas.
+- The module root owns its box sizing so its responsive padding cannot overflow the Gutenberg preview or another host theme.
 - The layout is CSS-driven and requires no JavaScript.
 - Component styling uses project tokens while remaining scoped to the module.
 

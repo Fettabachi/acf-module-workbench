@@ -34,6 +34,9 @@ placement rather than a generalized hero primitive.
 - The efficiency label/value/description and deployment label/percentage/note are
   optional editor-managed informational content. They do not become links or
   controls.
+- The rendered component remains in preview mode. Its tabbed field groups open
+  in ACF's Expanded Editor from either the block toolbar or settings sidebar;
+  the full field form is not duplicated in the constrained sidebar.
 
 ## Responsive contract
 
@@ -47,7 +50,9 @@ placement rather than a generalized hero primitive.
   The mobile artwork is decorative, non-interactive, and hidden from assistive
   technology.
 - The host owns the outer content width and gutters. The block owns its internal
-  surface padding, columns, wrapping, and transition breakpoint.
+  surface padding, columns, wrapping, and transition breakpoint. The module root
+  includes its padding within `width: 100%` rather than relying on a host-theme
+  box-sizing reset.
 
 ## Rendering and accessibility
 
@@ -55,6 +60,9 @@ placement rather than a generalized hero primitive.
   metric elements; omit the entire frontend block without any heading content.
 - In the editor, an empty heading produces clear guidance rather than an invisible
   block.
+- The Gutenberg preview remains aligned with the post title and other root
+  content with the settings sidebar open or closed, while Expanded Editor
+  fields and tabs use the available modal width.
 - Use a labelled section with an allowlisted semantic heading level.
 - Preserve Media Library image markup for editor-selected media. Bundled decorative
   assets use empty alternative text and are excluded from the accessibility tree.

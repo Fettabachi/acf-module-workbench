@@ -119,7 +119,7 @@ function get_workbench_components(): array {
 			'purpose'         => __( 'Use this expressive hero for a focused campaign that needs a strong opening message, clear action, and responsive supporting artwork.', 'acf-module-workbench' ),
 			'editor_controls' => array(
 				__( 'Campaign copy, call to action, proof points, and an optional desktop image.', 'acf-module-workbench' ),
-				__( 'Purposeful limits protect the composition from becoming a generic page builder.', 'acf-module-workbench' ),
+				__( 'An expanded editor keeps the tabbed field groups readable without crowding the Gutenberg sidebar.', 'acf-module-workbench' ),
 			),
 			'implementation'  => array(
 				__( 'Local art-directed assets provide dependable desktop and mobile compositions.', 'acf-module-workbench' ),

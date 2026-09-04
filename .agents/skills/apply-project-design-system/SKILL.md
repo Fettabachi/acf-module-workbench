@@ -44,6 +44,10 @@ complete expression of the supplied project direction.
   default, and avoid viewport-only sizing without accessible bounds.
 - Reuse established spacing, border, surface, radius, and shadow conventions.
   Add a project token only when it represents a repeated, named design decision.
+- Treat an expandable region's panel as part of the interaction, not only its
+  trigger icon. When motion is appropriate, animate both opening and closing,
+  preserve a reliable no-motion fallback, and disable the transition for the
+  visitor's reduced-motion preference. Verify both directions in a browser.
 
 ## Decision process
 
@@ -79,6 +83,9 @@ unrelated heading roles onto the same interpolation curve.
 - Component CSS owns layout and behavior without competing visual foundations.
 - Fluid display sizes preserve documented rem-based endpoints and scale through
   the intended intermediate range without an accidental breakpoint jump.
+- Expandable regions visibly complete both their opening and closing states,
+  while reduced-motion users receive the same content and state changes without
+  the transition.
 - Frontend and editor styling use compatible tokens.
 - New tokens represent reusable decisions rather than screenshot approximations.
 - Unresolved design choices are reported explicitly.

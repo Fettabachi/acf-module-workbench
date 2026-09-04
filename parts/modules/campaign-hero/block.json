@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "acf/campaign-hero",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"title": "Campaign Hero",
 	"category": "design",
 	"icon": "cover-image",
@@ -16,6 +16,10 @@
 		}
 	},
 	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit campaign content",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
 		"mode": "preview",
 		"renderTemplate": "campaign-hero.php"
 	},
@@ -25,5 +29,6 @@
 		"html": false,
 		"multiple": false
 	},
+	"editorStyle": "file:./campaign-hero-editor.css",
 	"style": "file:./campaign-hero.css"
 }
