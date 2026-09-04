@@ -173,6 +173,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/open-positions',
 			'docs_path'       => 'docs/components/open-positions.md',
 		),
+		'acf/meet-the-team' => array(
+			'title'           => __( 'Meet the Team', 'acf-module-workbench' ),
+			'summary'         => __( 'Introduces a curated group of people with consistent portraits and optional department filtering.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component for a focused team directory where editors control the people, order, department labels, profile links, and recruitment call to action.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section copy, heading hierarchy, optional careers link, and visitor filter labels.', 'acf-module-workbench' ),
+				__( 'An ordered set of portraits, names, roles, departments, short biographies, and optional profile links.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'A native select progressively filters the authored collection while the complete directory remains available without JavaScript.', 'acf-module-workbench' ),
+				__( 'Portraits and underlined member names open scrollable biography panels that slide from the top, manage focus, and respect reduced-motion preferences, and retain inline content without JavaScript.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/meet-the-team',
+			'docs_path'       => 'docs/components/meet-the-team.md',
+		),
 	);
 }
 

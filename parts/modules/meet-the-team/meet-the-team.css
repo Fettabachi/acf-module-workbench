@@ -1,0 +1,454 @@
+.meet-the-team {
+	--meet-the-team-accent: var(--color-accent, #1a56db);
+	--meet-the-team-border: var(--color-border, rgb(23 32 42 / 0.14));
+	--meet-the-team-font-body: var(--font-body, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+	--meet-the-team-font-display: var(--font-display, var(--meet-the-team-font-body));
+	--meet-the-team-font-label: var(--font-label, var(--meet-the-team-font-body));
+	--meet-the-team-muted: var(--color-muted, #5f6b76);
+	--meet-the-team-radius: var(--radius, 0.5rem);
+	--meet-the-team-surface: var(--color-surface, #ffffff);
+	--meet-the-team-surface-subtle: var(--color-surface-subtle, #f4f6f8);
+	--meet-the-team-text: var(--color-text, #17202a);
+
+	box-sizing: border-box;
+	margin-block: clamp(2.5rem, 6vw, 5rem);
+	color: var(--meet-the-team-text);
+	font-family: var(--meet-the-team-font-body);
+	contain: inline-size;
+}
+
+.meet-the-team *,
+.meet-the-team *::before,
+.meet-the-team *::after {
+	box-sizing: border-box;
+}
+
+.meet-the-team__header {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	align-items: flex-start;
+	margin-block-end: clamp(2rem, 4vw, 3rem);
+}
+
+.meet-the-team__introduction-group {
+	max-width: var(--measure, 46rem);
+}
+
+.meet-the-team__eyebrow,
+.meet-the-team__filter-label {
+	margin: 0;
+	color: var(--meet-the-team-accent);
+	font-family: var(--meet-the-team-font-label);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.meet-the-team__eyebrow {
+	margin-block-end: 0.625rem;
+}
+
+.meet-the-team__heading {
+	margin: 0;
+	font-family: var(--meet-the-team-font-display);
+	font-size: clamp(2rem, calc(1.613rem + 1.587vw), 2.75rem);
+	font-weight: 500;
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+	overflow-wrap: anywhere;
+	text-wrap: balance;
+}
+
+.meet-the-team__introduction {
+	margin: 0.75rem 0 0;
+	color: var(--meet-the-team-muted);
+	font-size: clamp(1rem, calc(0.935rem + 0.264vw), 1.125rem);
+	line-height: 1.7;
+	overflow-wrap: anywhere;
+}
+
+.meet-the-team__careers-link {
+	display: inline-flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.75rem;
+	padding: 0.625rem 0.875rem;
+	border: 2px solid var(--meet-the-team-accent);
+	border-radius: var(--meet-the-team-radius);
+	color: var(--meet-the-team-surface);
+	background: var(--meet-the-team-accent);
+	font-family: var(--meet-the-team-font-label);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1.35;
+	text-align: center;
+	text-decoration: none;
+	transition: color 160ms ease, background-color 160ms ease;
+}
+
+.meet-the-team__careers-link:hover {
+	color: var(--meet-the-team-surface);
+	background: color-mix(in srgb, var(--meet-the-team-accent) 88%, var(--meet-the-team-text));
+}
+
+.meet-the-team__careers-icon {
+	width: 1.25rem;
+	height: 1.25rem;
+	object-fit: contain;
+}
+
+.meet-the-team__filter {
+	display: grid;
+	gap: 0.5rem;
+	width: min(100%, 22rem);
+	margin-block-end: 1.5rem;
+}
+
+.meet-the-team__filter[hidden] {
+	display: none;
+}
+
+.meet-the-team__select-wrap {
+	position: relative;
+}
+
+.meet-the-team__select-wrap::after {
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-right: 2px solid currentcolor;
+	border-bottom: 2px solid currentcolor;
+	content: "";
+	pointer-events: none;
+	transform: translateY(-70%) rotate(45deg);
+}
+
+.meet-the-team__select {
+	width: 100%;
+	min-height: 3rem;
+	padding: 0.65rem 2.75rem 0.65rem 0.875rem;
+	border: 1px solid var(--meet-the-team-border);
+	border-radius: var(--meet-the-team-radius);
+	color: var(--meet-the-team-text);
+	background: var(--meet-the-team-surface);
+	font: 600 1rem/1.35 var(--meet-the-team-font-body);
+	appearance: none;
+}
+
+.meet-the-team__select:focus-visible,
+.meet-the-team__careers-link:focus-visible,
+.meet-the-team__profile-link:focus-visible {
+	outline: 0.2rem solid var(--meet-the-team-accent);
+	outline-offset: 0.2rem;
+}
+
+.meet-the-team__status {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.meet-the-team__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: clamp(1.25rem, 3vw, 2rem);
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.meet-the-team__item {
+	min-width: 0;
+}
+
+.meet-the-team__item[hidden] {
+	display: none;
+}
+
+.meet-the-team__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-width: 0;
+	overflow: hidden;
+	border: 1px solid var(--meet-the-team-border);
+	border-radius: calc(var(--meet-the-team-radius) * 1.5);
+	background: var(--meet-the-team-surface);
+	transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.meet-the-team__media {
+	position: relative;
+	aspect-ratio: 1 / 1.05;
+	overflow: hidden;
+	background: var(--meet-the-team-surface-subtle);
+}
+
+.meet-the-team__media-trigger {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+.meet-the-team.is-enhanced .meet-the-team__media-trigger {
+	cursor: pointer;
+}
+
+.meet-the-team__media-trigger:focus-visible {
+	position: relative;
+	z-index: 1;
+	outline: 0.2rem solid var(--meet-the-team-accent);
+	outline-offset: -0.2rem;
+}
+
+.meet-the-team .meet-the-team__portrait {
+	display: block;
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	object-fit: cover;
+}
+
+.meet-the-team__member-content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+	min-width: 0;
+	padding: 1rem;
+}
+
+.meet-the-team__card--without-image .meet-the-team__member-content {
+	min-height: 10rem;
+	justify-content: flex-end;
+	background: linear-gradient(145deg, color-mix(in srgb, var(--meet-the-team-accent) 8%, transparent), transparent 68%), var(--meet-the-team-surface-subtle);
+}
+
+.meet-the-team__name {
+	min-width: 0;
+	margin: 0;
+	font-family: var(--meet-the-team-font-display);
+	font-size: clamp(1.25rem, calc(1.121rem + 0.529vw), 1.5rem);
+	font-weight: 700;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+	text-wrap: balance;
+}
+
+.meet-the-team__profile-link {
+	color: var(--meet-the-team-text);
+	text-decoration-color: color-mix(in srgb, var(--meet-the-team-accent) 45%, transparent);
+}
+
+.meet-the-team__profile-link:hover {
+	color: var(--meet-the-team-accent);
+	text-decoration-color: currentcolor;
+}
+
+.meet-the-team__bio-trigger {
+	padding: 0;
+	border: 0;
+	color: inherit;
+	background: transparent;
+	font: inherit;
+	text-align: left;
+}
+
+.meet-the-team.is-enhanced .meet-the-team__bio-trigger {
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--meet-the-team-accent) 55%, transparent);
+	text-decoration-thickness: 0.08em;
+	text-underline-offset: 0.15em;
+	cursor: pointer;
+}
+
+.meet-the-team.is-enhanced .meet-the-team__bio-trigger:hover {
+	color: var(--meet-the-team-accent);
+	text-decoration-color: currentcolor;
+}
+
+.meet-the-team__bio-trigger:focus-visible,
+.meet-the-team__bio-close:focus-visible,
+.meet-the-team__bio-profile-link:focus-visible {
+	border-radius: calc(var(--meet-the-team-radius) / 2);
+	outline: 0.2rem solid var(--meet-the-team-accent);
+	outline-offset: 0.2rem;
+}
+
+.meet-the-team__role {
+	margin: 0.25rem 0 0;
+	color: var(--meet-the-team-muted);
+	font-size: 1rem;
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+.meet-the-team__bio-panel {
+	width: 100%;
+	padding-block-start: 1rem;
+	margin-block-start: 1rem;
+	border-block-start: 1px solid var(--meet-the-team-border);
+}
+
+.meet-the-team.is-enhanced .meet-the-team__bio-panel {
+	position: absolute;
+	z-index: 2;
+	inset: 0;
+	max-height: 100%;
+	padding: 1.25rem;
+	margin: 0;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	border: 0;
+	opacity: 0;
+	visibility: hidden;
+	background: var(--meet-the-team-surface);
+	transform: translateY(-100%);
+}
+
+.meet-the-team.is-bio-ready .meet-the-team__bio-panel {
+	transition:
+		transform 260ms ease,
+		opacity 200ms ease,
+		visibility 0s linear 260ms;
+}
+
+.meet-the-team.is-enhanced .meet-the-team__bio-panel.is-open {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition-delay: 0s;
+}
+
+.meet-the-team__bio-panel-header {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-block-end: 1rem;
+}
+
+.meet-the-team__bio-panel-name {
+	margin: 0;
+	font-family: var(--meet-the-team-font-display);
+	font-size: clamp(1.25rem, calc(1.121rem + 0.529vw), 1.5rem);
+	font-weight: 700;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+}
+
+.meet-the-team__bio-close {
+	position: relative;
+	flex: 0 0 auto;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	border: 1px solid var(--meet-the-team-border);
+	border-radius: 999px;
+	color: var(--meet-the-team-text);
+	background: var(--meet-the-team-surface);
+	cursor: pointer;
+}
+
+.meet-the-team__bio-close[hidden] {
+	display: none;
+}
+
+.meet-the-team__bio-close:hover {
+	border-color: var(--meet-the-team-accent);
+	color: var(--meet-the-team-surface);
+	background: var(--meet-the-team-accent);
+}
+
+.meet-the-team__bio-close span::before,
+.meet-the-team__bio-close span::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1rem;
+	height: 0.125rem;
+	border-radius: 999px;
+	background: currentcolor;
+	content: "";
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.meet-the-team__bio-close span::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.meet-the-team__bio {
+	margin: 0;
+	color: var(--meet-the-team-muted);
+	font-size: 0.9375rem;
+	line-height: 1.65;
+	overflow-wrap: anywhere;
+}
+
+.meet-the-team__bio-profile-link {
+	display: inline-flex;
+	margin-block-start: 1.25rem;
+	color: var(--meet-the-team-accent);
+	font-family: var(--meet-the-team-font-label);
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1.4;
+	text-underline-offset: 0.15em;
+}
+
+.meet-the-team__editor-guidance {
+	padding: 0.75rem 1rem;
+	margin: 0;
+	border: 1px dashed var(--meet-the-team-border);
+	border-radius: var(--meet-the-team-radius);
+	color: var(--meet-the-team-muted);
+	background: var(--meet-the-team-surface-subtle);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+@media (min-width: 36rem) {
+	.meet-the-team__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 58rem) {
+	.meet-the-team__header {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.meet-the-team__careers-link {
+		flex: 0 0 auto;
+	}
+
+	.meet-the-team__grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.meet-the-team__careers-link,
+	.meet-the-team__card,
+	.meet-the-team.is-bio-ready .meet-the-team__bio-panel {
+		transition: none;
+	}
+}

@@ -75,3 +75,16 @@ validation, transient caching, stale-data fallback, empty state, card layout, an
 responsive behavior. Only the public board token is editable; the API origin is
 fixed in code, no credential is stored, and no browser-side request or JavaScript
 is required.
+
+## Meet the Team dependencies
+
+The Meet the Team block depends on ACF text, textarea, button-group, true/false,
+link, image, tab, and repeater fields plus WordPress Media Library image markup.
+The host supplies its documented semantic typography, color, surface, border,
+focus, and radius tokens plus the outer content width. The module owns its
+ordered member data, near-square portrait crop, one-, two-, and four-column
+layouts, missing-media treatment, biography panels, and native-select department
+filter. A module-owned script turns portraits and underlined member-name buttons into
+focus-managed, scrollable panels that slide from the top of each card and reveals
+filtering only when it can manage the result state. Biography content and the complete
+team remain available without JavaScript, and motion respects reduced-motion preferences.
