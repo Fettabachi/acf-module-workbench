@@ -2,9 +2,14 @@
 
 ## Design source
 
-This is an original component brief for the empty WordPress page titled
-“Filtered Content Grid.” It extends the workbench with
-automatic post queries and progressively enhanced visitor controls.
+The component began as an original brief for the empty WordPress page titled
+“Filtered Content Grid.” Its post-card presentation now translates the supplied
+Synkra article-card references while retaining automatic post queries and
+progressively enhanced visitor controls.
+
+- [Primary badge card](https://www.figma.com/design/kk1BvfLKkmKIIWHxaCyhWn/Synkra---Enterprise-SaaS-Website-Template--UI-Kit-Available---Community-?node-id=15010-10508)
+- [Neutral badge card](https://www.figma.com/design/kk1BvfLKkmKIIWHxaCyhWn/Synkra---Enterprise-SaaS-Website-Template--UI-Kit-Available---Community-?node-id=15010-10523)
+- [Accent badge card](https://www.figma.com/design/kk1BvfLKkmKIIWHxaCyhWn/Synkra---Enterprise-SaaS-Website-Template--UI-Kit-Available---Community-?node-id=15010-10560)
 
 ## Goal
 
@@ -39,6 +44,10 @@ visitors filter the returned collection by category without a page load.
 - Ignore sticky-post priority and query by descending publication date.
 - Omit posts without a usable title or permalink.
 - Render authored excerpts only; never manufacture body-content excerpts.
+- Render the author display name with decorative derived initials when present,
+  and assign one of three stable badge palettes by author ID.
+- Estimate reading time from stripped post body text at 200 words per minute,
+  with a one-minute minimum.
 - Use `wp_get_attachment_image()` and preserve Media Library alt text.
 - Omit the entire block without a title or valid posts.
 

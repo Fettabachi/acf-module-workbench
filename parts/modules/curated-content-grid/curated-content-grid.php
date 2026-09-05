@@ -48,10 +48,33 @@ if ( is_array( $selected_posts ) ) {
 			continue;
 		}
 
-		$terms      = get_the_terms( $post_object, 'category' );
-		$categories = array();
-		$image_id   = get_post_thumbnail_id( $post_object );
-		$image_id   = $image_id && wp_attachment_is_image( $image_id ) ? $image_id : 0;
+		$terms           = get_the_terms( $post_object, 'category' );
+		$categories      = array();
+		$image_id        = get_post_thumbnail_id( $post_object );
+		$image_id        = $image_id && wp_attachment_is_image( $image_id ) ? $image_id : 0;
+		$author_id       = (int) $post_object->post_author;
+		$author_name     = trim( (string) get_the_author_meta( 'display_name', $author_id ) );
+		$author_initials = '';
+		$content_text    = trim( wp_strip_all_tags( strip_shortcodes( (string) $post_object->post_content ) ) );
+		$content_tokens  = '' === $content_text ? array() : preg_split( '/\s+/u', $content_text, -1, PREG_SPLIT_NO_EMPTY );
+		$content_words   = is_array( $content_tokens ) ? count( $content_tokens ) : 0;
+		$reading_minutes = max( 1, (int) ceil( $content_words / 200 ) );
+		$badge_palettes  = array( 'primary', 'secondary', 'accent' );
+		$badge_palette   = $badge_palettes[ $author_id > 0 ? ( $author_id - 1 ) % count( $badge_palettes ) : 0 ];
+
+		if ( '' !== $author_name ) {
+			$author_parts = preg_split( '/\s+/u', $author_name, -1, PREG_SPLIT_NO_EMPTY );
+			$author_parts = is_array( $author_parts ) ? $author_parts : array();
+			$initial_parts = count( $author_parts ) > 1
+				? array( $author_parts[0], $author_parts[ count( $author_parts ) - 1 ] )
+				: $author_parts;
+
+			foreach ( $initial_parts as $initial_part ) {
+				$author_initials .= function_exists( 'mb_substr' ) ? mb_substr( $initial_part, 0, 1 ) : substr( $initial_part, 0, 1 );
+			}
+
+			$author_initials = function_exists( 'mb_strtoupper' ) ? mb_strtoupper( $author_initials ) : strtoupper( $author_initials );
+		}
 
 		if ( is_array( $terms ) ) {
 			foreach ( $terms as $term ) {
@@ -62,14 +85,22 @@ if ( is_array( $selected_posts ) ) {
 		}
 
 		$posts[] = array(
-			'id'            => $post_id,
-			'title'         => $post_title,
-			'permalink'     => $permalink,
-			'excerpt'       => trim( (string) $post_object->post_excerpt ),
-			'image_id'      => $image_id,
-			'categories'    => $categories,
-			'date_display'  => (string) get_the_date( '', $post_object ),
-			'date_machine'  => (string) get_the_date( DATE_W3C, $post_object ),
+			'id'              => $post_id,
+			'title'           => $post_title,
+			'permalink'       => $permalink,
+			'excerpt'         => trim( (string) $post_object->post_excerpt ),
+			'image_id'        => $image_id,
+			'categories'      => $categories,
+			'date_display'    => (string) get_the_date( '', $post_object ),
+			'date_machine'    => (string) get_the_date( DATE_W3C, $post_object ),
+			'author_name'     => $author_name,
+			'author_initials' => $author_initials,
+			'badge_palette'   => $badge_palette,
+			'reading_time'    => sprintf(
+				/* translators: %d: Estimated reading time in minutes. */
+				_n( '%d min read', '%d min read', $reading_minutes, 'acf-module-workbench' ),
+				$reading_minutes
+			),
 		);
 
 	}
@@ -151,9 +182,25 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							<p class="curated-content-grid__excerpt"><?php echo esc_html( $post_item['excerpt'] ); ?></p>
 						<?php endif; ?>
 
-						<?php if ( '' !== $post_item['date_display'] && '' !== $post_item['date_machine'] ) : ?>
-							<time class="curated-content-grid__date" datetime="<?php echo esc_attr( $post_item['date_machine'] ); ?>"><?php echo esc_html( $post_item['date_display'] ); ?></time>
-						<?php endif; ?>
+						<footer class="curated-content-grid__byline">
+							<?php if ( '' !== $post_item['author_name'] && '' !== $post_item['author_initials'] ) : ?>
+								<span class="curated-content-grid__author-badge curated-content-grid__author-badge--<?php echo esc_attr( $post_item['badge_palette'] ); ?>" aria-hidden="true"><?php echo esc_html( $post_item['author_initials'] ); ?></span>
+							<?php endif; ?>
+
+							<div class="curated-content-grid__byline-copy">
+								<?php if ( '' !== $post_item['author_name'] ) : ?>
+									<span class="curated-content-grid__author-name"><?php echo esc_html( $post_item['author_name'] ); ?></span>
+								<?php endif; ?>
+
+								<div class="curated-content-grid__post-meta">
+									<span><?php echo esc_html( $post_item['reading_time'] ); ?></span>
+									<?php if ( '' !== $post_item['date_display'] && '' !== $post_item['date_machine'] ) : ?>
+										<span aria-hidden="true">&bull;</span>
+										<time datetime="<?php echo esc_attr( $post_item['date_machine'] ); ?>"><?php echo esc_html( $post_item['date_display'] ); ?></time>
+									<?php endif; ?>
+								</div>
+							</div>
+						</footer>
 					</div>
 				</article>
 			</li>

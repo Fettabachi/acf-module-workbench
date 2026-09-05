@@ -6,11 +6,14 @@ The Filtered Content Grid lets visitors narrow a larger post collection by categ
 
 ## Component contract
 
-Editors provide section copy, result limits, and the categories available to the collection. Published WordPress posts supply the card content.
+Editors provide section copy, result limits, and the categories available to the collection. Published WordPress posts supply titles, images, excerpts, authors, dates, categories, body content for reading-time estimates, and destinations.
 
 ## Implementation decisions
 
 - WordPress queries remain the source of truth for available content.
+- Cards share the Synkra-inspired article composition used by the Curated Content Grid, including fluid inset media and an author/read-time/date footer.
+- Author initials come from the display name; author IDs map consistently to one of three accessible design-system badge palettes without adding presentation controls.
+- Reading time is estimated from the post body at 200 words per minute with a one-minute minimum.
 - Lightweight JavaScript progressively enhances the category controls.
 - All cards remain visible when JavaScript is unavailable.
 - Module-scoped data attributes and classes keep multiple instances independent.

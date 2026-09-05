@@ -2,10 +2,13 @@
 
 ## Design source
 
-This is an original component brief rather than a screenshot
-translation. It extends the practice series from editor-authored module content
-into a portable block that presents deliberately selected WordPress posts while
+The content model originated as an original component brief. Its post-card
+presentation now translates the supplied Synkra article-card references while
 retaining the established project design system and defensive ACF conventions.
+
+- [Primary badge card](https://www.figma.com/design/kk1BvfLKkmKIIWHxaCyhWn/Synkra---Enterprise-SaaS-Website-Template--UI-Kit-Available---Community-?node-id=15010-10508)
+- [Neutral badge card](https://www.figma.com/design/kk1BvfLKkmKIIWHxaCyhWn/Synkra---Enterprise-SaaS-Website-Template--UI-Kit-Available---Community-?node-id=15010-10523)
+- [Accent badge card](https://www.figma.com/design/kk1BvfLKkmKIIWHxaCyhWn/Synkra---Enterprise-SaaS-Website-Template--UI-Kit-Available---Community-?node-id=15010-10560)
 
 ## Goal
 
@@ -27,8 +30,9 @@ The component is a collection of linked editorial summaries.
   arbitrary maximum. Selection is manual; the block never silently substitutes
   a latest-posts query.
 - Card titles, permalinks, publication dates, categories, authored excerpts,
-  and featured images come from the selected posts. Editors update that source
-  content in WordPress rather than duplicating it in block fields.
+  author display names, body content for reading-time estimates, and featured
+  images come from the selected posts. Editors update that source content in
+  WordPress rather than duplicating it in block fields.
 - Each card has one explicit title link. A stretched hit area may make the card
   easier to activate visually, but the accessible link name and destination
   remain the post title. No duplicate image or “read more” link is added.
@@ -68,6 +72,11 @@ selected post or are module/design-system decisions.
   valid terms exist.
 - Render publication time with a machine-readable `datetime` value and the
   site's configured date format.
+- Estimate reading time from stripped post body text at 200 words per minute,
+  with a one-minute minimum.
+- Derive up to two initials from the author's display name. Assign one of three
+  badge palettes by author ID so the treatment remains stable across grids;
+  omit the author name and decorative initials when the display name is empty.
 - Render featured images with `wp_get_attachment_image()` so responsive sources
   and Media Library alt text are preserved. When no valid featured image exists,
   render a decorative generic placeholder in multi-column layouts so mixed
@@ -83,8 +92,8 @@ selected post or are module/design-system decisions.
 - Preserve DOM and visual order.
 - Give the title link a clear visible `:focus-visible` state and at least a
   44px practical activation area through the card treatment.
-- Use category text and the publication date as visible metadata; meaning must
-  not rely on color or imagery.
+- Use category text, author name, reading time, and publication date as visible
+  metadata; meaning must not rely on color or imagery.
 - Preserve authored attachment alt text. Do not derive alt text from titles or
   filenames, and do not render an empty media placeholder as meaningful content.
 - Long titles, category names, and unbroken excerpt text must wrap without

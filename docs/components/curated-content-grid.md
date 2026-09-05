@@ -6,13 +6,15 @@ The Curated Content Grid gives editors direct control over which posts appear an
 
 ## Component contract
 
-Editors provide optional section copy and choose an ordered set of published posts. Each selected post remains the source of truth for its title, image, excerpt, date, categories, and URL.
+Editors provide optional section copy and choose an ordered set of published posts. Each selected post remains the source of truth for its title, image, excerpt, author, date, categories, content-derived reading time, and URL.
 
 ## Implementation decisions
 
 - A relationship field supports intentional selection and ordering without duplicating post content.
 - Invalid, unavailable, and duplicate selections are discarded before rendering.
-- Cards derive consistent summaries from authored excerpts with a safe fallback.
+- The card composition follows the supplied Synkra article-card references: inset media, text-only category labels, serif titles, restrained summaries, and compact author metadata.
+- Reading time is estimated from the post body at 200 words per minute with a one-minute minimum.
+- Author initials are derived from the display name. A stable author-ID mapping assigns one of three design-system badge palettes consistently across both post grids.
 - The grid adapts to its available width and does not assume a page-specific container.
 
 ## Accessibility and defensive behavior
