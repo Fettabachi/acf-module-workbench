@@ -90,3 +90,15 @@ filtering only when it can manage the result state. Department changes reuse the
 Filtered Content Grid's card-rearrangement transition and opacity fallback. Biography
 content and the complete team remain available without JavaScript, and motion respects
 reduced-motion preferences.
+
+## Testimonials dependencies
+
+The Testimonials block depends on ACF text, textarea, button-group, image, tab,
+repeater, and flexible-content fields plus ACF Block Version 3's expanded
+editor. The host supplies its documented semantic typography, color, surface,
+border, focus, spacing, and radius tokens plus the outer aligned-block width.
+The module owns its introduction, ordered standard and featured row layouts,
+portrait and initials treatments, defensive data normalization, and responsive
+behavior. It is informational and requires no links or JavaScript. Standard
+rows contain one to three cards; editors may add and reorder any number of
+complete rows, including multiple featured rows.

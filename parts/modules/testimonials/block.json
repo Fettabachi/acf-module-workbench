@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/testimonials",
+	"version": "1.0.0",
+	"title": "Testimonials",
+	"category": "design",
+	"icon": "format-quote",
+	"description": "Presents ordered standard and featured testimonial rows.",
+	"keywords": ["testimonials", "quotes", "reviews", "customers"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit testimonials",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "testimonials.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorStyle": "file:./testimonials-editor.css",
+	"style": "file:./testimonials.css"
+}

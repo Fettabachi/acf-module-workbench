@@ -15,3 +15,4 @@ These notes explain the purpose, content model, implementation choices, accessib
 | Pricing Tables | [Read notes](pricing-tables.md) | [Read specification](pricing-tables-specification.md) |
 | Open Positions | [Read notes](open-positions.md) | [Read specification](open-positions-specification.md) |
 | Meet the Team | [Read notes](meet-the-team.md) | [Read specification](meet-the-team-specification.md) |
+| Testimonials | [Read notes](testimonials.md) | [Read specification](testimonials-specification.md) |

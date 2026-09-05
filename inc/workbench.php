@@ -188,6 +188,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/meet-the-team',
 			'docs_path'       => 'docs/components/meet-the-team.md',
 		),
+		'acf/testimonials' => array(
+			'title'           => __( 'Testimonials', 'acf-module-workbench' ),
+			'summary'         => __( 'Combines compact customer quotes with editor-positioned featured stories.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component for a curated set of attributed customer perspectives where editors need to control both row order and visual emphasis.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section copy, heading hierarchy, and an ordered flexible collection of testimonial rows.', 'acf-module-workbench' ),
+				__( 'Standard rows contain one to three testimonials; featured rows contain one larger testimonial and may appear anywhere.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'Authored row order remains the visual and semantic reading order at every width.', 'acf-module-workbench' ),
+				__( 'Portraits preserve Media Library alternatives, while missing portraits receive derived initials.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/testimonials',
+			'docs_path'       => 'docs/components/testimonials.md',
+		),
 	);
 }
 
