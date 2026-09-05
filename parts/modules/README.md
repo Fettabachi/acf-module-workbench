@@ -86,5 +86,7 @@ ordered member data, near-square portrait crop, one-, two-, and four-column
 layouts, missing-media treatment, biography panels, and native-select department
 filter. A module-owned script turns portraits and underlined member-name buttons into
 focus-managed, scrollable panels that slide from the top of each card and reveals
-filtering only when it can manage the result state. Biography content and the complete
-team remain available without JavaScript, and motion respects reduced-motion preferences.
+filtering only when it can manage the result state. Department changes reuse the
+Filtered Content Grid's card-rearrangement transition and opacity fallback. Biography
+content and the complete team remain available without JavaScript, and motion respects
+reduced-motion preferences.

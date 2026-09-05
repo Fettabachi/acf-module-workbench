@@ -182,8 +182,8 @@ function get_workbench_components(): array {
 				__( 'An ordered set of portraits, names, roles, departments, short biographies, and optional profile links.', 'acf-module-workbench' ),
 			),
 			'implementation'  => array(
-				__( 'A native select progressively filters the authored collection while the complete directory remains available without JavaScript.', 'acf-module-workbench' ),
-				__( 'Portraits and underlined member names open scrollable biography panels that slide from the top, manage focus, and respect reduced-motion preferences, and retain inline content without JavaScript.', 'acf-module-workbench' ),
+				__( 'A native select progressively filters the authored collection with animated card rearrangement while the complete directory remains available without JavaScript.', 'acf-module-workbench' ),
+				__( 'Portraits and underlined member names open scrollable biography panels that slide from the top, manage focus, respect reduced-motion preferences, and retain inline content without JavaScript.', 'acf-module-workbench' ),
 			),
 			'source_path'     => 'parts/modules/meet-the-team',
 			'docs_path'       => 'docs/components/meet-the-team.md',

@@ -19,8 +19,9 @@ Introduce a curated group of people with enough structured information to scan r
 - Derive unique, alphabetized department options from non-empty member values.
 - Keep departments available to the filter without displaying them as card badges.
 - Reveal filtering only when enabled, JavaScript is available, and at least two departments exist.
-- When biography content is present, enhance the underlined member-name button to open an absolutely positioned, internally scrollable panel from the top of the card.
-- Move focus to the close control when a panel opens; support Escape; return focus to the member name when it closes.
+- Animate department changes with stable per-card view transitions when supported, use an opacity fallback otherwise, and update immediately when reduced motion is requested.
+- When biography content is present, enhance the portrait and underlined member-name buttons to open an absolutely positioned, internally scrollable panel from the top of the card.
+- Move focus to the close control when a panel opens; support Escape; return focus to the portrait or name that opened it when it closes.
 - Leave biography content inline when JavaScript is unavailable.
 - When a profile URL and biography are both present, render the profile action inside the panel. Without a biography, link the member name directly.
 - Use the heading level immediately below the section heading for member names.
@@ -34,4 +35,4 @@ Introduce a curated group of people with enough structured information to scan r
 
 ## Host dependencies
 
-The host supplies ACF repeater, image, link, text, textarea, button-group, tab, and true/false fields; WordPress Media Library image markup; the outer aligned-block width; and the documented semantic typography, color, border, surface, focus, spacing, and radius tokens. The module owns its internal layout, progressively enhanced biography panels, focus management, progressive filter, fallback values, motion preferences, and responsive behavior.
+The host supplies ACF repeater, image, link, text, textarea, button-group, tab, and true/false fields; WordPress Media Library image markup; the outer aligned-block width; and the documented semantic typography, color, border, surface, focus, spacing, and radius tokens. The module owns its internal layout, progressively enhanced biography panels, focus management, animated progressive filter, fallback values, motion preferences, and responsive behavior.

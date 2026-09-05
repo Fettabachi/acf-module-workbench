@@ -167,6 +167,15 @@
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	transition: opacity 180ms ease;
+}
+
+.meet-the-team.is-fallback-filtering .meet-the-team__grid {
+	opacity: 0.25;
+}
+
+.meet-the-team__grid[aria-busy="true"] {
+	pointer-events: none;
 }
 
 .meet-the-team__item {
@@ -445,10 +454,22 @@
 	}
 }
 
+::view-transition-group(*) {
+	animation-duration: 800ms;
+	animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.meet-the-team__careers-link,
 	.meet-the-team__card,
+	.meet-the-team__grid,
 	.meet-the-team.is-bio-ready .meet-the-team__bio-panel {
 		transition: none;
+	}
+
+	::view-transition-group(*),
+	::view-transition-new(*),
+	::view-transition-old(*) {
+		animation: none !important;
 	}
 }

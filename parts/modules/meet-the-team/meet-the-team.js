@@ -87,9 +87,20 @@
 		const filter = component.querySelector('[data-team-filter]');
 		const select = component.querySelector('[data-team-filter-select]');
 		const items = Array.from(component.querySelectorAll('.meet-the-team__item'));
+		const itemsContainer = component.querySelector('.meet-the-team__grid');
 		const status = component.querySelector('.meet-the-team__status');
 
-		if (!isEditorPreview && filter && select && items.length && status) {
+		if (!isEditorPreview && filter && select && items.length && itemsContainer && status) {
+			const targetDocument = component.ownerDocument;
+			const targetWindow = targetDocument.defaultView;
+			const transitionScope = component.dataset.transitionScope || 'meet-the-team';
+			const reducedMotion = targetWindow?.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			let isFiltering = false;
+
+			items.forEach((item, index) => {
+				item.style.viewTransitionName = `${transitionScope}-card-${index + 1}`;
+			});
+
 			const update = () => {
 				const department = select.value;
 				let visibleCount = 0;
@@ -109,8 +120,44 @@
 				const template = visibleCount === 1 ? status.dataset.statusSingular : status.dataset.statusPlural;
 				status.textContent = (template || 'Showing %d team members.').replace('%d', String(visibleCount));
 			};
+			const setFiltering = (filtering) => {
+				isFiltering = filtering;
+				itemsContainer.setAttribute('aria-busy', filtering ? 'true' : 'false');
+				select.disabled = filtering;
+			};
+			const selectFilter = () => {
+				if (isFiltering) {
+					return;
+				}
 
-			select.addEventListener('change', update);
+				const canUseViewTransitions = typeof targetDocument.startViewTransition === 'function' && !reducedMotion;
+
+				if (canUseViewTransitions) {
+					setFiltering(true);
+					const transition = targetDocument.startViewTransition(update);
+
+					transition.finished.finally(() => setFiltering(false));
+					return;
+				}
+
+				if (!reducedMotion && targetWindow) {
+					setFiltering(true);
+					component.classList.add('is-fallback-filtering');
+
+					targetWindow.setTimeout(() => {
+						update();
+						targetWindow.requestAnimationFrame(() => {
+							component.classList.remove('is-fallback-filtering');
+							setFiltering(false);
+						});
+					}, 180);
+					return;
+				}
+
+				update();
+			};
+
+			select.addEventListener('change', selectFilter);
 			filter.hidden = false;
 		}
 
