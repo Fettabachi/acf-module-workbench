@@ -102,3 +102,15 @@ portrait and initials treatments, defensive data normalization, and responsive
 behavior. It is informational and requires no links or JavaScript. Standard
 rows contain one to three cards; editors may add and reorder any number of
 complete rows, including multiple featured rows.
+
+## CTA Banner dependencies
+
+The CTA Banner depends on ACF text, textarea, button-group, tab, and link fields
+plus ACF Block Version 3's expanded editor. The expanded editor is the single
+authoring surface; duplicate fields are hidden from Gutenberg's block sidebar.
+The host supplies its documented semantic typography, primary, signal, stack,
+focus, and radius tokens plus the outer aligned-block width. Exact local Figma
+exports supply the decorative linework and secondary-action icon. The module
+owns its controlled heading emphasis, dark surface, paired actions, reassurance
+note, optional semantic testimonial, defensive normalization, and responsive
+behavior. It requires no JavaScript.

@@ -203,6 +203,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/testimonials',
 			'docs_path'       => 'docs/components/testimonials.md',
 		),
+		'acf/cta-banner' => array(
+			'title'           => __( 'CTA Banner', 'acf-module-workbench' ),
+			'summary'         => __( 'Combines a focused closing message, paired actions, reassurance, and an optional customer perspective.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component near the end of a page when visitors need a persuasive next step supported by a concise expectation and credible voice.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'A tabbed expanded editor contains controlled heading emphasis, heading hierarchy, paired links, and reassurance copy.', 'acf-module-workbench' ),
+				__( 'An optional complete testimonial adds a quote, attribution name, and role.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'Exact local Figma exports provide the decorative linework and support icon over a responsive dark composition.', 'acf-module-workbench' ),
+				__( 'Incomplete links and testimonials disappear without leaving unusable controls or wrappers.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/cta-banner',
+			'docs_path'       => 'docs/components/cta-banner.md',
+		),
 	);
 }
 

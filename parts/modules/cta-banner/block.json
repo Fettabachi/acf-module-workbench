@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/cta-banner",
+	"version": "1.1.0",
+	"title": "CTA Banner",
+	"category": "design",
+	"icon": "megaphone",
+	"description": "Presents a focused message with a prominent call to action.",
+	"keywords": ["cta", "banner", "call to action", "promo"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit CTA banner",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "cta-banner.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorStyle": "file:./cta-banner-editor.css",
+	"style": "file:./cta-banner.css"
+}

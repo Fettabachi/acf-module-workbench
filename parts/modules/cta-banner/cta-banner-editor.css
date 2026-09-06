@@ -1,0 +1,9 @@
+.editor-styles-wrapper .wp-block-acf-cta-banner,
+.editor-styles-wrapper .cta-banner {
+	margin-inline: auto;
+}
+
+.acf-block-form-modal .acf-field[data-key^="field_cta_banner_"] {
+	float: none;
+	width: 100% !important;
+}

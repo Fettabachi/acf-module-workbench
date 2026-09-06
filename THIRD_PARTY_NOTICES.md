@@ -26,9 +26,11 @@ resource:
 - `parts/modules/pricing-tables/assets/arrow-light.svg`
 - `parts/modules/pricing-tables/assets/feature-check.svg`
 - `parts/modules/pricing-tables/assets/tag.svg`
+- `parts/modules/cta-banner/assets/background-lines.svg`
+- `parts/modules/cta-banner/assets/secondary-action-icon.svg`
 
-Changes: assets were exported, separated, optimized, and adapted for use in
-responsive WordPress modules.
+Changes: assets were exported and, where appropriate, separated, optimized, or
+adapted for use in responsive WordPress modules.
 
 ## Agent Skills for WordPress
 
