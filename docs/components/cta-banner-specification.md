@@ -18,7 +18,9 @@ surface, and decorative linework without coupling the content to Synkra.
 
 Expose these controls only through ACF Block Version 3's expanded editor. Group
 them under Message, Actions, and Testimonial tabs; keep the rendered block in
-preview mode and hide duplicate fields from Gutenberg's block sidebar.
+preview mode and hide duplicate fields from Gutenberg's block sidebar. Present
+the controls on the established editor tab rail with a clearly connected active
+tab and WordPress admin-color indicator.
 
 ## Structure and behavior
 
@@ -49,6 +51,7 @@ surface, color, alignment, width, spacing, or type-size controls.
 - Provide visible keyboard focus and at least 44px-high action targets.
 - Keep the secondary action's text and icon colors synchronized in every state.
 - Disable preview navigation without removing visible action labels.
+- Keep expanded-editor tab labels and the active tab visually distinct.
 - Omit incomplete optional links and testimonials without empty wrappers.
 - Test long content, absent optional content, `_blank` links, multiple instances,
   and narrow through wide layouts.

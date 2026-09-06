@@ -12,7 +12,8 @@ Editors build the heading from a standard prefix, bold italic emphasized phrase,
 and optional suffix. A primary link is required; the secondary link and
 reassurance note are optional. A testimonial appears only when both its quote
 and author name are complete, with an optional role. All controls live in a
-tabbed expanded editor, and duplicate Gutenberg panel fields remain hidden.
+tabbed expanded editor with a distinct tab rail and active-state indicator, and
+duplicate Gutenberg panel fields remain hidden.
 
 ## Implementation decisions
 
@@ -42,7 +43,8 @@ testimonial data are omitted; long authored values wrap rather than overflow.
 
 Block registration, metadata, ACF Local JSON, PHP syntax, escaping, editor
 recognition, expanded-editor configuration, keyboard focus, coordinated button
-and icon hover states, local assets, and frontend rendering are checked.
+and icon hover states, readable editor tab states, local assets, and frontend
+rendering are checked.
 Responsive QA covers mobile, tablet, and desktop layouts with complete and
 optional content combinations.
 
