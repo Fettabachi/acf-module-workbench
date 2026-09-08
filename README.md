@@ -36,6 +36,25 @@ Public page titles and documentation use component names without sequence
 numbers. Public notes and specifications live under `docs/components/`; the
 development history remains available through Git branches and commits.
 
+## Technical case study
+
+The standalone [ACF Component Workbench technical case study](https://acf-workbench.timfetter.com/)
+explains the larger component contract for agency technical leaders and
+developers: editors control content and meaningful variations, while the
+component controls layout, responsive behavior, accessibility, empty states,
+and presentation.
+
+Its centerpiece follows one Campaign Hero through the original Figma frame,
+the WordPress editor preview, the expanded three-tab ACF editor, and the
+rendered front end. The screenshots intentionally retain enough application
+chrome to establish that each view comes from a different environment. Each
+image has a descriptive alternative, a visible caption, and a keyboard-accessible
+link to the full-resolution source.
+
+The static case-study source is stored in `.output/public/`. It uses one HTML
+document, one stylesheet, and no JavaScript. A WordPress Playground link is
+intentionally deferred while publishing feasibility is under review with ACF.
+
 ## Development
 
 Read `AGENTS.md` and the relevant skill before editing. Activate the theme in **Appearance → Themes** when it is ready to use. No database content or ACF field groups are created by the starter.

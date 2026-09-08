@@ -60,50 +60,81 @@
     <section class="contract section" id="centerpiece" aria-labelledby="contract-title">
       <div class="shell">
         <header class="section-heading">
-          <p class="eyebrow">One requirement, one contract</p>
+          <p class="eyebrow">One design, one content model</p>
           <h2 id="contract-title">From design intent to a dependable component</h2>
-          <p>The example uses Tabbed Content: a small group of parallel topics that visitors can compare in place.</p>
+          <p>The same Campaign Hero content moves from a supplied Figma frame, through a structured WordPress editing experience, to the rendered front end.</p>
         </header>
 
         <ol class="sequence">
           <li class="sequence__item">
-            <div class="sequence__label"><span>01</span> Design requirement</div>
-            <div class="artifact artifact--brief">
-              <span class="artifact__kicker">Interaction brief</span>
-              <h3>Make related content easy to compare.</h3>
-              <ul>
-                <li>Clear labels and content relationships</li>
-                <li>Usable with keyboard and assistive technology</li>
-                <li>Readable at every viewport and without JavaScript</li>
-              </ul>
-            </div>
+            <div class="sequence__label"><span>01</span> Original Figma frame</div>
+            <figure class="evidence-card">
+              <a class="evidence-card__image" href="assets/campaign-hero/figma-view.jpg" target="_blank" rel="noopener">
+                <img src="assets/campaign-hero/figma-view.jpg" alt="Campaign Hero in Figma, including the dark canvas, selected frame, site navigation, headline, calls to action, and architectural performance visual." width="2400" height="1383">
+                <span class="evidence-card__open">View full size <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <figcaption>The source composition and surrounding Figma canvas establish the design context.</figcaption>
+            </figure>
           </li>
 
           <li class="sequence__item">
-            <div class="sequence__label"><span>02</span> Structured editor</div>
-            <div class="artifact artifact--editor" aria-label="Simplified representation of the structured ACF editing interface">
-              <div class="editor-bar"><span class="editor-lights" aria-hidden="true">● ● ●</span><strong>Tabbed Content</strong></div>
-              <div class="editor-body">
-                <div class="field"><span>Section heading</span><b>How we work</b></div>
-                <div class="field field--row"><span>Tab label</span><b>Discover</b></div>
-                <div class="field field--row"><span>Panel content</span><b>Research, goals, and constraints…</b></div>
-                <div class="editor-add">＋ Add tab</div>
-              </div>
-            </div>
+            <div class="sequence__label"><span>02</span> WordPress editor preview</div>
+            <figure class="evidence-card">
+              <a class="evidence-card__image" href="assets/campaign-hero/editor-view.jpg" target="_blank" rel="noopener">
+                <img src="assets/campaign-hero/editor-view.jpg" alt="Campaign Hero selected in the WordPress block editor, with a close visual preview, the block toolbar, and an inspector control for opening the structured campaign fields." width="2400" height="1445">
+                <span class="evidence-card__open">View full size <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <figcaption>The block preview stays visually close to the result while editing controls remain purposeful.</figcaption>
+            </figure>
           </li>
 
           <li class="sequence__item">
-            <div class="sequence__label"><span>03</span> Rendered component</div>
-            <div class="artifact artifact--result" aria-label="Simplified representation of the rendered Tabbed Content component">
-              <span class="artifact__kicker">How we work</span>
-              <div class="tabs" role="presentation"><b>Discover</b><span>Define</span><span>Build</span></div>
-              <div class="tab-panel">
-                <div class="tab-panel__media" aria-hidden="true"></div>
-                <div><h3>Start with the real problem.</h3><p>Research aligns the component with user needs, content, and technical constraints.</p></div>
-              </div>
-            </div>
+            <div class="sequence__label"><span>03</span> Rendered front end</div>
+            <figure class="evidence-card">
+              <a class="evidence-card__image" href="assets/campaign-hero/frontend-view.jpg" target="_blank" rel="noopener">
+                <img src="assets/campaign-hero/frontend-view.jpg" alt="Rendered Campaign Hero on the front end with the same eyebrow, headline, body copy, links, supporting note, architectural image, and performance data." width="2362" height="1746">
+                <span class="evidence-card__open">View full size <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <figcaption>The same authored content is rendered without editor controls or page-builder markup.</figcaption>
+            </figure>
           </li>
         </ol>
+
+        <div class="editor-evidence" aria-labelledby="editor-evidence-title">
+          <header class="editor-evidence__heading">
+            <div>
+              <p class="eyebrow">Inside the structured editor</p>
+              <h3 id="editor-evidence-title">Three focused groups, not one unrestricted canvas</h3>
+            </div>
+            <p>The expanded editor temporarily covers part of the preview so fields can remain legible. The dimmed component behind it preserves context, and the tabs expose content choices without handing layout decisions to the editor.</p>
+          </header>
+
+          <div class="editor-tabs">
+            <figure class="editor-tab-card">
+              <a class="editor-tab-card__image" href="assets/campaign-hero/content-tab-view.jpg" target="_blank" rel="noopener">
+                <img src="assets/campaign-hero/content-tab-view.jpg" alt="Expanded Campaign Hero editor with the Content tab selected, showing structured fields for the eyebrow, segmented heading, heading level, and body copy beside the dimmed component preview." width="2400" height="1742" loading="lazy">
+                <span class="evidence-card__open">View full size <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <figcaption><strong>Content</strong><span>Message, semantic heading level, and supporting copy.</span></figcaption>
+            </figure>
+
+            <figure class="editor-tab-card">
+              <a class="editor-tab-card__image" href="assets/campaign-hero/calls-to-action-tab-view.jpg" target="_blank" rel="noopener">
+                <img src="assets/campaign-hero/calls-to-action-tab-view.jpg" alt="Expanded Campaign Hero editor with the Calls to Action tab selected, showing structured primary and secondary links, emphasized link text, and a supporting note beside the dimmed component preview." width="2400" height="1667" loading="lazy">
+                <span class="evidence-card__open">View full size <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <figcaption><strong>Calls to Action</strong><span>Destinations, meaningful labels, emphasis, and reassurance.</span></figcaption>
+            </figure>
+
+            <figure class="editor-tab-card">
+              <a class="editor-tab-card__image" href="assets/campaign-hero/desktop-visual-tab-view.jpg" target="_blank" rel="noopener">
+                <img src="assets/campaign-hero/desktop-visual-tab-view.jpg" alt="Expanded Campaign Hero editor with the Desktop Visual tab selected, showing an optional image override and structured performance labels, values, percentage, and note beside the dimmed component preview." width="2400" height="1878" loading="lazy">
+                <span class="evidence-card__open">View full size <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></span>
+              </a>
+              <figcaption><strong>Desktop Visual</strong><span>An approved image override and structured performance data.</span></figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -117,12 +148,12 @@
           <article>
             <p class="ownership__number">Editor</p>
             <h3>Meaningful choices</h3>
-            <ul><li>Headings and supporting copy</li><li>Tab labels and panel content</li><li>Item order and optional content</li><li>Approved variations</li></ul>
+            <ul><li>Headings, supporting copy, and semantic heading level</li><li>Link destinations and meaningful labels</li><li>Optional imagery and structured performance data</li><li>Approved variations and empty fields</li></ul>
           </article>
           <article>
             <p class="ownership__number">Component</p>
             <h3>Production responsibility</h3>
-            <ul><li>Semantic markup and content relationships</li><li>Layout, breakpoints, and overflow</li><li>Keyboard behavior and focus management</li><li>Accessible names, states, contrast, and reduced motion</li><li>Empty states, progressive enhancement, and presentation</li></ul>
+            <ul><li>Semantic markup and content relationships</li><li>Layout, breakpoints, image treatment, and overflow</li><li>Keyboard behavior and visible focus for interactive elements</li><li>Accessible names, hierarchy, contrast, and reduced motion</li><li>Empty states, progressive enhancement, and presentation</li></ul>
           </article>
         </div>
       </div>
