@@ -8,4 +8,4 @@ This log records the production sequence for the standalone technical case study
 | Implementation | 2026-09-08 11:00 EDT | 2026-09-08 11:13 EDT | Static HTML and CSS only; no framework or JavaScript. |
 | Responsive and accessibility review | 2026-09-08 11:13 EDT | 2026-09-08 11:17 EDT | Reviewed at 390px, 768px, and 1440px. Verified landmark and heading structure, unique IDs, internal targets, accessible names, keyboard focus styling, reduced motion, and key color pairs. |
 | QA | 2026-09-08 11:13 EDT | 2026-09-08 11:17 EDT | Confirmed the page and local assets return successfully; reviewed the complete desktop flow and the stacked mobile sequence. |
-| Publish and custom domain | — | — | Pending. |
+| Publish and custom domain | 2026-09-08 11:17 EDT | In progress | Public Sites deployment completed at 11:21 EDT. The custom hostname is attached and awaiting the required SiteGround DNS records. |
