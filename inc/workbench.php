@@ -218,6 +218,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/cta-banner',
 			'docs_path'       => 'docs/components/cta-banner.md',
 		),
+		'acf/timeline-milestones' => array(
+			'title'           => __( 'Timeline / Milestones', 'acf-module-workbench' ),
+			'summary'         => __( 'Organizes dated milestones and categorized notes along a responsive chronological path.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component for a changelog, company history, roadmap, project sequence, or other ordered story that needs more context than a simple list.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section introduction, heading hierarchy, and an ordered collection of dated or period-based entries with optional badge icons.', 'acf-module-workbench' ),
+				__( 'Nested content groups pair semantic tones with optional summaries and repeatable notes using constrained icon choices.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'Desktop entries alternate around a central spine while mobile keeps every entry in one consistent reading order.', 'acf-module-workbench' ),
+				__( 'The timeline grows with authored content, exact dates use native time semantics, and incomplete content disappears cleanly.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/timeline-milestones',
+			'docs_path'       => 'docs/components/timeline-milestones.md',
+		),
 	);
 }
 

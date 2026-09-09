@@ -114,3 +114,18 @@ exports supply the decorative linework and secondary-action icon. The module
 owns its controlled heading emphasis, dark surface, paired actions, reassurance
 note, optional semantic testimonial, defensive normalization, and responsive
 behavior. It requires no JavaScript.
+
+## Timeline / Milestones dependencies
+
+The Timeline / Milestones block depends on ACF text, textarea, date-picker,
+button-group, select, true/false, tab, and nested repeater fields plus ACF Block
+Version 3's expanded editor. The host supplies its documented semantic
+typography, color, surface, border, spacing, and radius tokens plus the outer
+aligned-block width. Exact Figma exports provide the decorative history, badge,
+and note-icon silhouettes; CSS masks let semantic group tones control their
+color. The module owns its ordered-list semantics, ACF date-format
+normalization, exact-date markup, alternating desktop layout, single-flow mobile
+layout, content-driven timeline segments, defensive normalization, and scoped
+editor controls. It requires no frontend JavaScript; its editor-only script
+provides exclusive highlighting and keyboard-operable Expand all and Collapse
+all controls for entry and content-group repeaters.

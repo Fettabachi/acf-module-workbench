@@ -17,3 +17,4 @@ These notes explain the purpose, content model, implementation choices, accessib
 | Meet the Team | [Read notes](meet-the-team.md) | [Read specification](meet-the-team-specification.md) |
 | Testimonials | [Read notes](testimonials.md) | [Read specification](testimonials-specification.md) |
 | CTA Banner | [Read notes](cta-banner.md) | [Read specification](cta-banner-specification.md) |
+| Timeline / Milestones | [Read notes](timeline-milestones.md) | [Read specification](timeline-milestones-specification.md) |
