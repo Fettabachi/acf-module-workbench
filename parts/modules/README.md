@@ -129,3 +129,15 @@ layout, content-driven timeline segments, defensive normalization, and scoped
 editor controls. It requires no frontend JavaScript; its editor-only script
 provides exclusive highlighting and keyboard-operable Expand all and Collapse
 all controls for entry and content-group repeaters.
+
+## Before / After Comparison dependencies
+
+The Before / After Comparison block depends on ACF text, textarea, image,
+button-group, range, and tab fields plus ACF Block Version 3's expanded editor.
+WordPress Media Library image markup supplies responsive sources and attachment
+alternative text. The host supplies its documented semantic typography, color,
+surface, border, focus, and radius tokens plus the outer aligned-block width.
+The module owns its shared crop, visible state labels, layered comparison,
+divider, current-value output, and no-JavaScript two-image fallback. A small
+module-owned script progressively enhances one native range input for keyboard,
+touch, and pointer interaction; multiple instances initialize independently.

@@ -1,0 +1,259 @@
+.before-after-comparison {
+	--before-after-accent: var(--color-accent, #1a56db);
+	--before-after-border: var(--color-border, rgb(23 32 42 / 0.14));
+	--before-after-font-body: var(--font-body, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+	--before-after-font-display: var(--font-display, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif);
+	--before-after-font-label: var(--font-label, var(--before-after-font-body));
+	--before-after-muted: var(--color-muted, #5f6b76);
+	--before-after-page: var(--color-page, #f4f6f8);
+	--before-after-radius: var(--radius, 0.5rem);
+	--before-after-surface: var(--color-surface, #ffffff);
+	--before-after-text: var(--color-text, #17202a);
+
+	box-sizing: border-box;
+	width: 100%;
+	margin-block: clamp(2.5rem, 6vw, 5rem);
+	color: var(--before-after-text);
+	font-family: var(--before-after-font-body);
+}
+
+.before-after-comparison *,
+.before-after-comparison *::before,
+.before-after-comparison *::after {
+	box-sizing: border-box;
+}
+
+.before-after-comparison__header {
+	display: grid;
+	max-width: 48rem;
+	margin-block-end: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.before-after-comparison__eyebrow {
+	margin: 0 0 0.5rem;
+	color: var(--before-after-accent);
+	font-family: var(--before-after-font-label);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1.5;
+	text-transform: uppercase;
+}
+
+.before-after-comparison__heading {
+	margin: 0;
+	font-family: var(--before-after-font-display);
+	font-size: clamp(2.25rem, calc(1.72rem + 2.25vw), 4rem);
+	font-weight: 500;
+	letter-spacing: -0.025em;
+	line-height: 1.05;
+	text-wrap: balance;
+}
+
+.before-after-comparison__introduction {
+	max-width: 42rem;
+	margin: 1rem 0 0;
+	color: var(--before-after-muted);
+	font-size: clamp(1rem, calc(0.96rem + 0.19vw), 1.125rem);
+	line-height: 1.7;
+}
+
+.before-after-comparison__figure {
+	margin: 0;
+}
+
+.before-after-comparison__stage {
+	display: grid;
+	gap: 1rem;
+}
+
+.before-after-comparison__media {
+	position: relative;
+	min-width: 0;
+	overflow: hidden;
+	border-radius: calc(var(--before-after-radius) * 2);
+	background: var(--before-after-page);
+}
+
+.before-after-comparison__image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.before-after-comparison--ratio-landscape .before-after-comparison__image {
+	aspect-ratio: 4 / 3;
+}
+
+.before-after-comparison--ratio-square .before-after-comparison__image {
+	aspect-ratio: 1;
+}
+
+.before-after-comparison__image-label {
+	position: absolute;
+	top: 1rem;
+	padding: 0.45rem 0.75rem;
+	border-radius: 999px;
+	color: var(--before-after-surface);
+	background: rgb(23 32 42 / 0.84);
+	box-shadow: 0 0.125rem 0.5rem rgb(0 0 0 / 0.18);
+	font-family: var(--before-after-font-label);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.before-after-comparison__media--before .before-after-comparison__image-label {
+	right: 1rem;
+}
+
+.before-after-comparison__media--after .before-after-comparison__image-label {
+	left: 1rem;
+}
+
+.before-after-comparison__divider,
+.before-after-comparison__range {
+	display: none;
+}
+
+.before-after-comparison__controls {
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-block-start: 0.75rem;
+	color: var(--before-after-muted);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.before-after-comparison__controls output {
+	flex: 0 0 auto;
+	color: var(--before-after-text);
+	font-family: var(--before-after-font-label);
+	font-weight: 700;
+}
+
+.before-after-comparison__caption {
+	max-width: 48rem;
+	margin-block-start: 0.75rem;
+	color: var(--before-after-muted);
+	font-size: 0.875rem;
+	line-height: 1.6;
+}
+
+.before-after-comparison__screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__stage {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	border: 1px solid var(--before-after-border);
+	border-radius: calc(var(--before-after-radius) * 2);
+	background: var(--before-after-page);
+	touch-action: pan-y;
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__media {
+	border-radius: 0;
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__media--after {
+	position: absolute;
+	inset: 0;
+	clip-path: inset(0 calc(100% - var(--before-after-position)) 0 0);
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__divider {
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	bottom: 0;
+	left: var(--before-after-position);
+	display: block;
+	width: 0.1875rem;
+	transform: translateX(-50%);
+	background: var(--before-after-surface);
+	box-shadow: 0 0 0.5rem rgb(0 0 0 / 0.3);
+	pointer-events: none;
+}
+
+.before-after-comparison__handle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: grid;
+	place-items: center;
+	width: 3rem;
+	height: 3rem;
+	transform: translate(-50%, -50%);
+	border: 0.1875rem solid var(--before-after-surface);
+	border-radius: 50%;
+	color: var(--before-after-surface);
+	background: var(--before-after-accent);
+	box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.25);
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__range {
+	position: absolute;
+	z-index: 4;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	opacity: 0.001;
+	cursor: ew-resize;
+	touch-action: pan-y;
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__controls {
+	display: flex;
+}
+
+.before-after-comparison.is-enhanced .before-after-comparison__stage:has(.before-after-comparison__range:focus-visible) {
+	outline: 0.2rem solid var(--before-after-accent);
+	outline-offset: 0.2rem;
+}
+
+.before-after-comparison--incomplete {
+	padding: 1rem;
+	border: 1px dashed var(--before-after-border);
+	border-radius: var(--before-after-radius);
+	background: var(--before-after-page);
+}
+
+.before-after-comparison__editor-guidance {
+	margin: 0;
+	color: var(--before-after-muted);
+}
+
+@media (min-width: 40rem) {
+	.before-after-comparison:not(.is-enhanced) .before-after-comparison__stage {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.before-after-comparison.is-ready .before-after-comparison__media--after {
+		transition: clip-path 120ms ease-out;
+	}
+
+	.before-after-comparison.is-ready .before-after-comparison__divider {
+		transition: left 120ms ease-out;
+	}
+}

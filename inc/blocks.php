@@ -33,5 +33,6 @@ function register_acf_blocks(): void {
 	register_block_type( get_theme_file_path( '/parts/modules/testimonials' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/cta-banner' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/timeline-milestones' ) );
+	register_block_type( get_theme_file_path( '/parts/modules/before-after-comparison' ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_acf_blocks' );

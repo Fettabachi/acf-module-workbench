@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/before-after-comparison",
+	"version": "1.0.2",
+	"title": "Before / After Comparison",
+	"category": "design",
+	"icon": "image-flip-horizontal",
+	"description": "Compares two related images with an accessible reveal control.",
+	"keywords": ["before", "after", "comparison", "image", "slider"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit image comparison",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "before-after-comparison.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorScript": "file:./before-after-comparison-editor.js",
+	"editorStyle": "file:./before-after-comparison-editor.css",
+	"script": "file:./before-after-comparison.js",
+	"style": "file:./before-after-comparison.css"
+}

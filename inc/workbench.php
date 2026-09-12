@@ -233,6 +233,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/timeline-milestones',
 			'docs_path'       => 'docs/components/timeline-milestones.md',
 		),
+		'acf/before-after-comparison' => array(
+			'title'           => __( 'Before / After Comparison', 'acf-module-workbench' ),
+			'summary'         => __( 'Reveals the visual difference between two related images with one accessible control.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component for redesigns, renovations, restoration, retouching, or other evidence where visitors benefit from directly comparing two image states.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Optional section context, two labelled Media Library images, a shared crop, caption, and initial reveal position.', 'acf-module-workbench' ),
+				__( 'Media Library metadata remains the source of image alternative text.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'A native range input supplies keyboard, touch, and pointer interaction while exposing the current reveal percentage.', 'acf-module-workbench' ),
+				__( 'Without JavaScript, both complete labelled images remain available in a responsive comparison layout.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/before-after-comparison',
+			'docs_path'       => 'docs/components/before-after-comparison.md',
+		),
 	);
 }
 
