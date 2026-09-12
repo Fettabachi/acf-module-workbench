@@ -248,6 +248,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/before-after-comparison',
 			'docs_path'       => 'docs/components/before-after-comparison.md',
 		),
+		'acf/sticky-feature-showcase' => array(
+			'title'           => __( 'Sticky Feature Showcase', 'acf-module-workbench' ),
+			'summary'         => __( 'Pairs a persistent visual stage with an ordered, scroll-led feature story.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component to explain a process, product, service, or transformation whose related visuals benefit from staying in view as visitors move through the story.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section introduction and an ordered collection of labelled steps with copy, imagery, and optional links.', 'acf-module-workbench' ),
+				__( 'An expanded editor keeps substantial repeated content readable and easy to reorder.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'Desktop progressively enhances into a sticky visual stage while the authored document order remains unchanged.', 'acf-module-workbench' ),
+				__( 'Mobile, editor, reduced-motion, and no-script experiences retain each image beside its corresponding content.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/sticky-feature-showcase',
+			'docs_path'       => 'docs/components/sticky-feature-showcase.md',
+		),
 	);
 }
 

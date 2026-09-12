@@ -19,3 +19,4 @@ These notes explain the purpose, content model, implementation choices, accessib
 | CTA Banner | [Read notes](cta-banner.md) | [Read specification](cta-banner-specification.md) |
 | Timeline / Milestones | [Read notes](timeline-milestones.md) | [Read specification](timeline-milestones-specification.md) |
 | Before / After Comparison | [Read notes](before-after-comparison.md) | [Read specification](before-after-comparison-specification.md) |
+| Sticky Feature Showcase | [Read notes](sticky-feature-showcase.md) | [Read specification](sticky-feature-showcase-specification.md) |

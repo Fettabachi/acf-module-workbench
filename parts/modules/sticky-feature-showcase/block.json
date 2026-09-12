@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/sticky-feature-showcase",
+	"version": "1.0.2",
+	"title": "Sticky Feature Showcase",
+	"category": "design",
+	"icon": "slides",
+	"description": "Tells an ordered feature story with a sticky visual stage on wider screens.",
+	"keywords": ["sticky", "features", "story", "scroll", "process"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {"align": {"type": "string", "default": "wide"}},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit feature showcase",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "sticky-feature-showcase.php"
+	},
+	"supports": {"align": ["wide"], "anchor": true, "html": false},
+	"editorScript": "file:./sticky-feature-showcase-editor.js",
+	"editorStyle": "file:./sticky-feature-showcase-editor.css",
+	"script": "file:./sticky-feature-showcase.js",
+	"style": "file:./sticky-feature-showcase.css"
+}

@@ -141,3 +141,17 @@ The module owns its shared crop, visible state labels, layered comparison,
 divider, current-value output, and no-JavaScript two-image fallback. A small
 module-owned script progressively enhances one native range input for keyboard,
 touch, and pointer interaction; multiple instances initialize independently.
+
+## Sticky Feature Showcase dependencies
+
+The Sticky Feature Showcase depends on ACF text, textarea, image, link,
+button-group, tab, and repeater fields plus ACF Block Version 3's expanded
+editor. WordPress Media Library image markup supplies responsive sources and
+attachment alternative text. The host supplies its documented semantic
+typography, color, surface, border, focus, signal, and radius tokens plus the
+outer aligned-block width. The module owns its ordered step data, stacked
+fallback, sticky desktop stage, active-step states, responsive behavior, and
+scoped editor controls. A small module-owned script progressively creates the
+decorative sticky image stage without changing semantic document order or
+capturing scroll; the complete inline sequence remains available on mobile,
+in the editor, and without JavaScript.
