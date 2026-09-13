@@ -148,10 +148,21 @@ The Sticky Feature Showcase depends on ACF text, textarea, image, link,
 button-group, tab, and repeater fields plus ACF Block Version 3's expanded
 editor. WordPress Media Library image markup supplies responsive sources and
 attachment alternative text. The host supplies its documented semantic
-typography, color, surface, border, focus, signal, and radius tokens plus the
+typography, color, surface, border, focus, and radius tokens plus the
 outer aligned-block width. The module owns its ordered step data, stacked
 fallback, sticky desktop stage, active-step states, responsive behavior, and
 scoped editor controls. A small module-owned script progressively creates the
 decorative sticky image stage without changing semantic document order or
 capturing scroll; the complete inline sequence remains available on mobile, in narrow editor canvases, and without
 JavaScript. Wide editor previews mirror the synchronized sticky-stage behavior.
+
+## Case Study Spotlight dependencies
+
+The Case Study Spotlight block depends on ACF text, textarea, WYSIWYG, image,
+link, button-group, tab, and repeater fields plus ACF Block Version 3's expanded
+editor. WordPress Media Library image markup supplies responsive sources and
+attachment alternative text. The host supplies its documented semantic
+typography, color, surface, border, focus, signal, and radius tokens plus the
+outer aligned-block width. The module owns its client-story hierarchy, fixed
+narrative labels, semantic outcome list, optional testimonial and link,
+defensive normalization, and responsive layout. It requires no JavaScript.

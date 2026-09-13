@@ -263,6 +263,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/sticky-feature-showcase',
 			'docs_path'       => 'docs/components/sticky-feature-showcase.md',
 		),
+		'acf/case-study-spotlight' => array(
+			'title'           => __( 'Case Study Spotlight', 'acf-module-workbench' ),
+			'summary'         => __( 'Connects a client challenge and focused approach with measurable outcomes and supporting proof.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component to turn completed work into a concise results story that helps prospective customers understand the problem, intervention, and credible change.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section introduction, client identity, challenge, approach, optional imagery, and two to four measurable outcomes.', 'acf-module-workbench' ),
+				__( 'Optional attributed testimonial and complete link to the full case study.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'A labelled section connects narrative context with semantic definition-list metrics and an optional figure-based testimonial.', 'acf-module-workbench' ),
+				__( 'Incomplete outcomes, proof, links, and media disappear cleanly while the authored story keeps a logical reading order.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/case-study-spotlight',
+			'docs_path'       => 'docs/components/case-study-spotlight.md',
+		),
 	);
 }
 

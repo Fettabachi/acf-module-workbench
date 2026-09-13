@@ -44,6 +44,10 @@ complete expression of the supplied project direction.
   default, and avoid viewport-only sizing without accessible bounds.
 - Reuse established spacing, border, surface, radius, and shadow conventions.
   Add a project token only when it represents a repeated, named design decision.
+- Give CTA links and buttons a short, restrained transition between authored
+  hover, focus, and active states. Transition only the properties that change,
+  never `all`; keep every state understandable without motion and remove
+  non-essential transitions for the visitor's reduced-motion preference.
 - Treat an expandable region's panel as part of the interaction, not only its
   trigger icon. When motion is appropriate, animate both opening and closing,
   preserve a reliable no-motion fallback, and disable the transition for the
@@ -86,6 +90,8 @@ unrelated heading roles onto the same interpolation curve.
 - Expandable regions visibly complete both their opening and closing states,
   while reduced-motion users receive the same content and state changes without
   the transition.
+- CTA links and buttons transition only their changing visual properties, and
+  reduced-motion users receive the same perceivable state change immediately.
 - Frontend and editor styling use compatible tokens.
 - New tokens represent reusable decisions rather than screenshot approximations.
 - Unresolved design choices are reported explicitly.

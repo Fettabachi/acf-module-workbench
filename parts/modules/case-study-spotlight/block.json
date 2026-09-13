@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/case-study-spotlight",
+	"version": "1.0.0",
+	"title": "Case Study Spotlight",
+	"category": "design",
+	"icon": "analytics",
+	"description": "Connects a client challenge and approach with measurable outcomes and optional supporting proof.",
+	"keywords": ["case study", "results", "outcomes", "proof", "client"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit case study",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "case-study-spotlight.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorStyle": "file:./case-study-spotlight-editor.css",
+	"style": "file:./case-study-spotlight.css"
+}
