@@ -14,15 +14,15 @@ Landscape images with comparable composition work best. Alternative text remains
 
 - The server-rendered document contains one complete article and image for every step.
 - JavaScript progressively creates a decorative sticky visual stage from those authored images on wider screens.
-- Intersection Observer chooses the step nearest the central reading band without changing focus, scrolling, or document order.
-- The editor presents the complete stacked sequence instead of simulating scroll interaction in Gutenberg.
+- rAF-throttled scroll measurement chooses the step nearest the central reading band without changing focus, scrolling, or document order.
+- The Gutenberg preview mirrors the responsive component: wide editor canvases use the synchronized sticky stage, while narrow canvases retain the complete stacked sequence.
 - Component-owned class names, fallbacks, and responsive behavior allow the package to move without host layout utilities.
 
 ## Accessibility and defensive behavior
 
 The section and step heading hierarchy follows the editor-selected section level. Images preserve Media Library alternative text in the semantic inline sequence; enhanced sticky copies are decorative and hidden from assistive technology. Optional links render only when both destination and label are complete. The frontend omits the component unless it has a heading and two valid steps, while the editor receives specific completion guidance.
 
-The interaction never captures scrolling, changes focus, or hides content on mobile. Reduced-motion preferences remove fades and transforms, and the no-script experience remains complete.
+The interaction never captures scrolling, changes focus, or hides content on mobile or narrow editor canvases. Reduced-motion preferences remove fades and transforms, and the no-script experience remains complete.
 
 ## Validation
 

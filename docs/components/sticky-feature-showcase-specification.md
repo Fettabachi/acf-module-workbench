@@ -30,7 +30,7 @@ Present two to six related stages as a coherent visual narrative. Use it when th
 - Below 56.25rem, render a stacked sequence with each image immediately before its copy.
 - At and above 56.25rem, supported browsers may progressively enhance the layout into a sticky media column and scrolling step column.
 - Without JavaScript, wider screens retain the complete stacked cards.
-- Gutenberg preview always uses the stacked representation.
+- Gutenberg preview mirrors the responsive behavior: wide canvases use the sticky stage and narrow canvases use the stacked representation.
 
 ## Interaction and accessibility
 

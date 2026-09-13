@@ -258,7 +258,7 @@ function get_workbench_components(): array {
 			),
 			'implementation'  => array(
 				__( 'Desktop progressively enhances into a sticky visual stage while the authored document order remains unchanged.', 'acf-module-workbench' ),
-				__( 'Mobile, editor, reduced-motion, and no-script experiences retain each image beside its corresponding content.', 'acf-module-workbench' ),
+				__( 'Mobile, narrow editor, reduced-motion, and no-script experiences retain each image beside its corresponding content.', 'acf-module-workbench' ),
 			),
 			'source_path'     => 'parts/modules/sticky-feature-showcase',
 			'docs_path'       => 'docs/components/sticky-feature-showcase.md',
