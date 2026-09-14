@@ -21,3 +21,4 @@ These notes explain the purpose, content model, implementation choices, accessib
 | Before / After Comparison | [Read notes](before-after-comparison.md) | [Read specification](before-after-comparison-specification.md) |
 | Sticky Feature Showcase | [Read notes](sticky-feature-showcase.md) | [Read specification](sticky-feature-showcase-specification.md) |
 | Case Study Spotlight | [Read notes](case-study-spotlight.md) | [Read specification](case-study-spotlight-specification.md) |
+| Project Gallery | [Read notes](project-gallery.md) | [Read specification](project-gallery-specification.md) |

@@ -166,3 +166,15 @@ typography, color, surface, border, focus, signal, and radius tokens plus the
 outer aligned-block width. The module owns its client-story hierarchy, fixed
 narrative labels, semantic outcome list, optional testimonial and link,
 defensive normalization, and responsive layout. It requires no JavaScript.
+
+## Project Gallery dependencies
+
+The Project Gallery block depends on ACF text, textarea, button-group, gallery,
+link, and tab fields plus ACF Block Version 3's expanded editor. WordPress Media
+Library image markup supplies responsive sources, attachment captions, and
+alternative text. The host supplies its documented semantic typography, color,
+surface, border, focus, and radius tokens plus the outer aligned-block width.
+The module owns its compact active-image carousel, persistent controls, position
+status, thumbnail navigation, touch swipe handling, optional CTA, balanced grid
+fallback, and progressive native-dialog lightbox. Its complete direct full-image
+gallery remains usable when JavaScript or dialog support is unavailable.

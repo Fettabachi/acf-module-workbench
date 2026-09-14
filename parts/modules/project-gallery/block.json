@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/project-gallery",
+	"version": "1.0.0",
+	"title": "Project Gallery",
+	"category": "design",
+	"icon": "format-gallery",
+	"description": "Presents a compact image carousel with persistent navigation, an accessible lightbox, and an optional next step.",
+	"keywords": ["gallery", "images", "portfolio", "projects", "lightbox"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit gallery",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "project-gallery.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorStyle": "file:./project-gallery-editor.css",
+	"script": "file:./project-gallery.js",
+	"style": "file:./project-gallery.css"
+}

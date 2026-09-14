@@ -278,6 +278,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/case-study-spotlight',
 			'docs_path'       => 'docs/components/case-study-spotlight.md',
 		),
+		'acf/project-gallery' => array(
+			'title'           => __( 'Project Gallery', 'acf-module-workbench' ),
+			'summary'         => __( 'Guides visitors through a compact image carousel with captions, thumbnails, expanded viewing, and an optional next step.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component to help visitors inspect project, product, place, or event imagery without losing the context and accessibility provided by the page.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section introduction, heading hierarchy, three to twelve ordered Media Library images, and a consistent thumbnail shape.', 'acf-module-workbench' ),
+				__( 'Attachment captions and alternative text remain managed in the Media Library, with an optional closing link.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'A prominent active image, persistent controls, position status, and thumbnail rail make the gallery discoverable on touch, pointer, and keyboard devices.', 'acf-module-workbench' ),
+				__( 'The carousel, swipe handling, and native dialog progressively enhance a complete direct-link gallery fallback.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/project-gallery',
+			'docs_path'       => 'docs/components/project-gallery.md',
+		),
 	);
 }
 
