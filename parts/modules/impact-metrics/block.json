@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/impact-metrics",
+	"version": "1.0.0",
+	"title": "Impact Metrics",
+	"category": "design",
+	"icon": "chart-bar",
+	"description": "Presents a concise set of measurable outcomes with context and source citations.",
+	"keywords": ["impact", "metrics", "results", "statistics", "proof"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit impact metrics",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "impact-metrics.php"
+	},
+	"supports": {
+		"align": ["wide"],
+		"anchor": true,
+		"html": false
+	},
+	"editorScript": "file:./impact-metrics-editor.js",
+	"editorStyle": "file:./impact-metrics-editor.css",
+	"style": "file:./impact-metrics.css"
+}

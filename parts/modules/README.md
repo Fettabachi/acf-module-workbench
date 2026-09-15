@@ -178,3 +178,13 @@ The module owns its compact active-image carousel, persistent controls, position
 status, thumbnail navigation, touch swipe handling, optional CTA, balanced grid
 fallback, and progressive native-dialog lightbox. Its complete direct full-image
 gallery remains usable when JavaScript or dialog support is unavailable.
+
+## Impact Metrics dependencies
+
+The Impact Metrics block depends on ACF text, textarea, URL, link, button-group,
+tab, and repeater fields plus ACF Block Version 3's expanded editor. The host
+supplies its documented semantic typography, color, surface, border, focus, and
+radius tokens plus the outer aligned-block width. The module owns its evidence
+hierarchy, semantic definition list, source citations, optional methodology and
+CTA region, defensive normalization, balanced one-, two-, and three-column
+layouts, and scoped repeater controls. It requires no frontend JavaScript.

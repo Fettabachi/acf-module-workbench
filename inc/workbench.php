@@ -293,6 +293,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/project-gallery',
 			'docs_path'       => 'docs/components/project-gallery.md',
 		),
+		'acf/impact-metrics' => array(
+			'title'           => __( 'Impact Metrics', 'acf-module-workbench' ),
+			'summary'         => __( 'Turns measurable outcomes into a concise, contextualized proof section.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component when visitors need credible evidence of organizational, campaign, program, or service performance without the narrative weight of a full case study.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section introduction, heading hierarchy, and two to six ordered metrics with values, labels, and optional measurement context.', 'acf-module-workbench' ),
+				__( 'Optional source citations, a shared methodology note, and a complete closing link help editors substantiate the results.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'A semantic definition list preserves the relationship between each value and its meaning without relying on visual position.', 'acf-module-workbench' ),
+				__( 'Balanced one-, two-, and three-column layouts accommodate every allowed metric count without exposed empty cells.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/impact-metrics',
+			'docs_path'       => 'docs/components/impact-metrics.md',
+		),
 	);
 }
 

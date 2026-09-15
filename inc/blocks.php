@@ -37,5 +37,6 @@ function register_acf_blocks(): void {
 	register_block_type( get_theme_file_path( '/parts/modules/sticky-feature-showcase' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/case-study-spotlight' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/project-gallery' ) );
+	register_block_type( get_theme_file_path( '/parts/modules/impact-metrics' ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_acf_blocks' );
