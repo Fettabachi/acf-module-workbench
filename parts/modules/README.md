@@ -188,3 +188,15 @@ radius tokens plus the outer aligned-block width. The module owns its evidence
 hierarchy, semantic definition list, source citations, optional methodology and
 CTA region, defensive normalization, balanced one-, two-, and three-column
 layouts, and scoped repeater controls. It requires no frontend JavaScript.
+
+## Proof Logos dependencies
+
+The Proof Logos block depends on ACF text, textarea, image, link, select,
+button-group, tab, and repeater fields plus ACF Block Version 3's expanded
+editor. WordPress Media Library attachments supply raster or SVG logo files.
+The host supplies its documented semantic typography, color, surface, border,
+focus, spacing, and radius tokens plus the outer aligned-block width. The
+module owns its proof hierarchy, semantic logo list, consistent logo slots,
+global and per-logo treatment controls, optical scale adjustments, optional
+links, defensive normalization, responsive grid, and scoped repeater controls.
+It requires no frontend JavaScript.

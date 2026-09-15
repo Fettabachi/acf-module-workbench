@@ -23,3 +23,4 @@ These notes explain the purpose, content model, implementation choices, accessib
 | Case Study Spotlight | [Read notes](case-study-spotlight.md) | [Read specification](case-study-spotlight-specification.md) |
 | Project Gallery | [Read notes](project-gallery.md) | [Read specification](project-gallery-specification.md) |
 | Impact Metrics | [Read notes](impact-metrics.md) | [Read specification](impact-metrics-specification.md) |
+| Proof Logos | [Read notes](proof-logos.md) | [Read specification](proof-logos-specification.md) |

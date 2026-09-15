@@ -308,6 +308,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/impact-metrics',
 			'docs_path'       => 'docs/components/impact-metrics.md',
 		),
+		'acf/proof-logos' => array(
+			'title'           => __( 'Proof Logos', 'acf-module-workbench' ),
+			'summary'         => __( 'Balances mixed client, partner, press, sponsor, or integration logos in a flexible proof grid.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component when proof by association helps visitors recognize who trusts, funds, features, or integrates with an organization.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section introduction, heading hierarchy, default treatment, layout density, and two to twelve ordered logos.', 'acf-module-workbench' ),
+				__( 'Each logo can include an organization name, optional link, visual scale, and treatment override for mismatched source assets.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'Consistent logo slots, per-logo optical scaling, and treatment controls keep varied files visually balanced.', 'acf-module-workbench' ),
+				__( 'Raster and SVG image attachments render defensively, while incomplete logos and links disappear cleanly.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/proof-logos',
+			'docs_path'       => 'docs/components/proof-logos.md',
+		),
 	);
 }
 
