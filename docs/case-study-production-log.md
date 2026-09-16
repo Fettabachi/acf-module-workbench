@@ -23,10 +23,12 @@ single art-directed example was not representative of the reusable module
 library. A local review branch now moves the architectural story to the
 Workbench's WordPress front page, using the site's established palette and
 links to field definitions and live output from multiple reusable components.
-The component directory remains the primary destination. The Sites-hosted
-case-study domain is unchanged pending review of the new front page.
+The component directory remains the primary destination. After review, the
+Sites-hosted case-study domain was changed to return a permanent HTTP 301 to
+the Workbench's WordPress homepage.
 
 The local WordPress preview was checked at approximately 390px, 768px, and
 desktop widths. The heading hierarchy, landmark and anchor targets, example
 links, responsive ownership cards, and unchanged component directory were
-reviewed before handoff. No production deployment or redirect was performed.
+reviewed before handoff. The WordPress theme upload to SiteGround remains a
+separate step handled by the site owner.

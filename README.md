@@ -44,10 +44,10 @@ from multiple reusable modules; deeper workflow and standards remain on the
 About page and in the component documentation.
 
 The earlier standalone [technical case study](https://acf-workbench.timfetter.com/)
-remains available for existing links until the new front page is reviewed and
-published. Its static source is retained in `.output/public/`, including the
-Campaign Hero screenshots. That art-directed component is useful evidence of
-Figma translation but is not the representative example of module reuse.
+now redirects permanently to the [Workbench](https://acf-module-workbench.timfetter.com/).
+Its static source is retained in `.output/public/`, including the Campaign Hero
+screenshots. That art-directed component is useful evidence of Figma translation
+but is not the representative example of module reuse.
 
 WP Engine/ACF support confirmed that distributing ACF PRO files into separate
 WordPress Playground instances is not permitted under a standard license; no
