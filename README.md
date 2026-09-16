@@ -63,7 +63,7 @@ The official skills in `.agents/skills/` are vendored without changes from [Word
 
 ## Deployment
 
-The theme includes a SiteGround deploy helper modeled after the timfetter.com workflow. Copy `.deploy-config.example` to `.deploy-config`, add the SiteGround SSH details, and run `./deploy.sh` to preview the upload. When the preview is correct, run `./deploy.sh --apply` from `main` and type `DEPLOY` at the confirmation prompt.
+The theme includes a deploy helper. Copy `.deploy-config.example` to `.deploy-config`, add the SSH details, and run `./deploy.sh` to preview the upload. When the preview is correct, run `./deploy.sh --apply` from `main` and type `DEPLOY` at the confirmation prompt.
 
 The script deploys this theme directory to `https://acf-module-workbench.timfetter.com/` and excludes local-only files such as agent guidance, documentation, deployment config, generated output, caches, and Git metadata.
 
