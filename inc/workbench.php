@@ -327,6 +327,183 @@ function get_workbench_components(): array {
 }
 
 /**
+ * Get the display categories used to filter the public component directory.
+ *
+ * @return array<string, string>
+ */
+function get_workbench_component_categories(): array {
+	return array(
+		'hero-conversion'    => __( 'Hero & Conversion', 'acf-module-workbench' ),
+		'content-media'      => __( 'Content & Media', 'acf-module-workbench' ),
+		'interactive-layout' => __( 'Interactive Layout', 'acf-module-workbench' ),
+		'collections-grids'  => __( 'Collections & Grids', 'acf-module-workbench' ),
+		'social-proof'       => __( 'Social Proof', 'acf-module-workbench' ),
+		'people-careers'     => __( 'People & Careers', 'acf-module-workbench' ),
+		'storytelling'       => __( 'Storytelling', 'acf-module-workbench' ),
+	);
+}
+
+/**
+ * Get card metadata for the public component directory.
+ *
+ * @return array<string, array{category:string,tags:array<int,string>,thumbnail:string,meta:array<int,string>}>
+ */
+function get_workbench_component_card_metadata(): array {
+	return array(
+		'acf/content-media' => array(
+			'category'  => 'content-media',
+			'tags'      => array( 'content-media' ),
+			'thumbnail' => 'split-media',
+			'meta'      => array( 'text', 'media', 'link' ),
+		),
+		'acf/feature-cards' => array(
+			'category'  => 'collections-grids',
+			'tags'      => array( 'collections-grids', 'content-media' ),
+			'thumbnail' => 'cards',
+			'meta'      => array( 'repeater', 'cards' ),
+		),
+		'acf/accordion' => array(
+			'category'  => 'interactive-layout',
+			'tags'      => array( 'interactive-layout', 'content-media' ),
+			'thumbnail' => 'accordion',
+			'meta'      => array( 'repeater', 'no JS' ),
+		),
+		'acf/tabbed-content' => array(
+			'category'  => 'interactive-layout',
+			'tags'      => array( 'interactive-layout', 'content-media' ),
+			'thumbnail' => 'tabs',
+			'meta'      => array( 'repeater', 'JS' ),
+		),
+		'acf/curated-content-grid' => array(
+			'category'  => 'collections-grids',
+			'tags'      => array( 'collections-grids', 'content-media' ),
+			'thumbnail' => 'cards',
+			'meta'      => array( 'relationship', 'posts' ),
+		),
+		'acf/filtered-content-grid' => array(
+			'category'  => 'collections-grids',
+			'tags'      => array( 'collections-grids', 'interactive-layout' ),
+			'thumbnail' => 'filtered-grid',
+			'meta'      => array( 'query', 'filters', 'JS' ),
+		),
+		'acf/campaign-hero' => array(
+			'category'  => 'hero-conversion',
+			'tags'      => array( 'hero-conversion', 'content-media' ),
+			'thumbnail' => 'hero',
+			'meta'      => array( 'media', 'CTA', 'proof' ),
+		),
+		'acf/inline-media' => array(
+			'category'  => 'content-media',
+			'tags'      => array( 'content-media', 'interactive-layout' ),
+			'thumbnail' => 'media-player',
+			'meta'      => array( 'video', 'transcript', 'JS' ),
+		),
+		'acf/pricing-tables' => array(
+			'category'  => 'hero-conversion',
+			'tags'      => array( 'hero-conversion', 'collections-grids' ),
+			'thumbnail' => 'pricing',
+			'meta'      => array( 'repeater', 'links', 'JS' ),
+		),
+		'acf/open-positions' => array(
+			'category'  => 'people-careers',
+			'tags'      => array( 'people-careers', 'collections-grids' ),
+			'thumbnail' => 'jobs',
+			'meta'      => array( 'external API', 'cache' ),
+		),
+		'acf/meet-the-team' => array(
+			'category'  => 'people-careers',
+			'tags'      => array( 'people-careers', 'interactive-layout' ),
+			'thumbnail' => 'people',
+			'meta'      => array( 'repeater', 'media', 'filters' ),
+		),
+		'acf/testimonials' => array(
+			'category'  => 'social-proof',
+			'tags'      => array( 'social-proof', 'storytelling' ),
+			'thumbnail' => 'testimonial',
+			'meta'      => array( 'repeater', 'quotes' ),
+		),
+		'acf/cta-banner' => array(
+			'category'  => 'hero-conversion',
+			'tags'      => array( 'hero-conversion', 'social-proof' ),
+			'thumbnail' => 'cta',
+			'meta'      => array( 'links', 'testimonial' ),
+		),
+		'acf/timeline-milestones' => array(
+			'category'  => 'storytelling',
+			'tags'      => array( 'storytelling', 'content-media' ),
+			'thumbnail' => 'timeline',
+			'meta'      => array( 'repeater', 'dates' ),
+		),
+		'acf/before-after-comparison' => array(
+			'category'  => 'content-media',
+			'tags'      => array( 'content-media', 'interactive-layout' ),
+			'thumbnail' => 'comparison',
+			'meta'      => array( 'media', 'range', 'JS' ),
+		),
+		'acf/sticky-feature-showcase' => array(
+			'category'  => 'interactive-layout',
+			'tags'      => array( 'interactive-layout', 'storytelling', 'content-media' ),
+			'thumbnail' => 'sticky',
+			'meta'      => array( 'repeater', 'media', 'JS' ),
+		),
+		'acf/case-study-spotlight' => array(
+			'category'  => 'social-proof',
+			'tags'      => array( 'social-proof', 'storytelling', 'content-media' ),
+			'thumbnail' => 'case-study',
+			'meta'      => array( 'WYSIWYG', 'media', 'metrics' ),
+		),
+		'acf/project-gallery' => array(
+			'category'  => 'content-media',
+			'tags'      => array( 'content-media', 'interactive-layout' ),
+			'thumbnail' => 'gallery',
+			'meta'      => array( 'gallery', 'dialog', 'JS' ),
+		),
+		'acf/impact-metrics' => array(
+			'category'  => 'social-proof',
+			'tags'      => array( 'social-proof', 'collections-grids' ),
+			'thumbnail' => 'metrics',
+			'meta'      => array( 'repeater', 'sources' ),
+		),
+		'acf/proof-logos' => array(
+			'category'  => 'social-proof',
+			'tags'      => array( 'social-proof', 'collections-grids' ),
+			'thumbnail' => 'logos',
+			'meta'      => array( 'repeater', 'media', 'links' ),
+		),
+	);
+}
+
+/**
+ * Add public-directory card metadata to a component definition.
+ *
+ * @param string              $block_name Registered block name.
+ * @param array<string,mixed> $component Component metadata.
+ * @return array<string,mixed>
+ */
+function add_workbench_component_card_metadata( string $block_name, array $component ): array {
+	$card_metadata = get_workbench_component_card_metadata();
+	$categories    = get_workbench_component_categories();
+	$metadata      = $card_metadata[ $block_name ] ?? array(
+		'category'  => '',
+		'tags'      => array(),
+		'thumbnail' => 'cards',
+		'meta'      => array( 'ACF' ),
+	);
+	$category      = isset( $metadata['category'] ) ? (string) $metadata['category'] : '';
+
+	return array_merge(
+		$component,
+		array(
+			'primary_category'       => $category,
+			'primary_category_label' => $categories[ $category ] ?? __( 'Component', 'acf-module-workbench' ),
+			'tags'                   => isset( $metadata['tags'] ) && is_array( $metadata['tags'] ) ? $metadata['tags'] : array(),
+			'thumbnail'              => isset( $metadata['thumbnail'] ) ? (string) $metadata['thumbnail'] : 'cards',
+			'meta'                   => isset( $metadata['meta'] ) && is_array( $metadata['meta'] ) ? $metadata['meta'] : array( 'ACF' ),
+		)
+	);
+}
+
+/**
  * Collect registered workbench block names, including nested blocks.
  *
  * @param array<int, array<string, mixed>> $blocks Parsed blocks.
@@ -367,7 +544,7 @@ function get_workbench_component_for_post( $post = null ): ?array {
 	foreach ( array_keys( $components ) as $block_name ) {
 		if ( in_array( $block_name, $block_names, true ) ) {
 			return array_merge(
-				$components[ $block_name ],
+				add_workbench_component_card_metadata( $block_name, $components[ $block_name ] ),
 				array(
 					'block_name' => $block_name,
 					'page'       => $post,
@@ -414,7 +591,7 @@ function get_workbench_component_pages(): array {
 			}
 
 			$matches[ $block_name ] = array_merge(
-				$components[ $block_name ],
+				add_workbench_component_card_metadata( $block_name, $components[ $block_name ] ),
 				array(
 					'block_name' => $block_name,
 					'page'       => $page,

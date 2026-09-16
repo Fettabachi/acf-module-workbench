@@ -25,5 +25,17 @@ function enqueue_assets(): void {
 		array(),
 		$version
 	);
+
+	if ( is_front_page() ) {
+		$script_path = get_theme_file_path( '/assets/js/component-directory.js' );
+
+		wp_enqueue_script(
+			'acf-module-workbench-component-directory',
+			get_theme_file_uri( '/assets/js/component-directory.js' ),
+			array(),
+			file_exists( $script_path ) ? (string) filemtime( $script_path ) : $theme->get( 'Version' ),
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets' );
