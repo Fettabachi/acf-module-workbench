@@ -1,0 +1,7 @@
+# Copy this file to .deploy-config and replace each value.
+# .deploy-config is ignored by Git and must never be committed.
+
+SG_HOST="ssh.example.com"
+SG_USER="siteground-username"
+SG_PORT="18765"
+SG_REMOTE_PATH="/home/customer/www/acf-module-workbench.timfetter.com/public_html/wp-content/themes/acf-module-workbench/"

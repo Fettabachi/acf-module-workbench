@@ -12,6 +12,7 @@ Thumbs.db
 .env.*
 !.env.example
 *.local
+.deploy-config
 
 # Dependencies, caches, logs, and generated output.
 node_modules/

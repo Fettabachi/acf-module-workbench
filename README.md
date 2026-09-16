@@ -61,6 +61,12 @@ Read `AGENTS.md` and the relevant skill before editing. Activate the theme in **
 
 The official skills in `.agents/skills/` are vendored without changes from [WordPress/agent-skills](https://github.com/WordPress/agent-skills). See each skill's own metadata and license information for compatibility and usage details.
 
+## Deployment
+
+The theme includes a SiteGround deploy helper modeled after the timfetter.com workflow. Copy `.deploy-config.example` to `.deploy-config`, add the SiteGround SSH details, and run `./deploy.sh` to preview the upload. When the preview is correct, run `./deploy.sh --apply` from `main` and type `DEPLOY` at the confirmation prompt.
+
+The script deploys this theme directory to `https://acf-module-workbench.timfetter.com/` and excludes local-only files such as agent guidance, documentation, deployment config, generated output, caches, and Git metadata.
+
 ## Licensing
 
 Original project code and documentation are available under the [MIT License](LICENSE). Bundled third-party materials retain their respective licenses; see [Third-party notices](THIRD_PARTY_NOTICES.md) for attribution and scope.
