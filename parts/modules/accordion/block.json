@@ -16,9 +16,14 @@
 		}
 	},
 	"acf": {
-		"mode": "edit",
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit accordion",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
 		"renderTemplate": "accordion.php"
 	},
+	"editorScript": "file:./accordion-editor.js",
 	"editorStyle": "file:./accordion-editor.css",
 	"supports": {
 		"align": ["wide"],

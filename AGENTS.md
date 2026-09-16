@@ -9,6 +9,7 @@ These rules apply to work in this theme. Read the relevant local skills before c
 - Keep supplied examples intact unless the exercise explicitly asks to change them.
 - Ignore a `prompts/` directory unless an exercise explicitly makes it part of the work.
 - Do not perform speculative refactors, dependency changes, unrelated cleanup, or broad formatting passes.
+- This local site uses WPS Hide Login. When a task requires WordPress admin access, use `/tf-carport-portal` instead of `/wp-login.php` or `/wp-admin/` login redirects.
 
 ## WordPress and PHP
 
@@ -26,6 +27,7 @@ These rules apply to work in this theme. Read the relevant local skills before c
 - Follow the project design-system roles for typography, color, spacing, surfaces, borders, radii, and controls. Inspect existing tokens before adding values; do not invent a competing visual system inside a component.
 - Write mobile-first CSS when practical and verify narrow, intermediate, and wide layouts.
 - Prefer CSS Grid and Flexbox for layout. Avoid unnecessary `!important` declarations.
+- Do not use sibling combinators (`+` or `~`) or positional child selectors such as `:nth-child()`, `:nth-last-child()`, or `:nth-of-type()` in project or module CSS. They are too fragile for reusable blocks. When styling depends on item position, count, state, or role, add an explicit semantic class or data attribute in the template or script and target that hook instead.
 - Use CSS custom properties for shared system values such as colors, type, spacing scales, widths, and radii—not for every one-off value.
 - Prefer modern space-separated color syntax, for example `rgb(255 255 255 / 0.09)`.
 - Keep reusable markup and styles component-scoped. Use JavaScript only when behavior requires it, and make the non-JavaScript experience sensible.

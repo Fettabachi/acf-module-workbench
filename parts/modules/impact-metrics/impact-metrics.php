@@ -116,8 +116,21 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	</header>
 
 	<dl class="impact-metrics__list">
-		<?php foreach ( $metrics as $metric ) : ?>
-			<div class="impact-metrics__item">
+		<?php foreach ( $metrics as $metric_index => $metric ) : ?>
+			<?php
+			$metric_count = count( $metrics );
+			$position     = $metric_index + 1;
+			$item_classes = array( 'impact-metrics__item' );
+
+			if ( in_array( $metric_count, array( 3, 5 ), true ) && $metric_count === $position ) {
+				$item_classes[] = 'impact-metrics__item--tablet-full';
+			}
+
+			if ( in_array( $metric_count, array( 2, 4 ), true ) || ( 5 === $metric_count && $position > $metric_count - 2 ) ) {
+				$item_classes[] = 'impact-metrics__item--desktop-half';
+			}
+			?>
+			<div class="<?php echo esc_attr( implode( ' ', $item_classes ) ); ?>">
 				<dt class="impact-metrics__label"><?php echo esc_html( $metric['label'] ); ?></dt>
 				<dd class="impact-metrics__value"><?php echo esc_html( $metric['value'] ); ?></dd>
 
@@ -149,8 +162,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 			<?php if ( null !== $cta ) : ?>
 				<a class="impact-metrics__cta"<?php if ( $is_editor_preview ) : ?> role="link" aria-disabled="true"<?php else : ?> href="<?php echo esc_url( $cta['url'] ); ?>"<?php if ( '_blank' === $cta['target'] ) : ?> target="_blank" rel="noopener noreferrer"<?php endif; ?><?php endif; ?>>
-					<span><?php echo esc_html( $cta['title'] ); ?></span>
-					<span aria-hidden="true">&rarr;</span>
+					<span class="impact-metrics__cta-label"><?php echo esc_html( $cta['title'] ); ?></span>
+					<span class="impact-metrics__cta-icon" aria-hidden="true">&rarr;</span>
 				</a>
 			<?php endif; ?>
 		</footer>

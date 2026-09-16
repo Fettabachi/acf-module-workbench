@@ -44,6 +44,11 @@ documented, and overridable rather than accidental.
 - Scope frontend selectors, state styles, and modifiers to the module namespace;
   avoid broad selectors such as `.title`, `.grid`, or `.card` that can leak into
   other components.
+- Avoid sibling combinators (`+` or `~`) and positional child selectors such as
+  `:nth-child()`, `:nth-last-child()`, and `:nth-of-type()` in reusable module
+  CSS. If layout or styling depends on position, count, state, or role, expose a
+  stable semantic class or data attribute from the PHP template or JavaScript
+  enhancer and target that explicit hook instead.
 - When visual structure affects comprehension or editing, provide editor styles
   that make hierarchy, columns, block boundaries, fields, and alignment
   recognizable. They need not reproduce the frontend pixel-for-pixel.

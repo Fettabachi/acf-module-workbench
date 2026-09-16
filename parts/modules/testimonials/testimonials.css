@@ -73,7 +73,7 @@
 	overflow-wrap: anywhere;
 }
 
-.testimonials__eyebrow + .testimonials__introduction {
+.testimonials__introduction {
 	margin-block-start: 0.75rem;
 }
 

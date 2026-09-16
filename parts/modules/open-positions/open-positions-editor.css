@@ -1,0 +1,9 @@
+.editor-styles-wrapper .wp-block-acf-open-positions,
+.editor-styles-wrapper .open-positions {
+	margin-inline: auto;
+}
+
+.acf-block-form-modal .acf-field[data-key^="field_open_positions_"] {
+	float: none;
+	width: 100% !important;
+}

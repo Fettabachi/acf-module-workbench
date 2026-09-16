@@ -87,11 +87,16 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<div class="tabbed-content__tablist" role="tablist" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>" hidden>
 				<?php foreach ( $tabs as $index => $tab ) : ?>
 					<?php
-					$tab_id   = $instance_id . '-tab-' . ( $index + 1 );
-					$panel_id = $instance_id . '-panel-' . ( $index + 1 );
+					$tab_id      = $instance_id . '-tab-' . ( $index + 1 );
+					$panel_id    = $instance_id . '-panel-' . ( $index + 1 );
+					$tab_classes = array( 'tabbed-content__tab' );
+
+					if ( 1 === count( $tabs ) % 2 && count( $tabs ) - 1 === $index ) {
+						$tab_classes[] = 'tabbed-content__tab--last-odd';
+					}
 					?>
 					<button
-						class="tabbed-content__tab"
+						class="<?php echo esc_attr( implode( ' ', $tab_classes ) ); ?>"
 						type="button"
 						role="tab"
 						id="<?php echo esc_attr( $tab_id ); ?>"

@@ -84,6 +84,8 @@ unrelated heading roles onto the same interpolation curve.
 
 - No arbitrary visual value was introduced where a project token applies.
 - Typography and colors reference semantic project roles.
+- CSS avoids sibling combinators and positional child selectors; state, count,
+  order, and role-dependent styling uses explicit classes or data attributes.
 - Component CSS owns layout and behavior without competing visual foundations.
 - Fluid display sizes preserve documented rem-based endpoints and scale through
   the intended intermediate range without an accidental breakpoint jump.

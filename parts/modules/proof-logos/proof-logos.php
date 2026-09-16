@@ -169,7 +169,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	</header>
 
 	<ul class="proof-logos__list" role="list">
-		<?php foreach ( $logos as $logo ) : ?>
+		<?php foreach ( $logos as $logo_index => $logo ) : ?>
 			<?php
 			$image_markup = $render_logo_image( $logo['id'], 'proof-logos__image' );
 
@@ -178,8 +178,35 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			}
 
 			$item_style = '--proof-logos-item-scale: ' . ( (float) $logo['scale'] / 100 ) . ';';
+			$position   = $logo_index + 1;
+			$logo_count = count( $logos );
+			$classes    = array( 'proof-logos__item', 'proof-logos__item--' . $logo['treatment'] );
+
+			if ( 1 === $logo_count % 2 && $logo_count === $position ) {
+				$classes[] = 'proof-logos__item--mobile-full';
+			}
+
+			if ( in_array( $logo_count, array( 4, 7, 10 ), true ) && $logo_count === $position ) {
+				$classes[] = 'proof-logos__item--tablet-full';
+			}
+
+			if ( in_array( $logo_count, array( 5, 8, 11 ), true ) && $position > $logo_count - 2 ) {
+				$classes[] = 'proof-logos__item--tablet-half';
+			}
+
+			if ( in_array( $logo_count, array( 5, 9 ), true ) && $logo_count === $position ) {
+				$classes[] = 'proof-logos__item--desktop-full';
+			}
+
+			if ( in_array( $logo_count, array( 6, 10 ), true ) && $position > $logo_count - 2 ) {
+				$classes[] = 'proof-logos__item--desktop-half';
+			}
+
+			if ( in_array( $logo_count, array( 7, 11 ), true ) && $position > $logo_count - 3 ) {
+				$classes[] = 'proof-logos__item--desktop-third';
+			}
 			?>
-			<li class="proof-logos__item proof-logos__item--<?php echo esc_attr( $logo['treatment'] ); ?>" style="<?php echo esc_attr( $item_style ); ?>">
+			<li class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" style="<?php echo esc_attr( $item_style ); ?>">
 				<?php if ( null !== $logo['link'] && ! $is_editor_preview ) : ?>
 					<a class="proof-logos__link" href="<?php echo esc_url( $logo['link']['url'] ); ?>"<?php if ( '_blank' === $logo['link']['target'] ) : ?> target="_blank" rel="noopener noreferrer"<?php endif; ?> aria-label="<?php echo esc_attr( sprintf( /* translators: %s: organization name. */ __( 'Visit %s', 'acf-module-workbench' ), $logo['name'] ) ); ?>">
 						<?php echo $image_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Image markup is escaped by WordPress or this template. ?>
@@ -198,8 +225,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	<?php if ( null !== $cta ) : ?>
 		<footer class="proof-logos__footer">
 			<a class="proof-logos__cta"<?php if ( $is_editor_preview ) : ?> role="link" aria-disabled="true"<?php else : ?> href="<?php echo esc_url( $cta['url'] ); ?>"<?php if ( '_blank' === $cta['target'] ) : ?> target="_blank" rel="noopener noreferrer"<?php endif; ?><?php endif; ?>>
-				<span><?php echo esc_html( $cta['title'] ); ?></span>
-				<span aria-hidden="true">&rarr;</span>
+				<span class="proof-logos__cta-label"><?php echo esc_html( $cta['title'] ); ?></span>
+				<span class="proof-logos__cta-icon" aria-hidden="true">&rarr;</span>
 			</a>
 		</footer>
 	<?php endif; ?>

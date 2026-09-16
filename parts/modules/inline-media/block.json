@@ -16,6 +16,10 @@
 		}
 	},
 	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit media",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
 		"mode": "preview",
 		"renderTemplate": "inline-media.php"
 	},
@@ -24,6 +28,7 @@
 		"anchor": true,
 		"html": false
 	},
+	"editorStyle": "file:./inline-media-editor.css",
 	"script": "file:./inline-media.js",
 	"style": "file:./inline-media.css"
 }

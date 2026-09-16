@@ -16,6 +16,10 @@
 		}
 	},
 	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit feature cards",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
 		"mode": "preview",
 		"renderTemplate": "feature-cards.php"
 	},

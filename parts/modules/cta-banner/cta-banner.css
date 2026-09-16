@@ -125,6 +125,11 @@
 	overflow-wrap: anywhere;
 	text-align: center;
 	text-decoration: none;
+	transition:
+		border-color 180ms ease,
+		color 180ms ease,
+		background-color 180ms ease,
+		box-shadow 180ms ease;
 }
 
 .cta-banner__button--primary {
@@ -247,5 +252,11 @@
 
 	.cta-banner__quote {
 		text-align: left;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cta-banner__button {
+		transition: none;
 	}
 }

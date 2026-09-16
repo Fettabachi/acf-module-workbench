@@ -85,7 +85,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<div class="sticky-feature-showcase__visual-column" aria-hidden="true"></div>
 		<div class="sticky-feature-showcase__steps">
 			<?php foreach ( $steps as $index => $step ) : ?>
-				<article class="sticky-feature-showcase__step" data-showcase-step data-step-index="<?php echo esc_attr( (string) $index ); ?>">
+				<article class="sticky-feature-showcase__step<?php echo 0 < $index ? ' sticky-feature-showcase__step--not-first' : ''; ?>" data-showcase-step data-step-index="<?php echo esc_attr( (string) $index ); ?>">
 					<figure class="sticky-feature-showcase__inline-media">
 						<?php
 						echo wp_get_attachment_image(

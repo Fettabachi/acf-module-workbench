@@ -227,6 +227,10 @@ a:hover {
     font-family: var(--font-label);
     font-weight: 700;
     text-decoration: none;
+    transition:
+        border-color 180ms ease,
+        color 180ms ease,
+        background-color 180ms ease;
 }
 
 .workbench-button:hover {
@@ -258,7 +262,6 @@ a:hover {
 }
 
 .component-directory__header > p:last-child,
-.workbench-about__section-heading + p,
 .workbench-repository p,
 .workbench-about-callout p {
     margin: 1rem 0 0;
@@ -482,17 +485,19 @@ a:hover {
     grid-template-rows: 1.25rem 1.25rem 2.5rem;
 }
 
-.component-card__thumbnail--hero .component-card__wireframe span:nth-child(1),
-.component-card__thumbnail--hero .component-card__wireframe span:nth-child(2) {
+.component-card__thumbnail--hero .component-card__wireframe-part--1,
+.component-card__thumbnail--hero .component-card__wireframe-part--2 {
     grid-column: 1;
 }
 
-.component-card__thumbnail--hero .component-card__wireframe span:nth-child(3) {
+.component-card__thumbnail--hero .component-card__wireframe-part--3 {
     grid-column: 1;
     width: 45%;
 }
 
-.component-card__thumbnail--hero .component-card__wireframe span:nth-child(n + 4) {
+.component-card__thumbnail--hero .component-card__wireframe-part--4,
+.component-card__thumbnail--hero .component-card__wireframe-part--5,
+.component-card__thumbnail--hero .component-card__wireframe-part--6 {
     grid-column: 2;
     grid-row: 1 / -1;
     min-height: 100%;
@@ -503,7 +508,7 @@ a:hover {
     grid-template-rows: repeat(3, 1fr);
 }
 
-.component-card__thumbnail--split-media .component-card__wireframe span:first-child {
+.component-card__thumbnail--split-media .component-card__wireframe-part--1 {
     grid-row: 1 / -1;
     min-height: 100%;
     border-radius: 999rem;
@@ -531,11 +536,15 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.component-card__thumbnail--tabs .component-card__wireframe span:nth-child(-n + 3) {
+.component-card__thumbnail--tabs .component-card__wireframe-part--1,
+.component-card__thumbnail--tabs .component-card__wireframe-part--2,
+.component-card__thumbnail--tabs .component-card__wireframe-part--3 {
     min-height: 1rem;
 }
 
-.component-card__thumbnail--tabs .component-card__wireframe span:nth-child(n + 4) {
+.component-card__thumbnail--tabs .component-card__wireframe-part--4,
+.component-card__thumbnail--tabs .component-card__wireframe-part--5,
+.component-card__thumbnail--tabs .component-card__wireframe-part--6 {
     grid-column: 1 / -1;
     min-height: 3rem;
 }
@@ -547,9 +556,9 @@ a:hover {
     grid-template-rows: 1fr 0.5fr;
 }
 
-.component-card__thumbnail--media-player .component-card__wireframe span:first-child,
-.component-card__thumbnail--gallery .component-card__wireframe span:first-child,
-.component-card__thumbnail--comparison .component-card__wireframe span:first-child {
+.component-card__thumbnail--media-player .component-card__wireframe-part--1,
+.component-card__thumbnail--gallery .component-card__wireframe-part--1,
+.component-card__thumbnail--comparison .component-card__wireframe-part--1 {
     grid-column: 1 / -1;
     min-height: 4rem;
 }
@@ -560,8 +569,8 @@ a:hover {
     grid-template-rows: 1rem 1rem 1rem;
 }
 
-.component-card__thumbnail--testimonial .component-card__wireframe span:first-child,
-.component-card__thumbnail--case-study .component-card__wireframe span:first-child {
+.component-card__thumbnail--testimonial .component-card__wireframe-part--1,
+.component-card__thumbnail--case-study .component-card__wireframe-part--1 {
     grid-row: 1 / -1;
     min-height: 3rem;
     border-radius: 999rem;
@@ -572,7 +581,7 @@ a:hover {
     grid-template-rows: repeat(4, 1fr);
 }
 
-.component-card__thumbnail--timeline .component-card__wireframe span:nth-child(odd) {
+.component-card__thumbnail--timeline .component-card__wireframe-part--odd {
     border-radius: 999rem;
 }
 
@@ -597,7 +606,9 @@ a:hover {
     grid-template-rows: 2rem 0.8rem;
 }
 
-.component-card__thumbnail--metrics .component-card__wireframe span:nth-child(-n + 3) {
+.component-card__thumbnail--metrics .component-card__wireframe-part--1,
+.component-card__thumbnail--metrics .component-card__wireframe-part--2,
+.component-card__thumbnail--metrics .component-card__wireframe-part--3 {
     min-height: 2rem;
 }
 
@@ -638,6 +649,24 @@ a:hover {
     min-height: 2.75rem;
     font-family: var(--font-label);
     font-weight: 700;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.workbench-text-link__label {
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.workbench-text-link__icon {
+    text-decoration: none;
+    transition: transform 180ms ease;
+}
+
+.workbench-text-link:hover .workbench-text-link__icon,
+.workbench-text-link:focus-visible .workbench-text-link__icon {
+    transform: translateX(0.2rem);
 }
 
 .workbench-about__hero {
@@ -814,7 +843,7 @@ a:hover {
     color: var(--color-muted);
 }
 
-.component-details__columns li + li {
+.component-details__columns li:not(:first-child) {
     margin-top: 0.5rem;
 }
 
@@ -843,6 +872,10 @@ a:hover {
     border-radius: var(--radius);
     color: var(--color-text);
     text-decoration: none;
+    transition:
+        border-color 180ms ease,
+        color 180ms ease,
+        background-color 180ms ease;
 }
 
 .component-pagination__link:hover {
@@ -908,7 +941,11 @@ a:hover {
     .component-card,
     .component-directory__select,
     .component-directory.is-fallback-filtering .component-directory__grid,
-    .component-details > summary svg {
+    .component-details > summary svg,
+    .component-pagination__link,
+    .workbench-button,
+    .workbench-text-link,
+    .workbench-text-link__icon {
         transition: none;
     }
 

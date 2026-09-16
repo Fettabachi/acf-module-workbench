@@ -16,6 +16,10 @@
 		}
 	},
 	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit positions",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
 		"mode": "preview",
 		"renderTemplate": "open-positions.php"
 	},
@@ -24,5 +28,6 @@
 		"anchor": true,
 		"html": false
 	},
+	"editorStyle": "file:./open-positions-editor.css",
 	"style": "file:./open-positions.css"
 }

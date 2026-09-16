@@ -285,7 +285,7 @@
 	text-transform: uppercase;
 }
 
-.pricing-tables__popular + .pricing-tables__plan-name {
+.pricing-tables__plan--featured .pricing-tables__plan-name {
 	padding-right: 5rem;
 }
 

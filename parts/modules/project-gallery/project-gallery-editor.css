@@ -1,6 +1,56 @@
 .editor-styles-wrapper .wp-block-acf-project-gallery,
 .editor-styles-wrapper .project-gallery {
+	width: 100%;
+	max-width: min(100%, 72rem);
 	margin-inline: auto;
+}
+
+.editor-styles-wrapper .wp-block-acf-project-gallery {
+	box-sizing: border-box;
+}
+
+.editor-styles-wrapper .project-gallery {
+	margin-block: clamp(2rem, 4vw, 4rem);
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__carousel {
+	max-width: min(100%, 60rem);
+	margin-inline: auto;
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__item {
+	grid-area: 1 / 1;
+	grid-column: auto;
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__item:not(.project-gallery__item--primary) {
+	display: none;
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__figure {
+	width: auto;
+	margin: 0;
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__image {
+	max-height: min(56vw, 36rem);
+	aspect-ratio: 16 / 9;
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__caption {
+	max-width: 42rem;
+	min-height: 0;
+	overflow-wrap: anywhere;
+}
+
+.editor-styles-wrapper .project-gallery .project-gallery__carousel-controls,
+.editor-styles-wrapper .project-gallery .project-gallery__thumbnail-navigation {
+	display: flex;
 }
 
 .acf-block-form-modal .acf-field[data-key^="field_project_gallery_"] {

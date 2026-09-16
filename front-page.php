@@ -99,12 +99,9 @@ get_header();
 								<span class="component-card__thumbnail component-card__thumbnail--<?php echo esc_attr( $thumbnail ); ?>" aria-hidden="true">
 									<span class="component-card__badge"><?php echo esc_html( strtolower( (string) $component['primary_category_label'] ) ); ?></span>
 									<span class="component-card__wireframe">
-										<span></span>
-										<span></span>
-										<span></span>
-										<span></span>
-										<span></span>
-										<span></span>
+										<?php for ( $wireframe_part = 1; $wireframe_part <= 6; ++$wireframe_part ) : ?>
+											<span class="component-card__wireframe-part component-card__wireframe-part--<?php echo esc_attr( (string) $wireframe_part ); ?><?php echo 1 === $wireframe_part % 2 ? ' component-card__wireframe-part--odd' : ' component-card__wireframe-part--even'; ?>"></span>
+										<?php endfor; ?>
 									</span>
 								</span>
 								<span class="component-card__body">
@@ -138,8 +135,8 @@ get_header();
 				<p><?php esc_html_e( 'Read about the workflow, project standards, and portability principles shared by every component.', 'acf-module-workbench' ); ?></p>
 			</div>
 			<a class="workbench-text-link" href="<?php echo esc_url( home_url( '/about-the-workbench/' ) ); ?>">
-				<?php esc_html_e( 'About the workbench', 'acf-module-workbench' ); ?>
-				<span aria-hidden="true">→</span>
+				<span class="workbench-text-link__label"><?php esc_html_e( 'About the workbench', 'acf-module-workbench' ); ?></span>
+				<span class="workbench-text-link__icon" aria-hidden="true">→</span>
 			</a>
 		</aside>
 	</div>

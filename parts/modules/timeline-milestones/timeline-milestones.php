@@ -162,7 +162,18 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 	<ol class="timeline-milestones__entries">
 		<?php foreach ( $entries as $entry_index => $entry ) : ?>
-			<li class="timeline-milestones__entry<?php echo $entry['highlight'] ? ' timeline-milestones__entry--highlight' : ''; ?>">
+			<?php
+			$entry_classes = array( 'timeline-milestones__entry' );
+
+			if ( $entry['highlight'] ) {
+				$entry_classes[] = 'timeline-milestones__entry--highlight';
+			}
+
+			if ( 1 === $entry_index % 2 ) {
+				$entry_classes[] = 'timeline-milestones__entry--even';
+			}
+			?>
+			<li class="<?php echo esc_attr( implode( ' ', $entry_classes ) ); ?>">
 				<span class="timeline-milestones__marker" aria-hidden="true"></span>
 
 				<div class="timeline-milestones__metadata">

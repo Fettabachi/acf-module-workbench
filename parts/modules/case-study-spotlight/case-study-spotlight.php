@@ -165,12 +165,12 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		<?php endif; ?>
 
 		<div class="case-study-spotlight__narrative">
-			<div class="case-study-spotlight__narrative-section">
+			<div class="case-study-spotlight__narrative-section case-study-spotlight__narrative-section--challenge">
 				<<?php echo esc_html( $child_heading_level ); ?> class="case-study-spotlight__subheading"><?php esc_html_e( 'The challenge', 'acf-module-workbench' ); ?></<?php echo esc_html( $child_heading_level ); ?>>
 				<div class="case-study-spotlight__body"><?php echo wp_kses_post( $challenge ); ?></div>
 			</div>
 
-			<div class="case-study-spotlight__narrative-section">
+			<div class="case-study-spotlight__narrative-section case-study-spotlight__narrative-section--approach">
 				<<?php echo esc_html( $child_heading_level ); ?> class="case-study-spotlight__subheading"><?php esc_html_e( 'The approach', 'acf-module-workbench' ); ?></<?php echo esc_html( $child_heading_level ); ?>>
 				<div class="case-study-spotlight__body"><?php echo wp_kses_post( $approach ); ?></div>
 			</div>
@@ -180,8 +180,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	<div class="case-study-spotlight__results">
 		<<?php echo esc_html( $child_heading_level ); ?> class="case-study-spotlight__results-heading"><?php esc_html_e( 'What changed', 'acf-module-workbench' ); ?></<?php echo esc_html( $child_heading_level ); ?>>
 		<dl class="case-study-spotlight__outcomes case-study-spotlight__outcomes--count-<?php echo esc_attr( (string) count( $outcomes ) ); ?>">
-			<?php foreach ( $outcomes as $outcome ) : ?>
-				<div class="case-study-spotlight__outcome">
+			<?php foreach ( $outcomes as $outcome_index => $outcome ) : ?>
+				<div class="case-study-spotlight__outcome<?php echo count( $outcomes ) - 1 === $outcome_index ? ' case-study-spotlight__outcome--last' : ''; ?>">
 					<dt class="case-study-spotlight__outcome-label"><?php echo esc_html( $outcome['label'] ); ?></dt>
 					<dd class="case-study-spotlight__outcome-value"><?php echo esc_html( $outcome['value'] ); ?></dd>
 					<?php if ( '' !== $outcome['detail'] ) : ?>

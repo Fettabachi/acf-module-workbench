@@ -16,7 +16,7 @@ $introduction      = trim( (string) get_field( 'introduction' ) );
 $image_shape       = (string) get_field( 'image_shape' );
 $image_values      = get_field( 'images' );
 $gallery_link      = get_field( 'gallery_link' );
-$is_editor_preview = ! empty( $is_preview );
+$is_editor_preview = ! empty( $is_preview ) || is_admin() || ( defined( 'REST_REQUEST' ) && REST_REQUEST );
 $allowed_headings  = array( 'h2', 'h3', 'h4' );
 $allowed_shapes    = array( 'landscape', 'square' );
 $image_ids         = array();
@@ -120,9 +120,26 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					$alt            = trim( (string) get_post_meta( $image_id, '_wp_attachment_image_alt', true ) );
 					$position       = $image_index + 1;
 					$slide_id       = $carousel_id . '-slide-' . $position;
+					$item_classes   = array( 'project-gallery__item' );
 
 					if ( ! $full_image_url ) {
 						continue;
+					}
+
+					if ( 1 === $position ) {
+						$item_classes[] = 'project-gallery__item--primary';
+					}
+
+					if ( 1 === $gallery_count % 2 && $gallery_count === $position ) {
+						$item_classes[] = 'project-gallery__item--mobile-full';
+					}
+
+					if ( in_array( $gallery_count, array( 4, 7, 10 ), true ) && $position > $gallery_count - 4 ) {
+						$item_classes[] = 'project-gallery__item--desktop-wide';
+					}
+
+					if ( in_array( $gallery_count, array( 5, 8, 11 ), true ) && $position > $gallery_count - 2 ) {
+						$item_classes[] = 'project-gallery__item--desktop-wide';
 					}
 
 					$trigger_label = '' !== $alt || '' !== $caption
@@ -140,7 +157,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							$gallery_count
 						);
 					?>
-					<li class="project-gallery__item" id="<?php echo esc_attr( $slide_id ); ?>"<?php if ( $is_editor_preview && 0 < $image_index ) : ?> hidden<?php endif; ?>>
+					<li class="<?php echo esc_attr( implode( ' ', $item_classes ) ); ?>" id="<?php echo esc_attr( $slide_id ); ?>"<?php if ( $is_editor_preview && 0 < $image_index ) : ?> hidden<?php endif; ?>>
 						<figure class="project-gallery__figure">
 							<a class="project-gallery__image-link"<?php if ( $is_editor_preview ) : ?> role="link" aria-disabled="true"<?php else : ?> href="<?php echo esc_url( $full_image_url ); ?>" data-project-gallery-trigger data-gallery-index="<?php echo esc_attr( (string) $image_index ); ?>"<?php endif; ?> aria-label="<?php echo esc_attr( $trigger_label ); ?>">
 								<?php
@@ -217,8 +234,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	<?php if ( null !== $gallery_link ) : ?>
 		<footer class="project-gallery__footer">
 			<a class="project-gallery__cta"<?php if ( $is_editor_preview ) : ?> role="link" aria-disabled="true"<?php else : ?> href="<?php echo esc_url( $gallery_link['url'] ); ?>"<?php if ( '_blank' === $gallery_link['target'] ) : ?> target="_blank" rel="noopener noreferrer"<?php endif; ?><?php endif; ?>>
-				<span><?php echo esc_html( $gallery_link['title'] ); ?></span>
-				<span aria-hidden="true">&rarr;</span>
+				<span class="project-gallery__cta-label"><?php echo esc_html( $gallery_link['title'] ); ?></span>
+				<span class="project-gallery__cta-icon" aria-hidden="true">&rarr;</span>
 			</a>
 		</footer>
 	<?php endif; ?>
