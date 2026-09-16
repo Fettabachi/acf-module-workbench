@@ -36,24 +36,23 @@ Public page titles and documentation use component names without sequence
 numbers. Public notes and specifications live under `docs/components/`; the
 development history remains available through Git branches and commits.
 
-## Technical case study
+## Workbench story and legacy case study
 
-The standalone [ACF Component Workbench technical case study](https://acf-workbench.timfetter.com/)
-explains the larger component contract for agency technical leaders and
-developers: editors control content and meaningful variations, while the
-component controls layout, responsive behavior, accessibility, empty states,
-and presentation.
+The front page introduces the content/component boundary alongside the live
+component directory. It links editor field definitions to rendered examples
+from multiple reusable modules; deeper workflow and standards remain on the
+About page and in the component documentation.
 
-Its centerpiece follows one Campaign Hero through the original Figma frame,
-the WordPress editor preview, the expanded three-tab ACF editor, and the
-rendered front end. The screenshots intentionally retain enough application
-chrome to establish that each view comes from a different environment. Each
-image has a descriptive alternative, a visible caption, and a keyboard-accessible
-link to the full-resolution source.
+The earlier standalone [technical case study](https://acf-workbench.timfetter.com/)
+remains available for existing links until the new front page is reviewed and
+published. Its static source is retained in `.output/public/`, including the
+Campaign Hero screenshots. That art-directed component is useful evidence of
+Figma translation but is not the representative example of module reuse.
 
-The static case-study source is stored in `.output/public/`. It uses one HTML
-document, one stylesheet, and no JavaScript. A WordPress Playground link is
-intentionally deferred while publishing feasibility is under review with ACF.
+WP Engine/ACF support confirmed that distributing ACF PRO files into separate
+WordPress Playground instances is not permitted under a standard license; no
+Playground demo link is planned. A hosted WordPress demo under one legitimate
+installation would be a separate project, not part of this front-page update.
 
 ## Development
 

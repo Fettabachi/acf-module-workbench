@@ -213,6 +213,136 @@ a:hover {
     line-height: 1.7;
 }
 
+.workbench-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.workbench-hero__actions .workbench-button {
+    margin-top: 0;
+}
+
+.workbench-contract {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    scroll-margin-top: 2rem;
+}
+
+.workbench-contract__header {
+    max-width: 53rem;
+}
+
+.workbench-contract__header h2 {
+    max-width: 22ch;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.6rem + 2vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.workbench-contract__header > p:last-child {
+    max-width: var(--measure);
+    margin: 1rem 0 0;
+    color: var(--color-muted);
+}
+
+.workbench-contract__ownership {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius) * 2);
+    background: var(--color-border);
+}
+
+.workbench-contract__party {
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--color-page);
+}
+
+.workbench-contract__party h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.35rem + 0.6vw, 2rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.workbench-contract__party p {
+    max-width: 31rem;
+    margin: 0.75rem 0 0;
+    color: var(--color-muted);
+}
+
+.workbench-contract__examples {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: clamp(1.25rem, 3vw, 2rem);
+    border-top: 1px solid var(--color-border);
+}
+
+.workbench-contract__examples-heading h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.3rem + 0.7vw, 2rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.workbench-contract__examples-heading p {
+    max-width: var(--measure);
+    margin: 0.75rem 0 0;
+    color: var(--color-muted);
+}
+
+.workbench-contract__example-list {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.workbench-contract__example {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+}
+
+.workbench-contract__example h4 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.workbench-contract__example p {
+    margin: 0.5rem 0;
+    color: var(--color-muted);
+}
+
+.workbench-contract__example strong {
+    color: var(--color-text);
+}
+
+.workbench-contract__example-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    font-family: var(--font-label);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
 .workbench-button {
     display: inline-flex;
     align-items: center;
@@ -251,6 +381,7 @@ a:hover {
 .component-directory__title,
 .workbench-about__section-heading h2,
 .workbench-repository h2,
+.workbench-contact h2,
 .workbench-about-callout h2 {
     margin: 0;
     font-family: var(--font-display);
@@ -624,6 +755,29 @@ a:hover {
     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.workbench-contact {
+    padding-block: clamp(2rem, 5vw, 4rem);
+    border-top: 1px solid var(--color-border);
+}
+
+.workbench-contact > p:not(.workbench-eyebrow) {
+    max-width: var(--measure);
+    margin: 1rem 0 0;
+    color: var(--color-muted);
+}
+
+.workbench-contact__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.workbench-contact__actions .workbench-button {
+    margin-top: 0;
+}
+
 .workbench-about-callout,
 .workbench-repository {
     display: flex;
@@ -957,6 +1111,11 @@ a:hover {
 }
 
 @media (min-width: 42rem) {
+    .workbench-contract__ownership,
+    .workbench-contract__example-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .workbench-principles,
     .component-details__columns,
     .component-pagination {

@@ -14,4 +14,19 @@ This log records the production sequence for the standalone technical case study
 
 Total elapsed time from the start of repository inspection through verified custom-domain publication: approximately 58 minutes.
 
-The focused evidence revision required approximately 17 additional minutes from implementation through approval. The Playground enhancement remains deferred pending ACF's product review.
+The focused evidence revision required approximately 17 additional minutes from implementation through approval. WP Engine/ACF later confirmed that distributing ACF PRO into separate Playground instances is not permitted under a standard license, so the proposed Playground enhancement was closed.
+
+## Front-page consolidation (2026-09-16)
+
+The standalone case study proved the Figma-to-Campaign-Hero translation, but its
+single art-directed example was not representative of the reusable module
+library. A local review branch now moves the architectural story to the
+Workbench's WordPress front page, using the site's established palette and
+links to field definitions and live output from multiple reusable components.
+The component directory remains the primary destination. The Sites-hosted
+case-study domain is unchanged pending review of the new front page.
+
+The local WordPress preview was checked at approximately 390px, 768px, and
+desktop widths. The heading hierarchy, landmark and anchor targets, example
+links, responsive ownership cards, and unchanged component directory were
+reviewed before handoff. No production deployment or redirect was performed.
