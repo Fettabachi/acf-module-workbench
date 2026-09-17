@@ -5,7 +5,7 @@ A lightweight custom WordPress theme for building agency-style frontends and reu
 ## Requirements
 
 - WordPress 6.6 or newer
-- PHP 7.4 or newer
+- PHP 8.3 or newer
 - Advanced Custom Fields; ACF is not bundled
 
 ## Structure
@@ -36,23 +36,12 @@ Public page titles and documentation use component names without sequence
 numbers. Public notes and specifications live under `docs/components/`; the
 development history remains available through Git branches and commits.
 
-## Workbench story and legacy case study
+## Workbench story
 
 The front page introduces the content/component boundary alongside the live
 component directory. It links editor field definitions to rendered examples
 from multiple reusable modules; deeper workflow and standards remain on the
 About page and in the component documentation.
-
-The earlier standalone [technical case study](https://acf-workbench.timfetter.com/)
-now redirects permanently to the [Workbench](https://acf-module-workbench.timfetter.com/).
-Its static source is retained in `.output/public/`, including the Campaign Hero
-screenshots. That art-directed component is useful evidence of Figma translation
-but is not the representative example of module reuse.
-
-WP Engine/ACF support confirmed that distributing ACF PRO files into separate
-WordPress Playground instances is not permitted under a standard license; no
-Playground demo link is planned. A hosted WordPress demo under one legitimate
-installation would be a separate project, not part of this front-page update.
 
 ## Development
 

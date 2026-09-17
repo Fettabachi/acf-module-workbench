@@ -39,9 +39,15 @@
                     ?>
                 <?php else : ?>
                     <ul class="primary-navigation__fallback">
-                        <li><a<?php if (is_front_page()) : ?> aria-current="page"<?php endif; ?> href="<?php echo esc_url(home_url('/#components')); ?>"><?php esc_html_e('Components', 'acf-module-workbench'); ?></a></li>
-                        <li><a<?php if (is_page('about-the-workbench')) : ?> aria-current="page"<?php endif; ?> href="<?php echo esc_url(home_url('/about-the-workbench/')); ?>"><?php esc_html_e('About', 'acf-module-workbench'); ?></a></li>
-                        <li><a href="<?php echo esc_url(\ACF_Module_Workbench\WORKBENCH_REPOSITORY_URL); ?>"><?php esc_html_e('GitHub', 'acf-module-workbench'); ?></a></li>
+                        <li>
+                            <a<?php if (is_front_page()) : ?> aria-current="page" <?php endif; ?> href="<?php echo esc_url(home_url('/#components')); ?>"><?php esc_html_e('Components', 'acf-module-workbench'); ?></a>
+                        </li>
+                        <li>
+                            <a<?php if (is_page('about-the-workbench')) : ?> aria-current="page" <?php endif; ?> href="<?php echo esc_url(home_url('/about-the-workbench/')); ?>"><?php esc_html_e('About', 'acf-module-workbench'); ?></a>
+                        </li>
+                        <li><a href="<?php echo esc_url(\ACF_Module_Workbench\WORKBENCH_REPOSITORY_URL); ?>" target="_blank" rel="noopener noreferrer">
+                                <?php esc_html_e('GitHub', 'acf-module-workbench'); ?>
+                            </a></li>
                     </ul>
                 <?php endif; ?>
             </nav>
