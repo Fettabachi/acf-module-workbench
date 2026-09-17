@@ -333,7 +333,7 @@ function get_workbench_components(): array {
  */
 function get_workbench_component_categories(): array {
 	return array(
-		'hero-conversion'    => __( 'Hero & Conversion', 'acf-module-workbench' ),
+		'hero-conversion'    => __( 'Conversion', 'acf-module-workbench' ),
 		'content-media'      => __( 'Content & Media', 'acf-module-workbench' ),
 		'interactive-layout' => __( 'Interactive Layout', 'acf-module-workbench' ),
 		'collections-grids'  => __( 'Collections & Grids', 'acf-module-workbench' ),
