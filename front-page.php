@@ -78,8 +78,8 @@ get_header();
                                 <p><strong><?php esc_html_e('Editor:', 'acf-module-workbench'); ?></strong> <?php echo esc_html($example['editor']); ?></p>
                                 <p><strong><?php esc_html_e('Component:', 'acf-module-workbench'); ?></strong> <?php echo esc_html($example['component']); ?></p>
                                 <div class="workbench-contract__example-links">
-                                    <a href="<?php echo esc_url(\ACF_Module_Workbench\get_workbench_repository_url($example['field_group'])); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s editor fields', 'acf-module-workbench'), $example['title'])); ?>"><?php esc_html_e('Editor fields', 'acf-module-workbench'); ?></a>
-                                    <a href="<?php echo esc_url(get_permalink($example['page'])); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s live component', 'acf-module-workbench'), $example['title'])); ?>"><?php esc_html_e('Live component', 'acf-module-workbench'); ?></a>
+                                    <a href="<?php echo esc_url(\ACF_Module_Workbench\get_workbench_repository_url($example['field_group'])); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s editor fields', 'acf-module-workbench'), $example['title'])); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Editor fields', 'acf-module-workbench'); ?></a>
+                                    <a href="<?php echo esc_url(get_permalink($example['page'])); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s live component', 'acf-module-workbench'), $example['title'])); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Live component', 'acf-module-workbench'); ?></a>
                                 </div>
                             </li>
                         <?php endforeach; ?>
