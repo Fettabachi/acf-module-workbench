@@ -39,5 +39,6 @@ function register_acf_blocks(): void {
 	register_block_type( get_theme_file_path( '/parts/modules/project-gallery' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/impact-metrics' ) );
 	register_block_type( get_theme_file_path( '/parts/modules/proof-logos' ) );
+	register_block_type( get_theme_file_path( '/parts/modules/solutions-comparison' ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\register_acf_blocks' );

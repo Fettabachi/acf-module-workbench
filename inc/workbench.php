@@ -323,6 +323,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/proof-logos',
 			'docs_path'       => 'docs/components/proof-logos.md',
 		),
+		'acf/solutions-comparison' => array(
+			'title'           => __( 'Solutions Comparison', 'acf-module-workbench' ),
+			'summary'         => __( 'Helps B2B buyers compare solutions against a shared set of decision criteria.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component when related services, packages, or products need clearer differentiation than a pricing card can provide.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section context and two to four named solutions with fit guidance, recommendation emphasis, and optional links.', 'acf-module-workbench' ),
+				__( 'An ordered set of criteria contains one structured status or text value for each solution.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'A semantic table preserves the relationship between every criterion and solution for visual and assistive-technology users.', 'acf-module-workbench' ),
+				__( 'Narrow screens retain the complete comparison in a labelled, keyboard-focusable horizontal region.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/solutions-comparison',
+			'docs_path'       => 'docs/components/solutions-comparison.md',
+		),
 	);
 }
 
@@ -469,6 +484,12 @@ function get_workbench_component_card_metadata(): array {
 			'tags'      => array( 'social-proof', 'collections-grids' ),
 			'thumbnail' => 'logos',
 			'meta'      => array( 'repeater', 'media', 'links' ),
+		),
+		'acf/solutions-comparison' => array(
+			'category'  => 'collections-grids',
+			'tags'      => array( 'collections-grids', 'hero-conversion' ),
+			'thumbnail' => 'pricing',
+			'meta'      => array( 'nested repeater', 'table', 'links' ),
 		),
 	);
 }

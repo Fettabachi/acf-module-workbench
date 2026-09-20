@@ -1,0 +1,86 @@
+.editor-styles-wrapper .wp-block-acf-solutions-comparison,
+.editor-styles-wrapper .solutions-comparison {
+	margin-inline: auto;
+}
+
+.acf-block-form-modal .acf-field[data-key^="field_solutions_comparison_"] {
+	float: none;
+	width: 100% !important;
+}
+
+.acf-block-form-modal:has(.acf-field[data-key="field_solutions_comparison_intro_tab"]) .acf-tab-wrap.-top {
+	padding: 0.5rem 0.75rem 0;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid #c3c4c7;
+	background: #f6f7f7;
+}
+
+.acf-block-form-modal:has(.acf-field[data-key="field_solutions_comparison_intro_tab"]) .acf-tab-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+	margin-bottom: -1px;
+	border-bottom: 0;
+}
+
+.acf-block-form-modal:has(.acf-field[data-key="field_solutions_comparison_intro_tab"]) .acf-tab-group li a {
+	padding: 0.75rem 1rem;
+	border: 1px solid transparent;
+	border-bottom: 0;
+	border-radius: 0.375rem 0.375rem 0 0;
+	color: #50575e;
+	background: transparent;
+	font-weight: 600;
+}
+
+.acf-block-form-modal:has(.acf-field[data-key="field_solutions_comparison_intro_tab"]) .acf-tab-group li.active a {
+	position: relative;
+	border-color: #c3c4c7;
+	border-bottom-color: #fff;
+	color: #1d2327;
+	background: #fff;
+}
+
+.acf-block-form-modal:has(.acf-field[data-key="field_solutions_comparison_intro_tab"]) .acf-tab-group li.active a::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 0.3125rem;
+	background: var(--wp-admin-theme-color, #3858e9);
+	content: '';
+}
+
+.acf-field-repeater[data-key="field_solutions_comparison_solutions"] .acf-row-handle .acf-icon.-collapse,
+.acf-field-repeater[data-key="field_solutions_comparison_criteria"] .acf-row-handle .acf-icon.-collapse,
+.acf-field-repeater[data-key="field_solutions_comparison_values"] .acf-row-handle .acf-icon.-collapse {
+	display: block;
+}
+
+.acf-field-repeater[data-key^="field_solutions_comparison_"] .acf-icon.-collapse:focus-visible,
+.solutions-comparison-editor__control:focus-visible {
+	outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+	outline-offset: 2px;
+}
+
+.solutions-comparison-editor__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0.75rem 0 0;
+}
+
+.solutions-comparison-editor__control {
+	min-height: 2.25rem;
+	padding: 0.375rem 0.75rem;
+	border: 1px solid #8c8f94;
+	border-radius: 0.1875rem;
+	color: #1d2327;
+	background: #fff;
+	cursor: pointer;
+}
+
+.solutions-comparison-editor__control:hover {
+	border-color: var(--wp-admin-theme-color, #3858e9);
+	color: var(--wp-admin-theme-color, #3858e9);
+}

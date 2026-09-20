@@ -200,3 +200,14 @@ module owns its proof hierarchy, semantic logo list, consistent logo slots,
 global and per-logo treatment controls, optical scale adjustments, optional
 links, defensive normalization, responsive grid, and scoped repeater controls.
 It requires no frontend JavaScript.
+
+## Solutions Comparison dependencies
+
+The Solutions Comparison block depends on ACF text, textarea, link, select,
+button-group, true/false, tab, and nested repeater fields plus ACF Block Version
+3's expanded editor. The host supplies its documented semantic typography,
+color, surface, border, focus, and radius tokens plus the outer aligned-block
+width. The module owns its semantic comparison table, defensive solution and
+criterion normalization, recommendation treatment, responsive overflow region,
+optional solution links, and scoped editor controls. It requires no frontend
+JavaScript.
