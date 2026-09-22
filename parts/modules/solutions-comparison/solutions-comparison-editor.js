@@ -6,6 +6,8 @@
 		'.acf-field-repeater[data-key="field_solutions_comparison_solutions"]',
 		'.acf-field-repeater[data-key="field_solutions_comparison_criteria"]',
 	].join(',');
+	const solutionRepeaterSelector = '.acf-field-repeater[data-key="field_solutions_comparison_solutions"]';
+	const recommendedSelector = '.acf-field[data-key="field_solutions_comparison_solution_recommended"] input[type="checkbox"]';
 	let scanQueued = false;
 
 	const getRows = (field) => Array.from(field.querySelectorAll(':scope > .acf-input > .acf-repeater > table > tbody > .acf-row:not(.acf-clone)'));
@@ -71,6 +73,29 @@
 			window.requestAnimationFrame(scan);
 		}
 	};
+
+	document.addEventListener('change', (event) => {
+		const input = event.target;
+
+		if (!input.matches(recommendedSelector) || !input.checked || input.closest('.acf-clone')) {
+			return;
+		}
+
+		const solutions = input.closest(solutionRepeaterSelector);
+
+		if (!solutions) {
+			return;
+		}
+
+		getRows(solutions).forEach((row) => {
+			const otherInput = row.querySelector(recommendedSelector);
+
+			if (otherInput && otherInput !== input && otherInput.checked) {
+				otherInput.checked = false;
+				otherInput.dispatchEvent(new Event('change', { bubbles: true }));
+			}
+		});
+	});
 
 	const observer = new MutationObserver(queueScan);
 	observer.observe(document.documentElement, { childList: true, subtree: true });

@@ -8,23 +8,24 @@ Solutions Comparison helps B2B buyers distinguish related services, packages, or
 
 Editors control the section introduction, two to four solution names, concise fit guidance, one optional recommendation, solution-specific links, and up to twelve ordered comparison criteria. Each criterion contains values in the same order as the solution columns and may use a constrained status or specific text.
 
-The component controls table semantics, column alignment, recommendation styling, responsive overflow, empty-value treatment, and link behavior. The expanded editor keeps the nested data model out of Gutenberg's narrow sidebar.
+The component controls table semantics, column alignment, recommendation styling, responsive cards, empty-value treatment, and link behavior. The expanded editor keeps the nested data model out of Gutenberg's narrow sidebar.
 
 ## Implementation decisions
 
 - A native table keeps column and row relationships explicit rather than recreating them with generic cards.
+- Below the mobile breakpoint, full-width solution cards place each criterion beside its value. The recommended solution appears first; the complete table remains available at wider widths.
 - Criteria are authored separately from solution headers so each name, description, recommendation, and destination has one source of truth.
 - Included, optional, unavailable, and custom statuses produce consistent language and visual marks; Text supports values such as company size or implementation timing.
-- Only the first solution marked Recommended receives emphasis, preventing conflicting recommendations without hiding editor input.
+- Selecting a Recommended solution in the editor clears that setting from the other solutions. If older content contains multiple recommendations, only the first receives frontend emphasis.
 - The frontend requires no JavaScript.
 
 ## Accessibility and defensive behavior
 
-The table includes a descriptive caption and uses column and row headers. At narrower widths, its labelled scrolling region is keyboard focusable and displays a visible instruction. Focus remains visible, CTA links retain explicit labels, and incomplete links or rows are omitted. Missing criterion values are announced as not specified.
+The table includes a descriptive caption and uses column and row headers. Mobile cards use headings and definition lists to preserve criterion/value relationships. CSS displays only one presentation at a time, so assistive technology does not encounter duplicated content. At intermediate widths, the labelled table region remains keyboard focusable and displays a scrolling instruction. Focus remains visible, CTA links retain explicit labels, and incomplete links or rows are omitted. Missing criterion values are announced as not specified.
 
 ## Validation
 
-Review two-, three-, and four-solution versions at narrow, intermediate, and wide widths. Check keyboard access to the overflow region and links, long labels and values, missing optional content, mismatched value counts, multiple recommendation toggles, editor collapse controls, and reduced-motion preferences. Validate PHP syntax and the ACF JSON before release.
+Review two-, three-, and four-solution versions at narrow, intermediate, and wide widths. Check mobile card order and value mapping, visibility across the breakpoint, keyboard access to links and the intermediate overflow region, long labels and values, missing optional content, mismatched value counts, multiple recommendation toggles, editor collapse controls, and reduced-motion preferences. Validate PHP syntax and the ACF JSON before release.
 
 ## Tradeoffs and future improvements
 

@@ -27,7 +27,7 @@ Use ACF Block Version 3's expanded editor as the primary authoring surface. Divi
 
 ## Rendering and behavior
 
-Render a semantic table with solution column headers and criterion row headers. Keep all authored content in the document at every width. At constrained widths, place the table in a labelled, focusable horizontal scrolling region and show an instruction; remove the visible instruction when the complete table fits at wide widths. Do not require frontend JavaScript.
+Render a semantic table with solution column headers and criterion row headers at widths of 50rem and above. At narrower widths, render stacked solution cards with the recommended solution first, criterion/value definition lists, and a solution-specific CTA at the end of each card. CSS displays only one presentation at a time. At intermediate widths where the table overflows, keep it in a labelled, focusable horizontal scrolling region with an instruction. Remove the visible instruction when the complete table fits at wide widths. Do not require frontend JavaScript.
 
 ## Defensive rules
 
@@ -41,4 +41,4 @@ Render a semantic table with solution column headers and criterion row headers. 
 
 ## Accessibility
 
-Use a caption, `scope="col"` for solutions, and `scope="row"` for criteria. Preserve visible focus for the overflow region and links. Ensure status meaning is present as text rather than color or icon alone. CTA state changes must remain perceivable without motion and transitions must be disabled for reduced-motion preferences.
+Use a caption, `scope="col"` for solutions, and `scope="row"` for criteria in the table. Use heading and definition-list semantics in mobile cards. Preserve visible focus for the overflow region and links. Ensure status meaning is present as text rather than color or icon alone. CTA state changes must remain perceivable without motion and transitions must be disabled for reduced-motion preferences.

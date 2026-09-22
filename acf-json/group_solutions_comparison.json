@@ -142,7 +142,7 @@
 					"label": "Recommended Solution",
 					"name": "recommended",
 					"type": "true_false",
-					"instructions": "Emphasize the most broadly suitable option.",
+					"instructions": "Emphasize the most broadly suitable option. Selecting this turns off any other recommendation.",
 					"required": 0,
 					"conditional_logic": 0,
 					"wrapper": {"width": "", "class": "", "id": ""},

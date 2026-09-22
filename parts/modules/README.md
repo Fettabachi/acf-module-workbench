@@ -208,6 +208,6 @@ button-group, true/false, tab, and nested repeater fields plus ACF Block Version
 3's expanded editor. The host supplies its documented semantic typography,
 color, surface, border, focus, and radius tokens plus the outer aligned-block
 width. The module owns its semantic comparison table, defensive solution and
-criterion normalization, recommendation treatment, responsive overflow region,
+criterion normalization, recommendation treatment, responsive solution cards and table overflow region,
 optional solution links, and scoped editor controls. It requires no frontend
 JavaScript.
