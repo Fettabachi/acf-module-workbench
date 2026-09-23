@@ -16,6 +16,16 @@ acf-json/
 
 Document any real dependency near the module. Do not add empty placeholder files.
 
+## Why Choose Us dependencies
+
+Why Choose Us depends on ACF text, textarea, button-group, tab, repeater, and
+link fields plus ACF Block Version 3's expanded editor. The host supplies its
+semantic typography, color, surface, border, focus, and radius tokens and the
+outer aligned-block width. The module owns its editorial reason layout,
+optional evidence and source treatment, responsive visual counter positions,
+incomplete-data behavior, and scoped editor row controls. No frontend
+JavaScript is required.
+
 ## Filtered Content Grid dependencies
 
 The Filtered Content Grid queries published standard posts and the built-in

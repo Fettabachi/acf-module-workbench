@@ -338,6 +338,21 @@ function get_workbench_components(): array {
 			'source_path'     => 'parts/modules/solutions-comparison',
 			'docs_path'       => 'docs/components/solutions-comparison.md',
 		),
+		'acf/why-choose-us' => array(
+			'title'           => __( 'Why Choose Us', 'acf-module-workbench' ),
+			'summary'         => __( 'Pairs distinctive strengths with concrete supporting evidence.', 'acf-module-workbench' ),
+			'purpose'         => __( 'Use this component when an organization needs to explain why its approach merits trust beyond a list of services or features.', 'acf-module-workbench' ),
+			'editor_controls' => array(
+				__( 'Section heading, introduction, and two to six ordered reasons.', 'acf-module-workbench' ),
+				__( 'Each reason includes customer benefit and optional evidence with a source; one closing link is optional.', 'acf-module-workbench' ),
+			),
+			'implementation'  => array(
+				__( 'Editorial rows keep differentiating claims separate from optional proof instead of recreating service cards.', 'acf-module-workbench' ),
+				__( 'Incomplete reasons, unsupported source links, and empty optional content disappear cleanly.', 'acf-module-workbench' ),
+			),
+			'source_path'     => 'parts/modules/why-choose-us',
+			'docs_path'       => 'docs/components/why-choose-us.md',
+		),
 	);
 }
 
@@ -490,6 +505,12 @@ function get_workbench_component_card_metadata(): array {
 			'tags'      => array( 'collections-grids', 'hero-conversion' ),
 			'thumbnail' => 'pricing',
 			'meta'      => array( 'nested repeater', 'table', 'links' ),
+		),
+		'acf/why-choose-us' => array(
+			'category'  => 'social-proof',
+			'tags'      => array( 'social-proof', 'hero-conversion' ),
+			'thumbnail' => 'reasons',
+			'meta'      => array( 'repeater', 'evidence', 'links' ),
 		),
 	);
 }

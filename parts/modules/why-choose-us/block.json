@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/why-choose-us",
+	"version": "1.0.1",
+	"title": "Why Choose Us",
+	"category": "design",
+	"icon": "awards",
+	"description": "Pairs differentiating claims with concrete supporting evidence.",
+	"keywords": ["why choose us", "differentiators", "proof", "trust"],
+	"textdomain": "acf-module-workbench",
+	"attributes": {"align": {"type": "string", "default": "wide"}},
+	"acf": {
+		"blockVersion": 3,
+		"expandedEditorButtonText": "Edit reasons",
+		"expandedEditorButtons": ["toolbar", "sidebar"],
+		"hideFieldsInSidebar": true,
+		"mode": "preview",
+		"renderTemplate": "why-choose-us.php"
+	},
+	"supports": {"align": ["wide"], "anchor": true, "html": false},
+	"editorScript": "file:./why-choose-us-editor.js",
+	"editorStyle": "file:./why-choose-us-editor.css",
+	"style": "file:./why-choose-us.css"
+}

@@ -25,3 +25,4 @@ These notes explain the purpose, content model, implementation choices, accessib
 | Impact Metrics | [Read notes](impact-metrics.md) | [Read specification](impact-metrics-specification.md) |
 | Proof Logos | [Read notes](proof-logos.md) | [Read specification](proof-logos-specification.md) |
 | Solutions Comparison | [Read notes](solutions-comparison.md) | [Read specification](solutions-comparison-specification.md) |
+| Why Choose Us | [Read notes](why-choose-us.md) | [Read specification](why-choose-us-specification.md) |

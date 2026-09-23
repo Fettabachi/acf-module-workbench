@@ -652,6 +652,15 @@ a:hover {
     grid-template-rows: repeat(2, 1fr);
 }
 
+.component-card__thumbnail--reasons .component-card__wireframe {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.component-card__thumbnail--reasons .component-card__wireframe-part {
+    min-height: 100%;
+}
+
 .component-card__thumbnail--cards .component-card__wireframe span,
 .component-card__thumbnail--filtered-grid .component-card__wireframe span,
 .component-card__thumbnail--pricing .component-card__wireframe span {

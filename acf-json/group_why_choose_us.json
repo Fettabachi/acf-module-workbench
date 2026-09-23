@@ -1,0 +1,345 @@
+{
+    "key": "group_why_choose_us",
+    "title": "Block: Why Choose Us",
+    "fields": [
+        {
+            "key": "field_why_choose_us_intro_tab",
+            "label": "Introduction",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_why_choose_us_eyebrow",
+            "label": "Eyebrow",
+            "name": "eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional short label above the heading.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 50,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_why_choose_us_heading",
+            "label": "Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "State the strongest overall reason to choose this organization.",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 120,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_why_choose_us_heading_level",
+            "label": "Heading Level",
+            "name": "heading_level",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Match the surrounding page hierarchy.",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "allow_null": 0,
+            "default_value": "h2",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_why_choose_us_introduction",
+            "label": "Introduction",
+            "name": "introduction",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional context for the reasons below; avoid repeating the heading.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 300,
+            "rows": 4,
+            "new_lines": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_why_choose_us_show_counters",
+            "label": "Show Counters",
+            "name": "show_counters",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Show visual numbers beside the reasons. Numbers always appear above the claim on mobile.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Shown",
+            "ui_off_text": "Hidden",
+            "message": ""
+        },
+        {
+            "key": "field_why_choose_us_counter_position",
+            "label": "Desktop Counter Position",
+            "name": "counter_position",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose where visible counters sit on wider screens.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_why_choose_us_show_counters",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left column",
+                "top": "Top row"
+            },
+            "allow_null": 0,
+            "default_value": "left",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_why_choose_us_reasons_tab",
+            "label": "Reasons & Evidence",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_why_choose_us_reasons",
+            "label": "Reasons to Choose Us",
+            "name": "reasons",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add two to six distinct reasons. Support each with a concrete process detail, credential, outcome, or other evidence when available.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 2,
+            "max": 6,
+            "collapsed": "field_why_choose_us_claim",
+            "button_label": "Add Reason",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_why_choose_us_claim",
+                    "label": "Differentiating Claim",
+                    "name": "claim",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Make a specific, customer-relevant claim rather than a generic quality promise.",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 90,
+                    "parent_repeater": "field_why_choose_us_reasons",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_why_choose_us_explanation",
+                    "label": "Why It Matters",
+                    "name": "explanation",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Explain the benefit to the customer in one or two sentences.",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 220,
+                    "rows": 3,
+                    "new_lines": "",
+                    "parent_repeater": "field_why_choose_us_reasons",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_why_choose_us_proof",
+                    "label": "Evidence in Practice",
+                    "name": "proof",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Optional supporting fact, documented process, credential, or outcome. Avoid unsourced numbers.",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 180,
+                    "rows": 3,
+                    "new_lines": "",
+                    "parent_repeater": "field_why_choose_us_reasons",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_why_choose_us_source",
+                    "label": "Evidence Source",
+                    "name": "source",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Optional public source for the evidence. The link appears only when evidence is provided.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_why_choose_us_proof",
+                                "operator": "!=",
+                                "value": ""
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_why_choose_us_reasons"
+                }
+            ]
+        },
+        {
+            "key": "field_why_choose_us_next_step_tab",
+            "label": "Next Step",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_why_choose_us_closing_link",
+            "label": "Closing Call to Action",
+            "name": "closing_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Optional single next step for the section. Use a clear visitor-facing label.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/why-choose-us"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Portable fields for distinct reasons, optional evidence, and one closing action.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1790171039
+}
