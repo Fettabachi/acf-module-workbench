@@ -8,26 +8,9 @@
 
 $components = \ACF_Module_Workbench\get_workbench_component_pages();
 $categories = \ACF_Module_Workbench\get_workbench_component_categories();
-$contract_examples = array();
-$contract_example_details = array(
-    'acf/pricing-tables' => array(
-        'editor'      => __('Plan names, prices, feature lists, billing labels, and links.', 'acf-module-workbench'),
-        'component'   => __('Responsive plan cards and accessible billing controls.', 'acf-module-workbench'),
-        'field_group' => 'acf-json/group_pricing_tables.json',
-    ),
-    'acf/accordion' => array(
-        'editor'      => __('Questions, answers, and their order.', 'acf-module-workbench'),
-        'component'   => __('Disclosure semantics, keyboard behavior, and readable content without JavaScript.', 'acf-module-workbench'),
-        'field_group' => 'acf-json/group_accordion.json',
-    ),
-);
 
 foreach ($components as $component) {
     $block_name = isset($component['block_name']) ? (string) $component['block_name'] : '';
-
-    if (isset($contract_example_details[$block_name])) {
-        $contract_examples[] = array_merge($component, $contract_example_details[$block_name]);
-    }
 }
 
 get_header();
@@ -64,28 +47,6 @@ get_header();
                     <p><?php esc_html_e('Semantic markup, layout, breakpoints, keyboard and focus behavior, empty states, and presentation.', 'acf-module-workbench'); ?></p>
                 </div>
             </div>
-
-            <?php if (! empty($contract_examples)) : ?>
-                <div class="workbench-contract__examples">
-                    <div class="workbench-contract__examples-heading">
-                        <h3><?php esc_html_e('Trace the contract in working components.', 'acf-module-workbench'); ?></h3>
-                        <p><?php esc_html_e('The editor fields and live output are both available to inspect; no one component has to stand in for the whole library.', 'acf-module-workbench'); ?></p>
-                    </div>
-                    <ul class="workbench-contract__example-list">
-                        <?php foreach ($contract_examples as $example) : ?>
-                            <li class="workbench-contract__example">
-                                <h4><?php echo esc_html($example['title']); ?></h4>
-                                <p><strong><?php esc_html_e('Editor:', 'acf-module-workbench'); ?></strong> <?php echo esc_html($example['editor']); ?></p>
-                                <p><strong><?php esc_html_e('Component:', 'acf-module-workbench'); ?></strong> <?php echo esc_html($example['component']); ?></p>
-                                <div class="workbench-contract__example-links">
-                                    <a href="<?php echo esc_url(\ACF_Module_Workbench\get_workbench_repository_url($example['field_group'])); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s editor fields', 'acf-module-workbench'), $example['title'])); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Editor fields', 'acf-module-workbench'); ?></a>
-                                    <a href="<?php echo esc_url(get_permalink($example['page'])); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s live component', 'acf-module-workbench'), $example['title'])); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Live component', 'acf-module-workbench'); ?></a>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
         </section>
 
         <section class="component-directory" id="components" aria-labelledby="component-directory-title" data-component-directory data-transition-scope="<?php echo esc_attr(wp_unique_id('component-directory-')); ?>">
